@@ -1,6 +1,6 @@
 # garret website specification
 
-Status: draft for design review. The visual guide demonstrates direction; it is not the production website.
+Status: Manuscript visual direction selected. The visual guide demonstrates the selected direction; it is not the production website. The implementation plan is in `implementation-plan.md`.
 
 ## Purpose
 
@@ -18,17 +18,17 @@ garret's identity is binding: lowercase name; existing connected-script wordmark
 
 ## Visual directions
 
-### Manuscript: recommended
+### Manuscript: selected
 
 A publication-like page with a serif display heading, readable sans body text, plain navigation, and an adjacent real editor capture. The editorial typography is justified by the manuscript and book-making subject. The existing garret site already uses Georgia for display text; retain that character in the first exploration rather than add a font dependency before reviewing the design.
 
 The headline and download action appear beside the screenshot on wide screens. On phones, copy and download action come first, followed by a full-width screenshot. This brings the working app into the initial view while preserving the writing identity. Whitespace provides grouping; avoid enclosing every feature in a card.
 
-### Studio: alternative
+### Studio: comparison reference
 
 The same content and brand, with a sans display heading and a larger screenshot below a compact opening. This borrows more of the portfolio's straightforward contemporary typography. It is stronger on product demonstration, but less distinctive as a writing site.
 
-The visual guide lets the reviewer compare these directions and light/dark themes. These controls are review tools, not requirements for the production interface.
+The visual guide opens on the selected Manuscript direction and lets the reviewer compare the earlier Studio alternative and light/dark themes. Studio is retained as a reference, not a second implementation target. These controls are review tools, not requirements for the production interface.
 
 ## Design system
 

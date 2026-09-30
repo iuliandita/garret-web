@@ -93,7 +93,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="guide-bar">
     <div class="wrap">
-      <p class="guide-title">Website direction <span>Draft for review</span></p>
+      <p class="guide-title">Website direction <span>Manuscript selected</span></p>
       <div class="review-controls">
         <div class="choices" role="group" aria-label="Visual direction">
           <button type="button" data-direction-choice="manuscript" aria-pressed="true">Manuscript</button>
@@ -152,7 +152,7 @@
     </section>
     <section class="review wrap" id="guide" aria-labelledby="direction-title">
       <div class="review-head"><h2 id="direction-title">What we're deciding</h2><a href="website-spec.md">Read the complete specification</a></div>
-      <p class="decision-note" id="direction-note" aria-live="polite">Manuscript is recommended: a writing identity, editorial heading, and the real app visible beside the opening promise.</p>
+      <p class="decision-note" id="direction-note" aria-live="polite">Manuscript is selected: a writing identity, editorial heading, and the real app visible beside the opening promise.</p>
       <div class="guide-grid">
         <article>
           <h3>Borrow the clarity.</h3>
@@ -192,8 +192,8 @@
     const root = document.documentElement;
     const note = document.getElementById('direction-note');
     const notes = {
-      manuscript: 'Manuscript is recommended: a writing identity, editorial heading, and the real app visible beside the opening promise.',
-      studio: 'Studio is the alternative: a contemporary sans heading and a larger editor capture below the opening. More product-led, less editorial.'
+      manuscript: 'Manuscript is selected: a writing identity, editorial heading, and the real app visible beside the opening promise.',
+      studio: 'Studio is retained for comparison only. The production site will use the selected Manuscript direction.'
     };
     document.querySelectorAll('[data-direction-choice]').forEach(button => {
       button.addEventListener('click', () => {
