@@ -1,0 +1,51 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Screenshot from './Screenshot.astro';
+import { copy, pageUrl, type Locale } from '../content';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+<SiteLayout locale={locale} title={t.hero.title} description={t.hero.description}>
+  <section class="hero wrap" aria-labelledby="headline">
+    <div>
+      <h1 id="headline">{t.hero.title}</h1>
+      <p class="intro">{t.hero.description}</p>
+      <div class="actions">
+        <a class="button" href={pageUrl(locale, 'downloads')}>{t.hero.download}</a>
+        <a href="#studio">{t.hero.explore}</a>
+      </div>
+    </div>
+    <Screenshot locale={locale} src="/images/editor-light.png" darkSrc="/images/dark.png" alt={t.hero.alt} darkAlt={t.hero.darkAlt} caption={t.hero.caption} eager />
+  </section>
+  <section class="chapter wrap" id="studio">
+    <div class="section-intro">
+      <h2>{t.studio.title}</h2>
+      <p>{t.studio.description}</p>
+    </div>
+    <div class="writing-note">
+      <h3>{t.studio.write.title}</h3>
+      <p>{t.studio.write.description}</p>
+    </div>
+    <div class="story-layout">
+      <div><h3>{t.studio.organize.title}</h3><p>{t.studio.organize.description}</p></div>
+      <Screenshot locale={locale} src="/images/timeline.png" alt={t.studio.organize.alt} caption={t.studio.organize.caption} />
+    </div>
+  </section>
+  <section class="chapter wrap revision">
+    <div class="section-intro"><h2>{t.studio.revise.title}</h2><p>{t.studio.revise.description}</p></div>
+    <Screenshot locale={locale} src="/images/review.png" alt={t.studio.revise.alt} caption={t.studio.revise.caption} />
+  </section>
+  <section class="chapter wrap publishing">
+    <Screenshot locale={locale} src="/images/epub.png" alt={t.studio.prepare.alt} caption={t.studio.prepare.caption} />
+    <div><h2>{t.studio.prepare.title}</h2><p>{t.studio.prepare.description}</p></div>
+  </section>
+  <section class="chapter wrap ownership">
+    <h2>{t.ownership.title}</h2>
+    <div><p>{t.ownership.description}</p><p>{t.ownership.backup}</p><a href={pageUrl(locale, 'guide') + '#backup'}>{t.ownership.link}</a></div>
+  </section>
+  <section class="chapter wrap phone">
+    <div><h2>{t.android.title}</h2><p>{t.android.description}</p><a href={pageUrl(locale, 'downloads') + '#android'}>{t.hero.download}</a></div>
+    <Screenshot locale={locale} src="/images/android-editor-light.png" darkSrc="/images/android-editor-dark.png" alt={t.android.alt} width={1080} height={2400} caption={t.android.caption} />
+  </section>
+</SiteLayout>

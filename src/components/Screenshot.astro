@@ -1,0 +1,18 @@
+---
+import { copy, type Locale } from '../content';
+interface Props {
+  src: string; darkSrc?: string; alt: string; darkAlt?: string;
+  width?: number; height?: number; caption: string; locale: Locale; eager?: boolean;
+}
+const { src, darkSrc, alt, darkAlt = alt, width = 1440, height = 960, caption, locale, eager = false } = Astro.props;
+const t = copy[locale];
+---
+<figure class="capture">
+  <a class:list={['image-link', { 'light-capture': darkSrc }]} href={src} data-screenshot aria-label={t.enlarge + ': ' + alt}>
+    <img src={src} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} />
+  </a>
+  {darkSrc && <a class="image-link dark-capture" href={darkSrc} data-screenshot aria-label={t.enlarge + ': ' + darkAlt}>
+    <img src={darkSrc} alt={darkAlt} width={width} height={height} loading="lazy" />
+  </a>}
+  <figcaption>{caption}</figcaption>
+</figure>

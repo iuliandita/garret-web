@@ -1,0 +1,29 @@
+---
+import { copy, pageUrl, type Locale } from '../content';
+interface Props { locale: Locale; path: string }
+const { locale, path } = Astro.props;
+const t = copy[locale];
+const other = locale === 'en' ? 'de' : 'en';
+---
+<header class="site-header wrap">
+  <a class="brand" href={pageUrl(locale)} aria-label={t.home}>
+    <img class="ink-mark" src="/brand/garret-wordmark-ink.png" alt="garret" width="1024" height="473" />
+    <img class="paper-mark" src="/brand/garret-wordmark-paper.png" alt="garret" width="1024" height="473" />
+  </a>
+  <nav aria-label={locale === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
+    <a href={pageUrl(locale) + '#studio'}>{t.nav.studio}</a>
+    <a href={pageUrl(locale, 'downloads')} aria-current={path === 'downloads' ? 'page' : undefined}>{t.nav.downloads}</a>
+    <a href={pageUrl(locale, 'guide')} aria-current={path === 'guide' ? 'page' : undefined}>{t.nav.guide}</a>
+    <a href="https://github.com/iuliandita/garret">{t.nav.source}</a>
+  </nav>
+  <div class="preferences">
+    <a href={pageUrl(other, path)} lang={other} hreflang={other} aria-label={other === 'de' ? 'Auf Deutsch lesen' : 'Read in English'}>{other === 'de' ? 'DE' : 'EN'}</a>
+    <label data-theme-controls hidden>{t.theme}
+      <select id="theme-preference" aria-label={t.theme}>
+        <option value="auto">{t.themes.auto}</option>
+        <option value="light">{t.themes.light}</option>
+        <option value="dark">{t.themes.dark}</option>
+      </select>
+    </label>
+  </div>
+</header>

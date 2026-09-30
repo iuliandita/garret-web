@@ -1,0 +1,26 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { copy, type Locale } from '../content';
+import '../styles/site.css';
+interface Props { locale: Locale; title: string; description: string; path?: string }
+const { locale, title, description, path = '' } = Astro.props;
+const t = copy[locale];
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" href="/brand/icon.png" />
+    <title>{title} | garret</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.skip}</a>
+    <Header locale={locale} path={path} />
+    <main id="main"><slot /></main>
+    <Footer locale={locale} />
+  </body>
+</html>
