@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-direction="manuscript">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
+  <title>garret website visual guide</title>
+  <style>
+    :root { --paper:#fafafa; --ink:#202020; --muted:#595959; --line:#d4d4d4; --soft:#eeeeee; color-scheme:light; }
+    :root[data-theme="dark"] { --paper:#181818; --ink:#ededed; --muted:#b4b4b4; --line:#444444; --soft:#242424; color-scheme:dark; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.6 system-ui,sans-serif; }
+    button,a,input { -webkit-tap-highlight-color:transparent; }
+    a { color:inherit; text-underline-offset:4px; }
+    a:focus-visible,button:focus-visible,summary:focus-visible { outline:2px solid var(--ink); outline-offset:5px; }
+    button { font:inherit; cursor:pointer; }
+    img { display:block; max-width:100%; height:auto; }
+    h1,h2,h3,p { margin:0; }
+    h1,h2,h3 { line-height:1.12; font-weight:500; }
+    .wrap { width:min(1200px,calc(100% - 80px)); margin-inline:auto; }
+    .guide-bar { border-bottom:1px solid var(--line); padding:16px 0; }
+    .guide-bar .wrap { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .guide-title { font-size:14px; }
+    .guide-title span { color:var(--muted); margin-left:12px; }
+    .review-controls { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    .choices { display:flex; gap:4px; }
+    .choices button { background:transparent; color:var(--muted); border:1px solid transparent; padding:8px 12px; border-radius:4px; font-size:13px; min-height:40px; }
+    .choices button[aria-pressed="true"] { background:var(--ink); color:var(--paper); }
+    .site-header { display:flex; align-items:center; justify-content:space-between; gap:32px; padding:26px 0; }
+    .wordmark { width:145px; }
+    .paper-mark { display:none; }
+    [data-theme="dark"] .ink-mark { display:none; }
+    [data-theme="dark"] .paper-mark { display:block; }
+    nav { display:flex; gap:28px; flex-wrap:wrap; }
+    nav a { font-size:14px; text-decoration:none; min-height:44px; display:inline-flex; align-items:center; }
+    nav a:hover { text-decoration:underline; }
+    .hero { display:grid; grid-template-columns:.85fr 1.15fr; align-items:center; gap:52px; padding:46px 0 78px; }
+    .hero h1 { font:500 clamp(38px,4.8vw,66px)/1.08 Georgia,serif; letter-spacing:-.035em; max-width:10ch; }
+    .hero .intro { max-width:38ch; margin-top:26px; color:var(--muted); font-size:18px; }
+    .hero .actions { display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:28px; }
+    .download { display:inline-flex; min-height:48px; align-items:center; justify-content:center; background:var(--ink); color:var(--paper); padding:10px 22px; border-radius:3px; font-size:15px; text-decoration:none; }
+    .download:hover { text-decoration:underline; }
+    .secondary { font-size:14px; min-height:44px; display:inline-flex; align-items:center; }
+    .hero .promise { margin-top:22px; font-size:13px; color:var(--muted); }
+    figure { margin:0; min-width:0; }
+    .capture img { width:100%; border:1px solid var(--line); }
+    .capture a { display:block; }
+    figcaption { color:var(--muted); font-size:12px; margin-top:12px; }
+    .capture .dark-capture { display:none; }
+    [data-theme="dark"] .capture .light-capture { display:none; }
+    [data-theme="dark"] .capture .dark-capture { display:block; }
+    [data-direction="studio"] .hero { grid-template-columns:1fr; gap:36px; padding-top:30px; }
+    [data-direction="studio"] .hero h1 { font-family:system-ui,sans-serif; max-width:19ch; font-size:clamp(38px,5.5vw,72px); }
+    [data-direction="studio"] .hero .intro { max-width:58ch; }
+    [data-direction="studio"] .hero .capture { max-width:1000px; }
+    .studio-chapter { padding:62px 0 76px; border-top:1px solid var(--line); }
+    .studio-chapter h2 { font:500 clamp(30px,3.2vw,44px)/1.14 Georgia,serif; letter-spacing:-.025em; max-width:23ch; }
+    [data-direction="studio"] .studio-chapter h2 { font-family:system-ui,sans-serif; }
+    .studio-chapter > p { color:var(--muted); max-width:58ch; margin-top:20px; }
+    .chapter-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:60px; align-items:center; margin-top:40px; }
+    .chapter-layout p { color:var(--muted); margin-top:16px; }
+    .chapter-layout h3 { font-size:24px; }
+    .chapter-layout .text-link { display:inline-flex; align-items:center; min-height:44px; margin-top:16px; font-size:14px; }
+    .review { padding:64px 0; border-top:1px solid var(--line); }
+    .review-head { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:24px; margin-bottom:36px; }
+    .review h2 { font-size:30px; }
+    .review-head a { font-size:14px; }
+    .guide-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+    .guide-grid article { min-width:0; }
+    .guide-grid h3 { font-size:20px; margin-bottom:12px; }
+    .guide-grid p { color:var(--muted); font-size:15px; max-width:60ch; }
+    .guide-grid p + p { margin-top:14px; }
+    .guide-grid ul { color:var(--muted); font-size:15px; margin:16px 0 0; padding-left:20px; }
+    .guide-grid li { margin-bottom:8px; }
+    .journey { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:32px 0 0; padding:0; list-style:none; }
+    .journey li { border-top:1px solid var(--line); padding-top:20px; }
+    .journey h3 { font-size:20px; margin-bottom:12px; }
+    .journey p { color:var(--muted); font-size:15px; }
+    details { border-top:1px solid var(--line); padding:20px 0; }
+    summary { cursor:pointer; font-size:17px; min-height:32px; }
+    details p { max-width:75ch; color:var(--muted); font-size:15px; margin-top:16px; }
+    .decision-note { max-width:75ch; color:var(--muted); font-size:15px; margin-bottom:24px; }
+    .guide-footer { padding:28px 0 44px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+    .skip { position:absolute; transform:translateY(-150%); background:var(--paper); padding:12px; z-index:2; }
+    .skip:focus { transform:translateY(0); }
+    @media(max-width:900px) { .wrap { width:calc(100% - 48px); } .hero { gap:30px; } .chapter-layout { gap:32px; } .hero h1 { font-size:48px; } .journey { grid-template-columns:1fr 1fr; } }
+    @media(max-width:700px) { .wrap { width:calc(100% - 40px); } .site-header { padding:18px 0; align-items:flex-start; flex-direction:column; gap:10px; } nav { gap:20px; } .hero,.chapter-layout,.guide-grid { grid-template-columns:1fr; } .hero { padding:24px 0 48px; gap:32px; } .hero h1 { font-size:46px; max-width:13ch; } .hero .intro { margin-top:20px; } .hero .actions { gap:18px; margin-top:24px; } .guide-grid { gap:32px; } .review { padding:44px 0; } .studio-chapter { padding:44px 0; } .review-controls { gap:10px; } .guide-title span { margin-left:8px; } }
+    @media(max-width:390px) { .wrap { width:calc(100% - 32px); } .hero h1 { font-size:40px; } nav { gap:14px; } .journey { grid-template-columns:1fr; } .choices button { padding:8px 10px; min-height:44px; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="guide-bar">
+    <div class="wrap">
+      <p class="guide-title">Website direction <span>Draft for review</span></p>
+      <div class="review-controls">
+        <div class="choices" role="group" aria-label="Visual direction">
+          <button type="button" data-direction-choice="manuscript" aria-pressed="true">Manuscript</button>
+          <button type="button" data-direction-choice="studio" aria-pressed="false">Studio</button>
+        </div>
+        <div class="choices" role="group" aria-label="Preview theme">
+          <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header wrap">
+    <a href="#main" aria-label="garret home">
+      <img class="wordmark ink-mark" src="media/garret-wordmark-ink.png" alt="garret" width="1024" height="473">
+      <img class="wordmark paper-mark" src="media/garret-wordmark-paper.png" alt="garret" width="1024" height="473">
+    </a>
+    <nav aria-label="Preview navigation">
+      <a href="#studio">The studio</a>
+      <a href="#downloads">Downloads</a>
+      <a href="#guide">Guide</a>
+      <a href="https://github.com/iuliandita/garret">Source</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="headline">
+      <div>
+        <h1 id="headline">A writing studio for the whole book.</h1>
+        <p class="intro">Manuscript, characters, research, and revisions together. Works offline. No account. Every feature is free.</p>
+        <div class="actions">
+          <a class="download" href="#downloads">Get garret</a>
+          <a class="secondary" href="#studio">Explore the studio</a>
+        </div>
+        <p class="promise">Free, open-source software for novelists.</p>
+      </div>
+      <figure class="capture">
+        <a class="light-capture" href="media/editor-light.png" aria-label="Open the real editor screenshot at full size"><img src="media/editor-light.png" alt="garret's editor showing Pride and Prejudice with chapter and scene navigation" width="1440" height="960"></a>
+        <a class="dark-capture" href="media/dark.png" aria-label="Open the real dark editor screenshot at full size"><img src="media/dark.png" alt="garret's dark editor showing Dracula" width="1440" height="960"></a>
+        <figcaption>Your manuscript, with the rest of your book within reach.</figcaption>
+      </figure>
+    </section>
+    <section class="studio-chapter wrap" id="studio" aria-labelledby="studio-title">
+      <h2 id="studio-title">There's more to a novel than the manuscript.</h2>
+      <p>People to remember. Events to line up. Notes that need a home. Keep them alongside the writing.</p>
+      <div class="chapter-layout">
+        <div>
+          <h3>Keep the story straight.</h3>
+          <p>Build your cast and story bible. Lay out events on a timeline, then follow them back to the scene.</p>
+          <a class="text-link" href="#journey">See the proposed site journey</a>
+        </div>
+        <figure class="capture">
+          <a href="media/timeline.png" aria-label="Open the real timeline screenshot at full size"><img src="media/timeline.png" alt="Dracula events arranged across character and story tracks in garret" width="1440" height="960" loading="lazy"></a>
+          <figcaption>Real application capture with sample editorial material.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="review wrap" id="guide" aria-labelledby="direction-title">
+      <div class="review-head"><h2 id="direction-title">What we're deciding</h2><a href="website-spec.md">Read the complete specification</a></div>
+      <p class="decision-note" id="direction-note" aria-live="polite">Manuscript is recommended: a writing identity, editorial heading, and the real app visible beside the opening promise.</p>
+      <div class="guide-grid">
+        <article>
+          <h3>Borrow the clarity.</h3>
+          <p>The portfolio's readable hierarchy, generous space, direct copy, and simple navigation are useful starting points.</p>
+          <p>garret keeps its own voice: books and writing, the script mark, monochrome surfaces, real editor captures, and a straightforward route to download.</p>
+        </article>
+        <article>
+          <h3>Keep the promises exact.</h3>
+          <ul>
+            <li>Local books, offline work, no account, all features free.</li>
+            <li>Manual encrypted archives, not automatic cloud sync.</li>
+            <li>Android has a library and scene editor; it is not the full desktop studio.</li>
+            <li>Alpha builds remain alpha. Platform differences are explained where readers choose a download.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="review wrap" id="journey" aria-labelledby="journey-title">
+      <h2 id="journey-title">The reader's route</h2>
+      <ol class="journey">
+        <li><h3>Understand</h3><p>See what garret is, who it is for, and the working editor immediately.</p></li>
+        <li><h3>Explore</h3><p>Write, organize, revise, and prepare the book. Each chapter uses a real screenshot.</p></li>
+        <li><h3>Choose</h3><p>Select a platform and read the few requirements that matter before downloading.</p></li>
+        <li><h3>Start</h3><p>A short guide: open a book, write a scene, and keep a safe copy.</p></li>
+      </ol>
+    </section>
+    <section class="review wrap" id="downloads" aria-labelledby="launch-title">
+      <div class="review-head"><h2 id="launch-title">Before this goes live</h2><a href="https://github.com/iuliandita/garret/releases">Current application releases</a></div>
+      <details open><summary>Downloads and platform truth</summary><p>The production page will offer explicit Linux, Windows, macOS, and Android choices linked to verified release assets. It will explain alpha status and platform differences. macOS still needs native tester feedback. This guide links the current release listing; it does not invent a latest version or artifact.</p></details>
+      <details><summary>The existing GitHub Pages site</summary><p>Keep it live until usegarret.com is ready. Then retain a redirect and visible fallback link rather than two competing marketing sites. Update the app repository's homepage and documentation through a separate PR. Preserve useful screenshot and documentation links.</p></details>
+      <details><summary>Technical foundation and cost</summary><p>Proposed: a static site with Astro, native CSS, and small enhancements, hosted on Cloudflare Workers Static Assets. English and German content, light and dark themes, accessible navigation, readable HTML, canonical URLs, and a sitemap. Paid hosting is outside the budget; production deployment and DNS changes follow implementation review.</p></details>
+      <details><summary>Review checkpoints</summary><p>First choose the visual direction and confirm the copy and page scope. Implementation follows review. Before launch, check platform links, product claims, keyboard access, phone layouts, both languages and themes, search metadata, credits, and domain/TLS behavior.</p></details>
+    </section>
+  </main>
+  <footer class="guide-footer wrap">Design exploration, not a deployed website. <a href="media/README.md">Screenshot and artwork credits</a>. All product imagery comes from the real application.</footer>
+  <script>
+    const root = document.documentElement;
+    const note = document.getElementById('direction-note');
+    const notes = {
+      manuscript: 'Manuscript is recommended: a writing identity, editorial heading, and the real app visible beside the opening promise.',
+      studio: 'Studio is the alternative: a contemporary sans heading and a larger editor capture below the opening. More product-led, less editorial.'
+    };
+    document.querySelectorAll('[data-direction-choice]').forEach(button => {
+      button.addEventListener('click', () => {
+        const direction = button.dataset.directionChoice;
+        root.dataset.direction = direction;
+        document.querySelectorAll('[data-direction-choice]').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+        note.textContent = notes[direction];
+      });
+    });
+    document.querySelectorAll('[data-theme-choice]').forEach(button => {
+      button.addEventListener('click', () => {
+        root.dataset.theme = button.dataset.themeChoice;
+        document.querySelectorAll('[data-theme-choice]').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+      });
+    });
+  </script>
+</body>
+</html>
