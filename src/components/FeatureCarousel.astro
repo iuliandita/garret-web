@@ -1,0 +1,52 @@
+---
+import Screenshot from './Screenshot.astro';
+import FeatureList from './FeatureList.astro';
+import { copy, type Locale } from '../content';
+import previous from '@tabler/icons/outline/arrow-left.svg?raw';
+import next from '@tabler/icons/outline/arrow-right.svg?raw';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = copy[locale];
+const groups = [
+  { id: 'writing', label: t.features.writing, title: t.studio.write.title, items: [t.features.focus, t.features.formatting, t.features.search, t.features.preferences], src: '/images/editor-light.png', alt: t.hero.alt, caption: t.hero.caption },
+  { id: 'organizing', label: t.features.organizing, title: t.studio.organize.title, items: [t.features.cast, t.features.bible, t.features.synopses, t.features.research, t.features.outline, t.features.appearances], src: '/images/cards.png', alt: t.features.cardsAlt, caption: t.features.cardsCaption },
+  { id: 'revision', label: t.features.revision, title: t.studio.revise.title, items: [t.features.review, t.features.comments, t.features.history, t.features.revisions], src: '/images/review.png', alt: t.studio.revise.alt, caption: t.studio.revise.caption },
+  { id: 'publishing', label: t.features.publishing, title: t.studio.prepare.title, items: [t.features.export, t.features.design, t.features.authors, t.features.proof], src: '/images/epub.png', alt: t.studio.prepare.alt, caption: t.studio.prepare.caption },
+  { id: 'ownership', label: t.features.recovery, title: t.ownership.title, items: [t.features.archives, t.features.mirror, t.features.salvage, t.features.series, t.features.reports, t.features.lock], src: '/images/history.png', alt: t.features.historyAlt, caption: t.features.historyCaption },
+];
+---
+<section class="feature-browser" data-feature-browser aria-labelledby="browse-title">
+  <div class="wrap">
+    <h2 id="browse-title">{t.browse.title}</h2>
+    <p class="browse-intro">{t.browse.description}</p>
+    <nav class="feature-nav" aria-label={t.features.navigate}>
+      {groups.map(group => <a href={'#' + group.id}>{group.label}</a>)}
+    </nav>
+    <div class="feature-track" id="feature-track" tabindex="0" role="region" aria-label={t.features.navigate}>
+      {groups.map((group, index) =>
+        <article class="feature-slide" id={group.id} aria-labelledby={group.id + '-title'}>
+          <div class="slide-heading"><span class="chapter-number" aria-hidden="true">{index + 1}</span><h3 id={group.id + '-title'}>{group.title}</h3></div>
+          <div class="slide-body">
+            <FeatureList items={group.items} />
+            <Screenshot locale={locale} src={group.src} alt={group.alt} caption={group.caption} />
+          </div>
+        </article>
+      )}
+    </div>
+    <div class="browse-controls" hidden>
+      <span class="browse-position" role="status" aria-live="polite" data-position-label={t.browse.position} data-of-label={t.browse.of}>
+        <span data-counter aria-hidden="true"></span>
+        <span data-announcement class="sr-only"></span>
+      </span>
+      <div>
+        <button type="button" data-previous aria-label={t.browse.previous} aria-controls="feature-track"><span aria-hidden="true" set:html={previous} /></button>
+        <button type="button" data-next aria-label={t.browse.next} aria-controls="feature-track"><span aria-hidden="true" set:html={next} /></button>
+      </div>
+    </div>
+    <p class="browse-hint">{t.browse.hint}</p>
+  </div>
+</section>
+<script>
+  import { initFeatureBrowser } from '../scripts/feature-browser';
+  initFeatureBrowser();
+</script>

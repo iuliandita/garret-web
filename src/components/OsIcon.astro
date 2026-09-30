@@ -1,0 +1,11 @@
+---
+import linux from '@tabler/icons/outline/terminal-2.svg?raw';
+import windows from '@tabler/icons/outline/brand-windows.svg?raw';
+import macos from '@tabler/icons/outline/brand-apple.svg?raw';
+import android from '@tabler/icons/outline/brand-android.svg?raw';
+import type { Platform } from '../data/releases';
+interface Props { platform: Platform }
+const { platform } = Astro.props;
+const icons = { linux, windows, macos, android };
+---
+<span class="os-icon" aria-hidden="true" set:html={icons[platform]} />
