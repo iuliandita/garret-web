@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { copy, pageUrl, type Locale } from '../content';
+import { release } from '../data/releases';
+import '../styles/site.css';
+interface Props { locale: Locale; title: string; description: string; path?: string; noindex?: boolean }
+const { locale, title, description, path = '', noindex = false } = Astro.props;
+const t = copy[locale];
+const production = import.meta.env.SITE_ENV === 'production' && !noindex;
+const root = 'https://usegarret.com';
+const canonical = root + pageUrl(locale, path);
+const application = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'garret',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Linux, Windows, macOS, Android',
+  softwareVersion: release.tag.slice(1),
+  description: copy[locale].hero.description,
+  url: root,
+  downloadUrl: root + pageUrl(locale, 'downloads'),
+  license: 'https://www.gnu.org/licenses/gpl-3.0.html',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline src="/theme-init.js"></script>
+    <meta name="robots" content={production ? 'index, follow' : 'noindex, follow'} />
+    {production && <>
+      <link rel="canonical" href={canonical} />
+      <link rel="alternate" hreflang="en" href={root + pageUrl('en', path)} />
+      <link rel="alternate" hreflang="de" href={root + pageUrl('de', path)} />
+      <link rel="alternate" hreflang="x-default" href={root + pageUrl('en', path)} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={root + '/images/editor-light.png'} />
+      <meta name="twitter:image" content={root + '/images/editor-light.png'} />
+      <script type="application/ld+json" set:html={JSON.stringify(application).replace(/</g, '\u003c')} />
+    </>}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="garret" />
+    <meta property="og:title" content={title + ' | garret'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title + ' | garret'} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" type="image/png" href="/brand/icon.png" />
+    <title>{title} | garret</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.skip}</a>
+    <Header locale={locale} path={path} />
+    <main id="main"><slot /></main>
+    <Footer locale={locale} />
+    <dialog id="screenshot-viewer" aria-label={t.enlarge}>
+      <button type="button">{t.close}</button>
+      <img alt="" />
+    </dialog>
+    <script>
+      import { initThemeControls } from '../scripts/theme';
+      import { initScreenshotViewer } from '../scripts/screenshot-viewer';
+      import { initPlatformSuggestion } from '../scripts/platform';
+      initThemeControls();
+      initScreenshotViewer();
+      initPlatformSuggestion();
+    </script>
+  </body>
+</html>
