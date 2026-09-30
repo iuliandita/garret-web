@@ -1,6 +1,8 @@
 ---
+import BrandText from './BrandText.astro';
 import { Image } from 'astro:assets';
 import notebook from '../assets/notebook.png';
+import ownership from '../assets/ownership.png';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Screenshot from './Screenshot.astro';
 import OsIcon from './OsIcon.astro';
@@ -19,7 +21,7 @@ const t = copy[locale];
       <p class="intro">{t.hero.description}</p>
       <div class="actions">
         <a class="button" href={pageUrl(locale, 'downloads')} data-os-download>
-          <span data-default-label>{t.hero.download}</span>
+          <span data-default-label><BrandText text={t.hero.download} /></span>
           {(['linux', 'windows', 'macos', 'android'] as Platform[]).map(platform =>
             <span class="os-download-label" data-os-label={platform} hidden>
               <OsIcon platform={platform} />{pages[locale].downloads.download} {release.platforms[platform].label}
@@ -44,11 +46,11 @@ const t = copy[locale];
   </section>
   <FeatureCarousel locale={locale} />
   <section class="chapter wrap ownership">
-    <h2>{t.ownership.title}</h2>
-    <div><p>{t.ownership.description}</p><p>{t.ownership.backup}</p><a href={pageUrl(locale, 'guide') + '#backup'}>{t.ownership.link}</a></div>
+    <Image class="ownership-art" src={ownership} alt="" width={512} format="webp" quality={80} loading="lazy" />
+    <div><h2>{t.ownership.title}</h2><p>{t.ownership.description}</p><p>{t.ownership.backup}</p><a href={pageUrl(locale, 'guide') + '#backup'}>{t.ownership.link}</a></div>
   </section>
   <section class="chapter wrap phone">
-    <div><h2>{t.android.title}</h2><p>{t.android.description}</p><a href={pageUrl(locale, 'downloads') + '#android'}>{t.hero.download}</a></div>
+    <div><h2>{t.android.title}</h2><p><BrandText text={t.android.description} /></p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={t.hero.download} /></a></div>
     <Screenshot locale={locale} src="/images/android-editor-light.png" darkSrc="/images/android-editor-dark.png" alt={t.android.alt} width={1080} height={2400} caption={t.android.caption} />
   </section>
 </SiteLayout>

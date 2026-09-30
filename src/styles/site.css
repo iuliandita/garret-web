@@ -5,6 +5,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 system-ui, sans-serif; }
+.product-name { font-weight: 700; font-style: italic; }
 a { color: inherit; text-underline-offset: .22em; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
@@ -77,13 +78,14 @@ figcaption { color: var(--muted); font-size: 13px; margin-top: 12px; }
 .browse-controls button { width: 48px; height: 48px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
 .browse-controls button:disabled { opacity: .4; cursor: default; }
 .browse-controls svg { width: 22px; height: 22px; vertical-align: middle; }
-.ownership { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-.ownership p:first-child { margin-top: 0; }
+.ownership { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
+.ownership-art { width: min(340px, 100%); margin-inline: auto; }
 .ownership a,.phone a { display: inline-block; margin-top: 20px; min-height: 44px; }
 .phone { display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: center; }
 .site-footer { padding: 28px 0 40px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .site-footer nav { gap: 20px; }
 .site-footer p { padding-top: 10px; }
+.site-footer .creator-link { font-size: 13px; color: var(--muted); }
 .skip { position: absolute; top: 0; left: 16px; transform: translateY(-150%); background: var(--paper); padding: 12px; z-index: 5; }
 .skip:focus { transform: translateY(0); }
 .page-heading { padding: 44px 0 48px; max-width: 800px; }
@@ -124,6 +126,7 @@ dialog button { display: block; margin: 0 0 16px auto; font: inherit; min-height
   .highlights,.slide-body,.ownership,.phone { gap: 32px; }
   .highlights { padding-top: 12px; }
   .notebook-art { width: min(340px, 100%); margin-inline: auto; order: 0; }
+  .ownership-art { width: min(260px, 100%); order: 1; }
   .feature-browser { padding: 44px 0 32px; }
   .feature-slide { padding: 24px 20px; }
   .slide-heading { gap: 14px; }

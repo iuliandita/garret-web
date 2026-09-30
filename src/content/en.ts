@@ -6,6 +6,7 @@ export const en = {
   close: 'Close image',
   enlarge: 'View full-size image',
   footer: {
+    creator: 'By Iulian Dita',
     about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem',
     support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
   },
