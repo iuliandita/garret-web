@@ -5,7 +5,9 @@ export function initFeatureBrowser(): void {
   const previous = root?.querySelector<HTMLButtonElement>('[data-previous]');
   const next = root?.querySelector<HTMLButtonElement>('[data-next]');
   const status = root?.querySelector<HTMLElement>('.browse-position');
-  if (!root || !track || !controls || !previous || !next || !status) return;
+  const counter = status?.querySelector<HTMLElement>('[data-counter]');
+  const announcement = status?.querySelector<HTMLElement>('[data-announcement]');
+  if (!root || !track || !controls || !previous || !next || !status || !counter || !announcement) return;
   const slides = [...track.querySelectorAll<HTMLElement>('.feature-slide')];
   const links = [...root.querySelectorAll<HTMLAnchorElement>('.feature-nav a')];
   let current = 0;
@@ -15,7 +17,8 @@ export function initFeatureBrowser(): void {
       Math.abs(offset(slide) - track.scrollLeft) < Math.abs(offset(slides[nearest]) - track.scrollLeft) ? index : nearest, 0);
     previous.disabled = current === 0;
     next.disabled = current === slides.length - 1;
-    status.textContent = `${status.dataset.positionLabel} ${current + 1} ${status.dataset.ofLabel} ${slides.length}`;
+    counter.textContent = `${current + 1}/${slides.length}`;
+    announcement.textContent = `${status.dataset.positionLabel} ${current + 1} ${status.dataset.ofLabel} ${slides.length}`;
     links.forEach((link, index) => {
       if (index === current) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');

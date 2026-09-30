@@ -34,7 +34,10 @@ const groups = [
       )}
     </div>
     <div class="browse-controls" hidden>
-      <span class="browse-position" role="status" aria-live="polite" data-position-label={t.browse.position} data-of-label={t.browse.of}></span>
+      <span class="browse-position" role="status" aria-live="polite" data-position-label={t.browse.position} data-of-label={t.browse.of}>
+        <span data-counter aria-hidden="true"></span>
+        <span data-announcement class="sr-only"></span>
+      </span>
       <div>
         <button type="button" data-previous aria-label={t.browse.previous} aria-controls="feature-track"><span aria-hidden="true" set:html={previous} /></button>
         <button type="button" data-next aria-label={t.browse.next} aria-controls="feature-track"><span aria-hidden="true" set:html={next} /></button>
