@@ -14,12 +14,17 @@ const t = pages[locale].downloads;
       <h2><OsIcon platform={platform} />{data.label}</h2>
       <p class="suggestion" data-suggestion hidden>{t.suggested}</p>
       <p>{t.requirements[platform]}</p>
-      {data.assetUrl
+      {platform === 'macos'
         ? <div class="download-actions">
-            <a class="button" href={data.assetUrl}>{platform === 'macos' ? 'Apple Silicon' : t.download + ' ' + data.label}</a>
-            {platform === 'macos' && data.intelUrl && <a class="button" href={data.intelUrl}>Intel</a>}
+            {[{ label: 'Apple Silicon', url: data.assetUrl }, { label: 'Intel', url: data.intelUrl }].map(architecture =>
+              architecture.url
+                ? <a class="button" href={architecture.url}>{architecture.label}</a>
+                : <div><p>{architecture.label}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
+            )}
           </div>
-        : <><p>{t.missing}</p><a href={release.listingUrl}>{t.listing}</a></>}
+        : data.assetUrl
+          ? <a class="button" href={data.assetUrl}>{t.download + ' ' + data.label}</a>
+          : <><p>{t.missing}</p><a href={release.listingUrl}>{t.listing}</a></>}
     </section>;
   })}
 </div>

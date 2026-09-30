@@ -83,10 +83,10 @@
 
 **Interfaces:** canonical root is `https://usegarret.com`; English routes use `/`, `/downloads/`, `/guide/`, `/about/`; German equivalents use `/de/`. Every page exposes matching language alternates. Deployment asset directory is `dist`.
 
-- [ ] Add accurate titles/descriptions, canonical URLs, language alternates, social metadata, and SoftwareApplication data from verified release facts; add sitemap and crawler policy -> verify: built HTML and sitemap list actual routes, contain no fabricated ratings, and preserve independently selectable search/training crawler policy.
-- [ ] Configure static headers and a Workers Static Assets deployment target, following current official documentation; document preview noindex controls and a www-to-root redirect plan -> verify: build output contains the expected headers; preview indexing protections are checked before any remote preview publication. Do not deploy in this task.
-- [ ] Add CI with locked install, type check, and build; require the resulting check on develop/main after it exists -> verify: workflow succeeds on the implementation PR before declaring the site ready.
-- [ ] Run the focused final checks, one independent review, and a public-content/secret scan. Resolve in-scope findings and commit.
+- [x] Add accurate titles/descriptions, canonical URLs, language alternates, social metadata, and SoftwareApplication data from verified release facts; add sitemap and crawler policy -> verify: built HTML and sitemap list actual routes, contain no fabricated ratings, and preserve independently selectable search/training crawler policy.
+- [x] Configure static headers and a Workers Static Assets deployment target, following current official documentation; document preview noindex controls and a www-to-root redirect plan -> verify: build output contains the expected headers; preview indexing protections are checked before any remote preview publication. Do not deploy in this task.
+- [x] Add CI with locked install, type check, and build; require the resulting check on develop/main after it exists -> verify: workflow succeeds on the implementation PR before declaring the site ready.
+- [x] Run the focused final checks, one independent review, and a public-content/secret scan. Resolve in-scope findings and commit.
 
 ## Task 5: Launch and old-site transition, after approval
 
