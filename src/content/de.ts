@@ -8,6 +8,7 @@ export const de = {
   close: 'Bild schließen',
   enlarge: 'Bild in voller Größe ansehen',
   footer: {
+    creator: 'Von Iulian Dita',
     about: 'Über garret & Datenschutz', credits: 'Bildnachweise', issues: 'Problem melden',
     support: 'garret unterstützen', license: 'Freie Software. GPL-3.0-or-later.',
   },

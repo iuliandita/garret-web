@@ -15,4 +15,4 @@ The expanded desktop feature sections also use `cards.png`, `appearances.png`, a
 
 OS symbols come from Tabler Icons under the MIT license; its notice is included in `public/licenses/tabler.txt`.
 
-`src/assets/notebook.png` is an original editorial illustration made for this website. It is decorative and does not depict the application interface. Astro creates an optimized WebP for the site.
+`src/assets/notebook.png` and `src/assets/ownership.png` are original editorial illustrations made for this website. They are decorative and do not depict the application interface. The notebook includes faint manuscript notes and a story timeline; an attic window with greenery accompanies the ownership section. Astro creates optimized WebP images for the site.

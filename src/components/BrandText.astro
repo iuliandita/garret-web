@@ -1,0 +1,6 @@
+---
+interface Props { text: string }
+const { text } = Astro.props;
+const parts = text.split(/(\bgarret\b(?!-web\b))/g);
+---
+<span>{parts.map(part => part === 'garret' ? <span class="product-name">{part}</span> : part)}</span>
