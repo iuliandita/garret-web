@@ -110,3 +110,10 @@ dialog button { display: block; margin: 0 0 16px auto; font: inherit; min-height
   .site-header nav { gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; } }
+
+.os-icon { display: inline-flex; flex-shrink: 0; vertical-align: middle; }
+.os-icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
+.download-platform h2 { display: flex; gap: 12px; align-items: center; }
+.page-heading .alpha-note { font-size: 15px; }
+.suggestion { font-size: 14px; color: var(--ink) !important; }
+.download-platform[data-recommended] { border-top: 2px solid var(--ink); }

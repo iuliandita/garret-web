@@ -1,0 +1,25 @@
+---
+import { release, type Platform, type PlatformRelease } from '../data/releases';
+import { pages } from '../content/pages';
+import type { Locale } from '../content';
+import OsIcon from './OsIcon.astro';
+interface Props { locale: Locale; platforms?: Record<Platform, PlatformRelease> }
+const { locale, platforms = release.platforms } = Astro.props;
+const t = pages[locale].downloads;
+---
+<div class="downloads">
+  {(Object.keys(platforms) as Platform[]).map(platform => {
+    const data: PlatformRelease = platforms[platform];
+    return <section class="download-platform" id={platform} data-platform={platform}>
+      <h2><OsIcon platform={platform} />{data.label}</h2>
+      <p class="suggestion" data-suggestion hidden>{t.suggested}</p>
+      <p>{t.requirements[platform]}</p>
+      {data.assetUrl
+        ? <div class="download-actions">
+            <a class="button" href={data.assetUrl}>{platform === 'macos' ? 'Apple Silicon' : t.download + ' ' + data.label}</a>
+            {platform === 'macos' && data.intelUrl && <a class="button" href={data.intelUrl}>Intel</a>}
+          </div>
+        : <><p>{t.missing}</p><a href={release.listingUrl}>{t.listing}</a></>}
+    </section>;
+  })}
+</div>
