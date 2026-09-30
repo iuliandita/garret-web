@@ -14,3 +14,5 @@ Production copies live under `public/brand/` and `public/images/`. Additional re
 The expanded desktop feature sections also use `cards.png`, `appearances.png`, and `history.png` from the same gallery.
 
 OS symbols come from Tabler Icons under the MIT license; its notice is included in `public/licenses/tabler.txt`.
+
+`src/assets/notebook.png` is an original editorial illustration made for this website. It is decorative and does not depict the application interface. Astro creates an optimized WebP for the site.

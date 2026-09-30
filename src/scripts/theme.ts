@@ -2,8 +2,8 @@ type Theme = 'auto' | 'light' | 'dark';
 const validTheme = (value: string | null): value is Theme => value === 'auto' || value === 'light' || value === 'dark';
 
 export function initThemeControls(): void {
-  const select = document.querySelector<HTMLSelectElement>('#theme-preference');
-  if (!select) return;
+  const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  if (!button) return;
   let preference: Theme = 'auto';
   try {
     const saved = localStorage.getItem('garret-theme');
@@ -12,11 +12,22 @@ export function initThemeControls(): void {
     // Storage may be blocked; the controls still work for this page.
   }
   document.documentElement.dataset.theme = preference;
-  select.value = preference;
-  document.querySelector<HTMLElement>('[data-theme-controls]')?.removeAttribute('hidden');
-  select.addEventListener('change', () => {
-    if (!validTheme(select.value)) return;
-    document.documentElement.dataset.theme = select.value;
-    try { localStorage.setItem('garret-theme', select.value); } catch { /* Page-local choice remains usable. */ }
+  const system = matchMedia('(prefers-color-scheme: dark)');
+  const isDark = (): boolean => preference === 'dark' || (preference === 'auto' && system.matches);
+  const render = (): void => {
+    const target = isDark() ? 'light' : 'dark';
+    const label = target === 'light' ? button.dataset.lightLabel : button.dataset.darkLabel;
+    button.setAttribute('aria-label', label ?? target);
+    button.title = label ?? target;
+    button.querySelectorAll<HTMLElement>('[data-theme-icon]').forEach(icon => { icon.hidden = icon.dataset.themeIcon !== target; });
+  };
+  render();
+  button.hidden = false;
+  system.addEventListener('change', render);
+  button.addEventListener('click', () => {
+    preference = isDark() ? 'light' : 'dark';
+    document.documentElement.dataset.theme = preference;
+    render();
+    try { localStorage.setItem('garret-theme', preference); } catch { /* Page-local choice remains usable. */ }
   });
 }

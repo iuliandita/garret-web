@@ -14,7 +14,7 @@ The current [garret site](https://iuliandita.github.io/garret/) supplies the pro
 
 The owner's portfolio informs the initial structure: readable typography, restrained navigation, generous space, accessible light/dark themes, and direct copy. Keep personal biography, technical status panels, slash navigation, numbered section labels, a command palette, and a project graph out of garret's site. Its audience is writers rather than infrastructure practitioners.
 
-garret's identity is binding: lowercase name; existing connected-script wordmark with one vermilion full stop; otherwise monochrome. Use the supplied ink and paper artwork. Do not redraw the logo, add colored buttons, gradients, decorative dots, paper textures, or shadows. The wordmark is not the body font.
+garret's identity is binding: lowercase name; existing connected-script wordmark with one vermilion full stop; mostly monochrome. Use the supplied ink and paper artwork. The website uses warm paper and charcoal tones, restrained vermilion details, and an original graphite notebook illustration. Keep the wordmark unchanged; avoid gradients, extra decorative dots, and continuous animation. The wordmark is not the body font.
 
 ## Visual directions
 
@@ -32,13 +32,13 @@ The visual guide opens on the selected Manuscript direction and lets the reviewe
 
 ## Design system
 
-- Light: paper `#fafafa`, ink `#202020`, muted text `#595959`, separators `#d4d4d4`.
-- Dark: background `#181818`, text `#ededed`, muted text `#b4b4b4`, separators `#444444`.
-- Keep the logo's vermilion unchanged in both modes. Color is reserved for the existing mark and truthful screenshot content.
+- Light: paper `#f8f5ef`, ink `#262421`, muted text `#625d56`, separators `#d9d2c8`, accent `#b6422d`.
+- Dark: charcoal `#211f1c`, text `#f0ebe3`, muted text `#bbb3a8`, separators `#4b443b`, accent `#ef9a83`.
+- Keep the logo's vermilion unchanged in both modes. Use restrained vermilion for editorial rules, chapter numbers, and selection indicators. Product screenshots retain their original colors.
 - Proposed display type: Georgia, with serif fallback. Body and navigation: system sans initially. Evaluate locally hosted alternative fonts only after direction approval.
 - Content width: about 1200px. Comfortable paragraph width: 55-65 characters. Body: 17-18px; mobile headlines remain readable without clipping.
 - Controls use monochrome fill or plain underlined links, visible focus states, and sufficient touch area. A subtle small radius on buttons is acceptable; screenshots stay rectangular.
-- Whole-page theme, honoring system preference by default with a persistent light/dark/automatic setting. Do not switch section palettes for decoration.
+- Whole-page theme follows system preference until the writer chooses light or dark with the sun/moon button; that choice persists. The button has a localized accessible action label and no visible appearance label. Do not switch section palettes for decoration.
 - No entrance delays, scroll hijacking, continuous animation, or motion needed to understand the page. Any later enhancement respects reduced motion.
 
 ## Information architecture and reader journey
@@ -49,7 +49,7 @@ Navigation: The studio, Downloads, Guide, Source. Language and theme controls re
 
 Opening: the established promise, "A writing studio for the whole book." Supporting copy: "Manuscript, characters, research, and revisions together. Works offline. No account. Every feature is free." One primary download action and one link to explore the studio. Use a real editor screenshot, with descriptive alternative text and a larger-image view.
 
-Continue through four chapters with concise copy and real screenshots:
+Lead with three core benefits: focused writing, connected story planning, and preparing a finished book. Move detailed features into a manual, swipeable chapter browser with category links, previous/next controls, keyboard navigation, and no automatic rotation. Keep every feature in static HTML and allow native scrolling without JavaScript. The chapters cover:
 
 1. Write: scenes, chapters, focus mode, light/dark themes, search, and comments.
 2. Organize: story bible, cast, appearances, synopses, research, outlines, and timeline.

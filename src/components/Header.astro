@@ -1,5 +1,7 @@
 ---
 import { copy, pageUrl, type Locale } from '../content';
+import sun from '@tabler/icons/outline/sun.svg?raw';
+import moon from '@tabler/icons/outline/moon.svg?raw';
 interface Props { locale: Locale; path: string }
 const { locale, path } = Astro.props;
 const t = copy[locale];
@@ -18,12 +20,9 @@ const other = locale === 'en' ? 'de' : 'en';
   </nav>
   <div class="preferences">
     <a href={pageUrl(other, path)} lang={other} hreflang={other} aria-label={other === 'de' ? 'Auf Deutsch lesen' : 'Read in English'}>{other === 'de' ? 'DE' : 'EN'}</a>
-    <label data-theme-controls hidden>{t.theme}
-      <select id="theme-preference" aria-label={t.theme}>
-        <option value="auto">{t.themes.auto}</option>
-        <option value="light">{t.themes.light}</option>
-        <option value="dark">{t.themes.dark}</option>
-      </select>
-    </label>
+    <button class="theme-toggle" type="button" id="theme-toggle" hidden data-light-label={t.themeToggle.light} data-dark-label={t.themeToggle.dark} aria-label={t.themeToggle.dark}>
+      <span data-theme-icon="light" aria-hidden="true" set:html={sun} />
+      <span data-theme-icon="dark" aria-hidden="true" set:html={moon} />
+    </button>
   </div>
 </header>

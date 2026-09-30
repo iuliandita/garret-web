@@ -2,8 +2,7 @@ export const en = {
   nav: { studio: 'The studio', downloads: 'Downloads', guide: 'Guide', source: 'Source' },
   skip: 'Skip to content',
   home: 'garret home',
-  theme: 'Appearance',
-  themes: { auto: 'Automatic', light: 'Light', dark: 'Dark' },
+  themeToggle: { light: 'Switch to light mode', dark: 'Switch to dark mode' },
   close: 'Close image',
   enlarge: 'View full-size image',
   footer: {
@@ -37,6 +36,18 @@ export const en = {
     description: 'Android has a library and scene editor for writing on the go. It has fewer features than desktop garret, and books do not sync automatically.',
     alt: 'Android garret scene editor showing a Pride and Prejudice manuscript',
     caption: 'The Android scene editor.',
+  },
+  highlights: {
+    title: 'Less between you and the book.',
+    write: { title: 'Room to write', description: 'A focused editor, scenes and chapters, and your words saved on your own disk.' },
+    story: { title: 'The whole story, together', description: 'Characters, research, and plans stay close to the manuscript, without a pile of separate files.' },
+    finish: { title: 'A path to the finished book', description: 'Revise with your editor, shape the book, and export it when you are ready.' },
+  },
+  browse: {
+    title: 'More tools, when you need them.',
+    description: 'Browse the studio at your own pace.',
+    previous: 'Previous feature group', next: 'Next feature group',
+    position: 'Feature group', of: 'of', hint: 'Swipe, use the arrows, or choose a chapter.',
   },
   features: {
     navigate: 'Explore desktop features',

@@ -4,8 +4,7 @@ export const de = {
   nav: { studio: 'Das Studio', downloads: 'Downloads', guide: 'Anleitung', source: 'Quellcode' },
   skip: 'Zum Inhalt springen',
   home: 'garret Startseite',
-  theme: 'Darstellung',
-  themes: { auto: 'Automatisch', light: 'Hell', dark: 'Dunkel' },
+  themeToggle: { light: 'Zum hellen Modus wechseln', dark: 'Zum dunklen Modus wechseln' },
   close: 'Bild schließen',
   enlarge: 'Bild in voller Größe ansehen',
   footer: {
@@ -39,6 +38,18 @@ export const de = {
     description: 'Android bietet eine Bibliothek und einen Szeneneditor für unterwegs. Die App hat weniger Funktionen als garret auf dem Desktop. Bücher werden nicht automatisch synchronisiert.',
     alt: 'Android-Szeneneditor von garret mit einem Manuskript von Stolz und Vorurteil',
     caption: 'Der Android-Szeneneditor.',
+  },
+  highlights: {
+    title: 'Mehr Platz für dein Buch.',
+    write: { title: 'Raum zum Schreiben', description: 'Ein konzentrierter Editor, Szenen und Kapitel. Deine Worte bleiben auf deinem eigenen Datenträger.' },
+    story: { title: 'Die ganze Geschichte an einem Ort', description: 'Figuren, Recherche und Planung bleiben beim Manuskript, ohne einen Stapel getrennter Dateien.' },
+    finish: { title: 'Ein Weg zum fertigen Buch', description: 'Überarbeite mit deinem Lektorat, gestalte das Buch und exportiere es, wenn du bereit bist.' },
+  },
+  browse: {
+    title: 'Weitere Werkzeuge, wenn du sie brauchst.',
+    description: 'Entdecke das Studio in deinem eigenen Tempo.',
+    previous: 'Vorherige Funktionsgruppe', next: 'Nächste Funktionsgruppe',
+    position: 'Funktionsgruppe', of: 'von', hint: 'Wische, nutze die Pfeile oder wähle ein Kapitel.',
   },
   features: {
     navigate: 'Desktop-Funktionen entdecken',

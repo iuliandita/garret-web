@@ -12,7 +12,7 @@
 
 ## Global constraints
 
-- Lowercase garret, existing script wordmark, one vermilion dot, monochrome otherwise; Georgia display type and system sans body initially.
+- Lowercase garret, existing script wordmark, one vermilion dot, warm monochrome surfaces and restrained vermilion accents; Georgia display type and system sans body initially.
 - Keep `#fafafa`/`#202020` light surfaces and `#181818`/`#ededed` dark surfaces; muted text `#595959`/`#b4b4b4`.
 - English and German pages; 320px reflow; keyboard access, visible focus, readable contrast, and reduced-motion support.
 - No account, backend, email collection, tracking, paid service, remote font, or mirrored application binary.
@@ -72,7 +72,7 @@
 
 **Interfaces:** theme preference is `'auto' | 'light' | 'dark'`, stored under `garret-theme`; automatic resolves from system preference. `initThemeControls(): void` tolerates blocked storage. `initScreenshotViewer(): void` enhances normal image links; without JavaScript those links open the image directly.
 
-- [x] Add system-aware theme initialization and accessible preference controls without a visible theme flash -> verify: light/dark/automatic choices work, reload preserves the chosen preference, and a temporary blocked-storage probe still permits switching themes.
+- [x] Add system-aware theme initialization and accessible preference controls without a visible theme flash -> verify: the icon button switches light/dark and initially follows system preference, reload preserves the chosen preference, and a temporary blocked-storage probe still permits switching themes.
 - [x] Add keyboard/touch image enlargement using a native dialog, a labeled close control, Escape handling, and restored trigger focus -> verify: Tab remains within the open dialog and closing restores focus; ordinary image links still work without scripting.
 - [x] Check both locales/themes at 320px, 375px, desktop width, and 200% zoom -> verify: no horizontal overflow, clipped controls, overlapping text, unreadable contrast, or lost primary action. Capture representative desktop/mobile views locally.
 - [x] Commit the interaction/layout batch. Do not broaden testing unless these checks uncover a new concern.
