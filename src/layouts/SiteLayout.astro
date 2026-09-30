@@ -14,6 +14,12 @@ const t = copy[locale];
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('garret-theme');
+        if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+      } catch {}
+    </script>
     <link rel="icon" type="image/png" href="/brand/icon.png" />
     <title>{title} | garret</title>
   </head>
@@ -22,5 +28,17 @@ const t = copy[locale];
     <Header locale={locale} path={path} />
     <main id="main"><slot /></main>
     <Footer locale={locale} />
+    <dialog id="screenshot-viewer" aria-label={t.enlarge}>
+      <button type="button">{t.close}</button>
+      <img alt="" />
+    </dialog>
+    <script>
+      import { initThemeControls } from '../scripts/theme';
+      import { initScreenshotViewer } from '../scripts/screenshot-viewer';
+      import { initPlatformSuggestion } from '../scripts/platform';
+      initThemeControls();
+      initScreenshotViewer();
+      initPlatformSuggestion();
+    </script>
   </body>
 </html>
