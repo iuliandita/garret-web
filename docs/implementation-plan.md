@@ -88,11 +88,11 @@
 - [x] Add CI with locked install, type check, and build; require the resulting check on develop/main after it exists -> verify: workflow succeeds on the implementation PR before declaring the site ready.
 - [x] Run the focused final checks, one independent review, and a public-content/secret scan. Resolve in-scope findings and commit.
 
-## Task 5: Launch and old-site transition, after approval
+## Task 5: Launch and old-site transition, approved launch
 
 **Files:** deployment configuration and a separate app-repository PR for homepage/README links, its website page/build script, and Pages workflow only as needed.
 
-- [ ] Present the built site and verified download/content results before the production launch step -> verify: the reviewed artifact matches the PR build; no paid subscription or extra domain is introduced.
-- [ ] Deploy the reviewed static output using the existing account on a suitable free tier and configure root/www -> verify: HTTPS works, expected pages return successfully, canonical metadata is correct, and www redirects without a loop.
-- [ ] Only after the new site works, propose the app-repository transition PR with a visible fallback link and supported redirect from its Pages landing page; retain useful asset/doc paths -> verify: the old homepage and existing feature/download anchors take readers to useful new destinations or clear fallback links. Do not disable the old endpoint first.
-- [ ] Update verified private domain notes and repository homepage settings; document any remaining limits. Launch and migration are separate from the initial implementation review.
+- [x] Present the built site and verified download/content results before the production launch step -> verify: the reviewed artifact matches the PR build; no paid subscription or extra domain is introduced.
+- [x] Deploy the reviewed static output using the existing account on a suitable free tier and configure root/www -> verify: HTTPS works, expected pages return successfully, canonical metadata is correct, and www redirects without a loop.
+- [x] Only after the new site works, propose the app-repository transition PR with a visible fallback link and supported redirect from its Pages landing page; retain useful asset/doc paths -> verify: the old homepage and existing feature/download anchors take readers to useful new destinations or clear fallback links. Do not disable the old endpoint first.
+- [x] Update verified private domain notes and repository homepage settings; document any remaining limits. Launch and migration are separate from the initial implementation review.

@@ -6,7 +6,7 @@ Primary domain: [usegarret.com](https://usegarret.com).
 
 The Manuscript site is built with Astro, TypeScript, and native CSS. English and German pages cover the studio, downloads, getting started, and privacy. The main download suggests a platform without hiding other choices. Theme selection and image enlargement are progressive enhancements; reading and downloading work without JavaScript.
 
-Deployment is pending review. The existing application website remains live.
+Published at [usegarret.com](https://usegarret.com), with English and German pages. The www host redirects to the root while preserving paths and queries.
 
 - [Website specification](docs/website-spec.md)
 - [Interactive visual guide](docs/visual-guide.html)
@@ -31,13 +31,20 @@ Default builds are previews: noindex, disallowed crawling, no official canonical
 
 Release links are curated in `src/data/releases.ts`. Check the actual release assets before updating them. A null platform asset shows an honest release-listing fallback. macOS keeps separate Apple Silicon and Intel choices.
 
-## Hosting preparation
+## Deployment
 
 `wrangler.jsonc` targets Cloudflare Workers Static Assets, with no Worker script or backend. For local routing/header checks, build and run `bunx wrangler dev --local`. Paid hosting is not configured. Authentication stays in the environment, never in this repository.
 
-After launch approval, build the production output, configure the root custom domain, and deploy the reviewed artifact. Configure a Cloudflare redirect from www to the root, preserving path and query. Keep workers.dev and version preview URLs disabled for production. Build remote previews separately with the default noindex output, and verify crawler headers before publication.
+Build and deploy the reviewed release from `main`:
 
-Verify HTTPS, both languages, canonical URLs, download links, static headers, and the www redirect before changing the old GitHub Pages landing page. That transition belongs in a separate application-repository PR, preserving useful old links and a visible fallback.
+```sh
+SITE_ENV=production bun run build
+bunx wrangler deploy --strict
+```
+
+The root custom domain is configured in `wrangler.jsonc`. A Cloudflare redirect sends www to the root, preserving path and query. Keep workers.dev and version preview URLs disabled for production. Build remote previews separately with the default noindex output, and verify crawler headers before publication.
+
+Verify HTTPS, both languages, canonical URLs, download links, static headers, and the www redirect after each release. The old GitHub Pages transition is maintained in the application repository, with useful old anchors, retained media paths, and visible fallback links.
 
 `develop` is the integration branch; `main` is the release branch. Changes land through pull requests. Feature branches are squashed into `develop`; release promotions use merge commits.
 
