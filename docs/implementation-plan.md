@@ -8,7 +8,7 @@
 
 **Spec:** [Website specification](website-spec.md). [Visual reference](visual-guide.html). Manuscript is the implementation target; Studio is comparison history only.
 
-**Execution:** Recommend implementation in the current session, followed by one independent branch review. Workers must use separate worktrees when concurrent. Review this plan before production implementation. No repeated review rounds without new findings.
+**Execution:** Recommend implementation in the current session, followed by one independent branch review. Workers must use separate worktrees when concurrent. Plan approved; implementation follows this plan. No repeated review rounds without new findings.
 
 ## Global constraints
 
@@ -50,10 +50,10 @@
 
 **Interfaces:** `Locale = 'en' | 'de'`; `SiteLayout` takes `locale`, `title`, `description`, `path`, and page content. `Screenshot` takes `src`, optional `darkSrc`, `alt`, `width`, `height`, and `caption`. Each copy module implements the same typed keys.
 
-- [ ] Set up Astro static output with `dev`, `build`, and `check` package scripts. `check` runs Astro's type check; pin resolved dependency versions and use a locked install in CI -> verify: `rtk bun install --frozen-lockfile` succeeds from a fresh install.
-- [ ] Implement the selected hero, write/organize/revise/prepare sections, ownership explanation, Android scope, footer, and mirrored German route. Copy only the needed public app screenshots, preserving credits -> verify: `rtk bun run check` and `rtk bun run build` exit zero; `dist/index.html` and `dist/de/index.html` contain headings and content.
-- [ ] Open both routes with JavaScript disabled and inspect the default layout -> verify: core text, anchors, source link, language navigation, and download route are usable; the hero uses a real capture.
-- [ ] Commit the reviewed home-page batch on the feature branch.
+- [x] Set up Astro static output with `dev`, `build`, and `check` package scripts. `check` runs Astro's type check; pin resolved dependency versions and use a locked install in CI -> verify: `rtk bun install --frozen-lockfile` succeeds from a fresh install.
+- [x] Implement the selected hero, write/organize/revise/prepare sections, ownership explanation, Android scope, footer, and mirrored German route. Copy only the needed public app screenshots, preserving credits -> verify: `rtk bun run check` and `rtk bun run build` exit zero; `dist/index.html` and `dist/de/index.html` contain headings and content.
+- [x] Open both routes with JavaScript disabled and inspect the default layout -> verify: core text, anchors, source link, language navigation, and download route are usable; the hero uses a real capture.
+- [x] Commit the reviewed home-page batch on the feature branch.
 
 ## Task 2: Verified downloads and useful guide
 
@@ -61,10 +61,10 @@
 
 **Interfaces:** release data records `tag`, `releaseUrl`, `channel: 'alpha' | 'stable'`, and a complete record of `linux`, `windows`, `macos`, `android`. Each platform has `label`, `assetUrl: string | null`, and a localized requirements key. A null asset displays a release-listing link and an availability explanation.
 
-- [ ] Read the application's current README, release metadata, and relevant platform notes; check each proposed asset exists before recording its exact URL -> verify: release and artifact requests succeed without downloading binaries, and requirements agree with the app documentation.
-- [ ] Build explicit platform choices, alpha status, source-build route, and graceful missing-artifact state -> verify: a temporary null macOS asset displays the release-listing fallback while the other three choices remain visible; restore the real data afterward.
-- [ ] Write the short installation/first-book/first-scene/backup guide, about/privacy explanation, and German equivalents -> verify: working manuscript encryption and automatic sync are not claimed; the recovery key and separate restored book are explained correctly.
-- [ ] Commit the content/download batch.
+- [x] Read the application's current README, release metadata, and relevant platform notes; check each proposed asset exists before recording its exact URL -> verify: release and artifact requests succeed without downloading binaries, and requirements agree with the app documentation.
+- [x] Build explicit platform choices, alpha status, source-build route, and graceful missing-artifact state -> verify: a temporary null macOS asset displays the release-listing fallback while the other three choices remain visible; restore the real data afterward.
+- [x] Write the short installation/first-book/first-scene/backup guide, about/privacy explanation, and German equivalents -> verify: working manuscript encryption and automatic sync are not claimed; the recovery key and separate restored book are explained correctly.
+- [x] Commit the content/download batch.
 
 ## Task 3: Accessible interaction and responsive finish
 
@@ -72,10 +72,10 @@
 
 **Interfaces:** theme preference is `'auto' | 'light' | 'dark'`, stored under `garret-theme`; automatic resolves from system preference. `initThemeControls(): void` tolerates blocked storage. `initScreenshotViewer(): void` enhances normal image links; without JavaScript those links open the image directly.
 
-- [ ] Add system-aware theme initialization and accessible preference controls without a visible theme flash -> verify: light/dark/automatic choices work, reload preserves the chosen preference, and a temporary blocked-storage probe still permits switching themes.
-- [ ] Add keyboard/touch image enlargement using a native dialog, a labeled close control, Escape handling, and restored trigger focus -> verify: Tab remains within the open dialog and closing restores focus; ordinary image links still work without scripting.
-- [ ] Check both locales/themes at 320px, 375px, desktop width, and 200% zoom -> verify: no horizontal overflow, clipped controls, overlapping text, unreadable contrast, or lost primary action. Capture representative desktop/mobile views locally.
-- [ ] Commit the interaction/layout batch. Do not broaden testing unless these checks uncover a new concern.
+- [x] Add system-aware theme initialization and accessible preference controls without a visible theme flash -> verify: light/dark/automatic choices work, reload preserves the chosen preference, and a temporary blocked-storage probe still permits switching themes.
+- [x] Add keyboard/touch image enlargement using a native dialog, a labeled close control, Escape handling, and restored trigger focus -> verify: Tab remains within the open dialog and closing restores focus; ordinary image links still work without scripting.
+- [x] Check both locales/themes at 320px, 375px, desktop width, and 200% zoom -> verify: no horizontal overflow, clipped controls, overlapping text, unreadable contrast, or lost primary action. Capture representative desktop/mobile views locally.
+- [x] Commit the interaction/layout batch. Do not broaden testing unless these checks uncover a new concern.
 
 ## Task 4: Search, build checks, and deployment preparation
 
