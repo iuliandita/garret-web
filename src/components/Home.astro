@@ -6,7 +6,7 @@ import Screenshot from './Screenshot.astro';
 import OsIcon from './OsIcon.astro';
 import FeatureCarousel from './FeatureCarousel.astro';
 import { pages } from '../content/pages';
-import type { Platform } from '../data/releases';
+import { release, type Platform } from '../data/releases';
 import { copy, pageUrl, type Locale } from '../content';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -22,7 +22,7 @@ const t = copy[locale];
           <span data-default-label>{t.hero.download}</span>
           {(['linux', 'windows', 'macos', 'android'] as Platform[]).map(platform =>
             <span class="os-download-label" data-os-label={platform} hidden>
-              <OsIcon platform={platform} />{pages[locale].downloads.download} {platform === 'macos' ? 'macOS' : platform === 'linux' ? 'Linux' : platform === 'windows' ? 'Windows' : 'Android'}
+              <OsIcon platform={platform} />{pages[locale].downloads.download} {release.platforms[platform].label}
             </span>
           )}
         </a>
