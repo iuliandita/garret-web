@@ -1,6 +1,6 @@
 # garret website specification
 
-Status: Manuscript visual direction selected. The visual guide demonstrates the selected direction; it is not the production website. The implementation plan is in `implementation-plan.md`.
+Status: Manuscript direction approved and implemented. Production launch and the existing-site transition await review. The visual guide preserves the design reference; the working site is built from `src/`. The implementation plan is in `implementation-plan.md`.
 
 ## Purpose
 
@@ -60,7 +60,7 @@ Then explain local ownership and manual backups, distinguish Android's library/s
 
 ### Downloads
 
-Provide explicit Linux, Windows, macOS, and Android choices. Operating-system detection may suggest a choice but must never hide other platforms. Identify the current alpha release honestly and link to actual artifacts in the application's GitHub releases. macOS requires native tester feedback; platform requirements and exclusions need a compact factual explanation. Verify release assets and current app documentation before publishing any filename or compatibility claim.
+Provide explicit Linux, Windows, macOS, and Android choices. Operating-system detection suggests a choice on the main download action, with a monochrome OS symbol. It never hides other platforms or guesses Mac architecture. Identify the current alpha release honestly and link to actual artifacts in the application's GitHub releases. macOS requires native tester feedback; platform requirements and exclusions need a compact factual explanation. Verify release assets and current app documentation before publishing any filename or compatibility claim.
 
 Prefer a build-time release manifest or explicit curated links over a required client-side API fetch. If no suitable artifact is available, explain that and link to the release listing rather than offer a broken button. Do not mirror binaries in this repository. Include a visible source-build route.
 
