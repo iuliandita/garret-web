@@ -46,6 +46,8 @@ The root custom domain is configured in `wrangler.jsonc`. A Cloudflare redirect 
 
 Verify HTTPS, both languages, canonical URLs, download links, static headers, and the www redirect after each release. The old GitHub Pages transition is maintained in the application repository, with useful old anchors, retained media paths, and visible fallback links.
 
+Cloudflare Web Analytics is configured at the edge for the production hostname. Do not add another beacon in Astro or hosting settings. Google Search Console uses DNS verification and the production sitemap; it adds no website script. The localized privacy pages describe website measurement separately from the offline application.
+
 `develop` is the integration branch; `main` is the release branch. Changes land through pull requests. Feature branches are squashed into `develop`; release promotions use merge commits.
 
 Licensed under GPL-3.0-or-later. Download artifacts remain in the application repository's GitHub releases.
