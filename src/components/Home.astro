@@ -53,4 +53,8 @@ const t = copy[locale];
     <div><h2>{t.android.title}</h2><p><BrandText text={t.android.description} /></p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={t.hero.download} /></a></div>
     <Screenshot locale={locale} src="/images/android-editor-light.png" darkSrc="/images/android-editor-dark.png" alt={t.android.alt} width={1080} height={2400} caption={t.android.caption} />
   </section>
+  <figure class="testimonial wrap" id="testimonial" aria-label={t.testimonial.label}>
+    <blockquote lang="en"><p>"It's definitely a great tool for beginning writers, but a welcome tool for experienced writers wanting to keep everything organized and to industry writing standards."</p></blockquote>
+    <figcaption>- George Patterson</figcaption>
+  </figure>
 </SiteLayout>
