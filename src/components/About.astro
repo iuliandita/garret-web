@@ -12,7 +12,7 @@ const t = pages[locale].about;
     <div class="page-heading"><h1>{t.title}</h1><p><BrandText text={t.description} /></p></div>
     <div class="prose">
       <section><h2><BrandText text={t.purpose} /></h2><p><BrandText text={t.purposeText} /></p></section>
-      <section id="privacy"><h2>{t.privacy}</h2><p>{t.privacyText}</p><p>{t.hosting}</p><p><BrandText text={t.appPrivacy} /></p></section>
+      <section id="privacy"><h2>{t.privacy}</h2><p>{t.privacyText}</p><p><a href="https://developers.cloudflare.com/web-analytics/about/">{t.analyticsLink}</a></p><p>{t.hosting}</p><p><BrandText text={t.appPrivacy} /></p></section>
       <section><h2>{t.license}</h2><p>{t.licenseText}</p><p><a href="https://github.com/iuliandita/garret"><BrandText text="garret" /></a> / <a href="https://github.com/iuliandita/garret-web">garret-web</a></p></section>
       <section id="credits"><h2>{t.credits}</h2><p><BrandText text={t.creditsText} /></p><p><a href="https://github.com/iuliandita/garret/tree/develop/docs/screenshots">{t.gallery}</a></p><p>{t.icons} <a href="/licenses/tabler.txt">MIT</a></p></section>
     </div>
