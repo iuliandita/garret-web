@@ -44,6 +44,9 @@ export const en = {
     story: { title: 'The whole story, together', description: 'Characters, research, and plans stay close to the manuscript, without a pile of separate files.' },
     finish: { title: 'A path to the finished book', description: 'Revise with your editor, shape the book, and export it when you are ready.' },
   },
+  testimonial: {
+    label: 'A writer\'s first impression',
+  },
   browse: {
     title: 'More tools, when you need them.',
     description: 'Browse the studio at your own pace.',

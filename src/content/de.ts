@@ -46,6 +46,9 @@ export const de = {
     story: { title: 'Die ganze Geschichte an einem Ort', description: 'Figuren, Recherche und Planung bleiben beim Manuskript, ohne einen Stapel getrennter Dateien.' },
     finish: { title: 'Ein Weg zum fertigen Buch', description: 'Überarbeite mit deinem Lektorat, gestalte das Buch und exportiere es, wenn du bereit bist.' },
   },
+  testimonial: {
+    label: 'Der erste Eindruck eines Autors',
+  },
   browse: {
     title: 'Weitere Werkzeuge, wenn du sie brauchst.',
     description: 'Entdecke das Studio in deinem eigenen Tempo.',
