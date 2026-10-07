@@ -31,6 +31,8 @@ const application = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f5ef" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#211f1c" />
     <script is:inline src="/theme-init.js"></script>
     <meta name="robots" content={production ? 'index, follow' : 'noindex, follow'} />
     {production && <>
@@ -40,8 +42,11 @@ const application = {
       <link rel="alternate" hreflang="x-default" href={root + pageUrl('en', path)} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={root + '/images/editor-light.png'} />
+      <meta property="og:image:alt" content={t.hero.alt} />
+      <meta property="og:image:width" content="1440" />
+      <meta property="og:image:height" content="960" />
       <meta name="twitter:image" content={root + '/images/editor-light.png'} />
-      <script type="application/ld+json" set:html={JSON.stringify(application).replace(/</g, '\u003c')} />
+      <script type="application/ld+json" set:html={JSON.stringify(application).replace(/</g, '\\u003c')} />
     </>}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="garret" />
@@ -51,7 +56,7 @@ const application = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title + ' | garret'} />
     <meta name="twitter:description" content={description} />
-    <link rel="icon" type="image/png" href="/brand/icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title} | garret</title>
   </head>
   <body>
@@ -59,14 +64,34 @@ const application = {
     <Header locale={locale} path={path} />
     <main id="main"><slot /></main>
     <Footer locale={locale} />
-    <dialog id="screenshot-viewer" aria-label={t.enlarge}>
-      <button type="button">{t.close}</button>
-      <img alt="" />
+    <dialog id="screenshot-viewer" aria-label={t.enlarge} aria-describedby="image-status">
+      <p class="viewer-caption" data-viewer-caption></p>
+      <div class="viewer-controls">
+        <a data-original target="_blank" rel="noopener">{t.original}<span class="sr-only"> ({t.newTab})</span></a>
+        <button type="button" data-zoom data-zoom-label={t.zoom} data-fit-label={t.fit}>{t.zoom}</button>
+        <button type="button" data-close>{t.close}</button>
+      </div>
+      <p id="image-status" data-image-status class="sr-only" role="status" aria-atomic="true" data-loading={t.imageLoading} data-error={t.imageError}></p>
+      <p id="image-pan-hint" class="viewer-hint" hidden data-zoom-hint={t.zoomHint} data-pan-hint={t.panHint}>{t.zoomHint}</p>
+      <div class="viewer-image" tabindex="-1" role="region" aria-label={t.imageRegion}><img alt="" hidden /></div>
     </dialog>
     <script>
       import { initThemeControls } from '../scripts/theme';
       import { initScreenshotViewer } from '../scripts/screenshot-viewer';
       import { initPlatformSuggestion } from '../scripts/platform';
+      import { initPageContents } from '../scripts/page-contents';
+      initPageContents();
+      const language = document.querySelector<HTMLAnchorElement>('[data-language-link]');
+      if (language) {
+        const preserveSection = (): void => {
+          const destination = new URL(language.href);
+          destination.hash = location.hash;
+          language.href = destination.href;
+        };
+        preserveSection();
+        window.addEventListener('hashchange', preserveSection);
+        ['click', 'focus', 'pointerdown'].forEach(event => language.addEventListener(event, preserveSection));
+      }
       initThemeControls();
       initScreenshotViewer();
       initPlatformSuggestion();

@@ -1,7 +1,8 @@
 ---
+import BrandText from './BrandText.astro';
 import { release, type Platform, type PlatformRelease } from '../data/releases';
 import { pages } from '../content/pages';
-import type { Locale } from '../content';
+import { pageUrl, type Locale } from '../content';
 import OsIcon from './OsIcon.astro';
 interface Props { locale: Locale; platforms?: Record<Platform, PlatformRelease> }
 const { locale, platforms = release.platforms } = Astro.props;
@@ -11,19 +12,20 @@ const t = pages[locale].downloads;
   {(Object.keys(platforms) as Platform[]).map(platform => {
     const data: PlatformRelease = platforms[platform];
     return <section class="download-platform" id={platform} data-platform={platform}>
-      <h2><OsIcon platform={platform} />{data.label}</h2>
-      <p class="suggestion" data-suggestion hidden>{t.suggested}</p>
+      <div class="download-heading"><h2><OsIcon platform={platform} />{data.label}</h2><span class="suggestion" data-suggestion hidden>{t.suggested}</span></div>
       <p>{t.requirements[platform]}</p>
+      {platform === 'linux' && <p class="linux-install">{t.linuxInstall} <code>libwebkit2gtk-4.1-0</code>{t.linuxOptional}</p>}
+      {platform === 'android' && <p class="android-note">{t.androidLimits} <a href={pageUrl(locale, 'guide') + '#android'}>{t.androidGuide}</a></p>}
       {platform === 'macos'
         ? <div class="download-actions">
             {[{ label: 'Apple Silicon', url: data.assetUrl }, { label: 'Intel', url: data.intelUrl }].map(architecture =>
               architecture.url
-                ? <a class="button" href={architecture.url}>{architecture.label}</a>
+                ? <a class="button" href={architecture.url} aria-label={`${t.downloadArchitecture.replace('{architecture}', architecture.label)}, macOS`}><BrandText text={t.downloadArchitecture.replace('{architecture}', architecture.label)} /></a>
                 : <div><p>{architecture.label}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
             )}
           </div>
         : data.assetUrl
-          ? <a class="button" href={data.assetUrl}>{t.download + ' ' + data.label}</a>
+          ? <a class="button" href={data.assetUrl}><BrandText text={t.download.replace('{platform}', data.label)} /></a>
           : <><p>{t.missing}</p><a href={release.listingUrl}>{t.listing}</a></>}
     </section>;
   })}

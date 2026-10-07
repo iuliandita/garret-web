@@ -1,6 +1,7 @@
 ---
 import BrandText from './BrandText.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { release } from '../data/releases';
 import { pages } from '../content/pages';
 import { copy, pageUrl, type Locale } from '../content';
 interface Props { locale: Locale }
@@ -10,12 +11,18 @@ const t = pages[locale].guide;
 <SiteLayout locale={locale} title={copy[locale].nav.guide} description={t.description} path="guide">
   <div class="wrap">
     <div class="page-heading"><h1>{t.title}</h1><p><BrandText text={t.description} /></p></div>
+    <div class="reading-layout">
+      <nav class="page-contents" aria-label={t.contents}><details data-page-contents open><summary>{t.contents}</summary><ul><li><a href="#install"><BrandText text={t.install} /></a></li><li><a href="#desktop">{t.desktop}</a><ul><li><a href="#book">{t.book}</a></li><li><a href="#scene">{t.scene}</a></li><li><a href="#backup">{t.backup}</a></li><li><a href="#next">{t.next}</a></li></ul></li><li><a href="#android">{t.android}</a></li></ul></details></nav>
     <div class="prose">
-      <section><h2>{t.install}</h2><p>{t.installText}</p><p><a href={pageUrl(locale, 'downloads')}>{copy[locale].nav.downloads}</a></p></section>
-      <section><h2>{t.book}</h2><p><BrandText text={t.bookText} /></p></section>
-      <section><h2>{t.scene}</h2><p>{t.sceneText}</p></section>
-      <section id="backup"><h2>{t.backup}</h2><p>{t.backupText}</p><ol>{t.steps.map(step => <li>{step}</li>)}</ol><p>{t.boundaries}</p><p>{t.restore}</p><p>{t.files}</p></section>
-      <section><h2>{t.next}</h2><p>{t.nextText}</p></section>
+      <section id="install"><h2><BrandText text={t.install} /></h2><p>{t.installText}</p><p><a href={pageUrl(locale, 'downloads')}>{copy[locale].nav.downloads}</a></p></section>
+      <section id="desktop" class="guide-platform"><h2>{t.desktop}</h2>
+      <section id="book"><h3>{t.book}</h3><p><BrandText text={t.bookText} /></p></section>
+      <section id="scene"><h3>{t.scene}</h3><p>{t.sceneText}</p></section>
+      <section id="backup"><h3>{t.backup}</h3><p><strong>{t.backupCommand}</strong> {t.backupText}</p><ol>{t.steps.map(step => <li><strong>{step.action}</strong> {step.detail}</li>)}</ol><p>{t.boundaries}</p><p><strong>{t.restoreCommand}</strong> {t.restore}</p><p>{t.files}</p></section>
+      <section id="next"><h3>{t.next}</h3><p>{t.nextText}</p></section>
+      </section>
+      <section id="android" class="guide-platform"><h2>{t.android}</h2><p>{t.androidIntro}</p><ol>{t.androidSteps.map(step => <li><strong>{step.action}</strong> {step.detail}</li>)}</ol><p>{t.androidLimits}</p><p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={copy[locale].android.download} /></a></p><p><a href={release.androidInstructionsUrl}>{t.androidInstructions}</a></p></section>
+    </div>
     </div>
   </div>
 </SiteLayout>
