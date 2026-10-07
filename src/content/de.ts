@@ -27,7 +27,7 @@ export const de = {
   hero: {
     androidNote: 'Android bietet eine kleinere Bibliothek und einen Szeneneditor. Noch kein Import/Export oder verschlüsseltes Archiv; Deinstallieren oder Löschen der App-Daten löscht die Bücher.',
     getFor: 'garret für {platform} laden', alpha: 'Frühe Alpha-Version.', alphaGuide: 'Lies die Anleitung, bevor du damit wichtige Texte schreibst.',
-    title: 'Ein Schreibstudio für das ganze Buch.',
+    title: 'Ein Schreibstudio für den ganzen Roman.',
     description: 'Manuskript, Figuren, Recherche und Überarbeitung für deinen Roman. Funktioniert offline. Ohne Konto. Alle Funktionen sind kostenlos.',
     download: 'garret herunterladen', explore: 'Das Studio entdecken',
     caption: 'Der Desktop-Editor mit englischer Oberfläche. Dein Manuskript und der Rest deines Buches in Reichweite.',
@@ -55,7 +55,7 @@ export const de = {
     caption: 'Der Android-Szeneneditor.',
   },
   highlights: {
-    title: 'Mehr Platz für dein Buch.',
+    title: 'Mehr Platz für deinen Roman.',
     write: { title: 'Raum zum Schreiben', description: 'Ein konzentrierter Editor, Szenen und Kapitel. Deine Worte bleiben auf deinem eigenen Datenträger.' },
     story: { title: 'Die ganze Geschichte an einem Ort', description: 'Figuren, Recherche und Planung bleiben beim Manuskript, ohne einen Stapel getrennter Dateien.' },
     finish: { title: 'Ein Weg zum fertigen Buch', description: 'Überarbeite mit deinem Lektorat, gestalte das Buch und exportiere es, wenn du bereit bist.' },
