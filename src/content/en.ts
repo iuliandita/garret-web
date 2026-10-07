@@ -25,7 +25,7 @@ export const en = {
   hero: {
     androidNote: 'Android has a smaller library and scene editor. No import/export or encrypted archives yet; uninstalling or clearing app data deletes its books.',
     getFor: 'Get garret for {platform}', alpha: 'Early alpha.', alphaGuide: 'Read the guide before using it for important work.',
-    title: 'A writing studio for the whole book.',
+    title: 'A writing studio for the whole novel.',
     description: 'Manuscript, characters, research, and revisions for your novel. Works offline. No account. Every feature is free.',
     download: 'Get garret', explore: 'Explore the studio',
     caption: 'The desktop editor. Your manuscript, with the rest of your book within reach.',
@@ -53,7 +53,7 @@ export const en = {
     caption: 'The Android scene editor.',
   },
   highlights: {
-    title: 'Less between you and the book.',
+    title: 'Less between you and the novel.',
     write: { title: 'Room to write', description: 'A focused editor, scenes and chapters, and your words saved on your own disk.' },
     story: { title: 'The whole story, together', description: 'Characters, research, and plans stay close to the manuscript, without a pile of separate files.' },
     finish: { title: 'A path to the finished book', description: 'Revise with your editor, shape the book, and export it when you are ready.' },
