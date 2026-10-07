@@ -4,8 +4,12 @@ import BrandText from '../components/BrandText.astro';
 ---
 <SiteLayout locale="en" title="Page not found" description="Find your way back to garret." noindex>
   <div class="wrap prose">
-    <div class="page-heading"><h1>Page not found.</h1><p>This page may have moved. / Diese Seite wurde möglicherweise verschoben.</p></div>
-    <p><a href="/"><BrandText text="garret home" /></a> / <a href="/de/"><BrandText text="garret Startseite" /></a></p>
-    <p><a href="/downloads/">Downloads</a> / <a href="/guide/">Guide</a></p>
+    <div class="page-heading"><h1>Page not found.</h1><p>This page may have moved.</p></div>
+    <nav aria-label="English pages"><a href="/"><BrandText text="garret home" /></a><a href="/downloads/">Downloads</a><a href="/guide/">Guide</a></nav>
+    <section lang="de" class="not-found-language">
+      <div class="page-heading"><h2>Seite nicht gefunden.</h2>
+      <p>Diese Seite wurde möglicherweise verschoben.</p></div>
+      <nav aria-label="Deutsche Seiten"><a href="/de/" lang="de"><BrandText text="garret Startseite" /></a><a href="/de/downloads/">Downloads</a><a href="/de/guide/">Anleitung</a></nav>
+    </section>
   </div>
 </SiteLayout>

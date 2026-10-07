@@ -7,7 +7,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import Screenshot from './Screenshot.astro';
 import OsIcon from './OsIcon.astro';
 import FeatureCarousel from './FeatureCarousel.astro';
-import { pages } from '../content/pages';
 import { release, type Platform } from '../data/releases';
 import { copy, pageUrl, type Locale } from '../content';
 interface Props { locale: Locale }
@@ -24,12 +23,14 @@ const t = copy[locale];
           <span data-default-label><BrandText text={t.hero.download} /></span>
           {(['linux', 'windows', 'macos', 'android'] as Platform[]).map(platform =>
             <span class="os-download-label" data-os-label={platform} hidden>
-              <OsIcon platform={platform} />{pages[locale].downloads.download} {release.platforms[platform].label}
+              <OsIcon platform={platform} /><span><BrandText text={t.hero.getFor.replace('{platform}', release.platforms[platform].label)} /></span>
             </span>
           )}
         </a>
         <a href="#studio">{t.hero.explore}</a>
       </div>
+      <p class="hero-platform-note" data-android-note hidden>{t.hero.androidNote}</p>
+      <p class="hero-alpha">{t.hero.alpha} <a href={pageUrl(locale, 'guide')}>{t.hero.alphaGuide}</a></p>
     </div>
     <Screenshot locale={locale} src="/images/editor-light.png" darkSrc="/images/dark.png" alt={t.hero.alt} darkAlt={t.hero.darkAlt} caption={t.hero.caption} eager />
   </section>
@@ -50,11 +51,12 @@ const t = copy[locale];
     <div><h2>{t.ownership.title}</h2><p>{t.ownership.description}</p><p>{t.ownership.backup}</p><a href={pageUrl(locale, 'guide') + '#backup'}>{t.ownership.link}</a></div>
   </section>
   <section class="chapter wrap phone">
-    <div><h2>{t.android.title}</h2><p><BrandText text={t.android.description} /></p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={t.hero.download} /></a></div>
-    <Screenshot locale={locale} src="/images/android-editor-light.png" darkSrc="/images/android-editor-dark.png" alt={t.android.alt} width={1080} height={2400} caption={t.android.caption} />
+    <div><h2>{t.android.title}</h2><p><BrandText text={t.android.description} /></p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={t.android.download} /></a></div>
+    <Screenshot locale={locale} src="/images/android-editor-light.png" darkSrc="/images/android-editor-dark.png" alt={t.android.alt} darkAlt={t.android.darkAlt} width={1080} height={2400} sizes="280px" caption={t.android.caption} />
   </section>
   <figure class="testimonial wrap" id="testimonial" aria-label={t.testimonial.label}>
-    <blockquote lang="en"><p>"It's definitely a great tool for beginning writers, but a welcome tool for experienced writers wanting to keep everything organized and to industry writing standards."</p></blockquote>
-    <figcaption>- George Patterson</figcaption>
+    <blockquote lang="en"><p><q>It’s definitely a great tool for beginning writers, but a welcome tool for experienced writers wanting to keep everything organized and to industry writing standards.</q></p></blockquote>
+    <figcaption>{t.testimonial.attribution}</figcaption>
   </figure>
+  <div class="closing-download wrap"><a class="button" href={pageUrl(locale, 'downloads')}>{t.allDownloads}</a></div>
 </SiteLayout>

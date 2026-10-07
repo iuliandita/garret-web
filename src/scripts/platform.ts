@@ -22,6 +22,8 @@ export function initPlatformSuggestion(): void {
     const label = link.querySelector<HTMLElement>(`[data-os-label="${platform}"]`);
     if (label) label.hidden = false;
   }
+  const androidNote = document.querySelector<HTMLElement>('[data-android-note]');
+  if (androidNote) androidNote.hidden = platform !== 'android';
   const section = document.querySelector<HTMLElement>(`[data-platform="${platform}"]`);
   if (section) {
     section.setAttribute('data-recommended', '');

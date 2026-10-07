@@ -7,7 +7,7 @@ const t = copy[locale];
 ---
 <footer class="site-footer wrap">
   <p>{t.footer.license}</p>
-  <nav aria-label={locale === 'de' ? 'Weitere Informationen' : 'Further information'}>
+  <nav aria-label={t.footerNavigation}>
     <a href={pageUrl(locale, 'about')}><BrandText text={t.footer.about} /></a>
     <a href={pageUrl(locale, 'about') + '#credits'}>{t.footer.credits}</a>
     <a href="https://github.com/iuliandita/garret/issues">{t.footer.issues}</a>
