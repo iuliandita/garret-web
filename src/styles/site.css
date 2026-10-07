@@ -76,6 +76,8 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .feature-nav a { border-bottom: 2px solid transparent; }
 .feature-nav a[aria-current] { border-color: var(--accent); text-decoration: none; }
 @media (forced-colors: active) {
+  .button, #screenshot-viewer button { border: 1px solid ButtonText; }
+  #screenshot-viewer button:disabled { color: GrayText; border-color: GrayText; opacity: 1; }
   .brand { position: relative; }
   .brand img { visibility: hidden; }
   .brand::before { content: ""; position: absolute; inset: 0; background: LinkText; mask: url('/brand/garret-wordmark-ink.png') center / contain no-repeat; }
