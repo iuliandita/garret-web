@@ -3,24 +3,26 @@ import BrandText from './BrandText.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import DownloadList from './DownloadList.astro';
 import { pages } from '../content/pages';
-import { pageUrl, type Locale } from '../content';
+import { copy, pageUrl, type Locale } from '../content';
 import { release } from '../data/releases';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = pages[locale].downloads;
 ---
-<SiteLayout locale={locale} title={locale === 'de' ? 'Downloads' : 'Downloads'} description={t.description} path="downloads">
+<SiteLayout locale={locale} title={copy[locale].nav.downloads} description={t.description} path="downloads">
   <div class="wrap">
     <div class="page-heading">
       <h1>{t.title}</h1><p><BrandText text={t.description} /></p>
       <p class="alpha-note">{t.alpha} {t.version}: <a href={release.releaseUrl}>{release.tag}</a>.</p>
+      <p class="platform-availability">{t.available}</p>
     </div>
     <DownloadList locale={locale} />
-    <div class="download-notes">
+    <section class="download-notes" aria-labelledby="installation-notes">
+      <h2 id="installation-notes">{t.notes}</h2>
       <p>{t.instructions}</p>
       <p><a href={release.releaseUrl}>{t.checksums}</a></p>
       <p><a href="https://github.com/iuliandita/garret#building-from-source-linux">{t.source}</a></p>
       <p><a href={pageUrl(locale, 'guide') + '#backup'}>{t.backup}</a></p>
-    </div>
+    </section>
   </div>
 </SiteLayout>

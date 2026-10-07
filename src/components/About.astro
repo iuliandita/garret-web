@@ -9,12 +9,15 @@ const t = pages[locale].about;
 ---
 <SiteLayout locale={locale} title={locale === 'de' ? 'Über garret & Datenschutz' : 'About & privacy'} description={t.description} path="about">
   <div class="wrap">
-    <div class="page-heading"><h1>{t.title}</h1><p><BrandText text={t.description} /></p></div>
+    <div class="page-heading"><h1><BrandText text={t.title} /></h1><p><BrandText text={t.description} /></p></div>
+    <div class="reading-layout">
+      <nav class="page-contents" aria-label={t.contents}><details data-page-contents open><summary>{t.contents}</summary><ul><li><a href="#purpose"><BrandText text={t.purpose} /></a></li><li><a href="#privacy">{t.privacy}</a></li><li><a href="#license">{t.license}</a></li><li><a href="#credits">{t.credits}</a></li></ul></details></nav>
     <div class="prose">
-      <section><h2><BrandText text={t.purpose} /></h2><p><BrandText text={t.purposeText} /></p></section>
+      <section id="purpose"><h2><BrandText text={t.purpose} /></h2><p><BrandText text={t.purposeText} /></p></section>
       <section id="privacy"><h2>{t.privacy}</h2><p>{t.privacyText}</p><p><a href="https://developers.cloudflare.com/web-analytics/about/">{t.analyticsLink}</a></p><p>{t.hosting}</p><p><BrandText text={t.appPrivacy} /></p></section>
-      <section><h2>{t.license}</h2><p>{t.licenseText}</p><p><a href="https://github.com/iuliandita/garret"><BrandText text="garret" /></a> / <a href="https://github.com/iuliandita/garret-web">garret-web</a></p></section>
-      <section id="credits"><h2>{t.credits}</h2><p><BrandText text={t.creditsText} /></p><p><a href="https://github.com/iuliandita/garret/tree/develop/docs/screenshots">{t.gallery}</a></p><p>{t.icons} <a href="/licenses/tabler.txt">MIT</a></p></section>
+      <section id="license"><h2>{t.license}</h2><p>{t.licenseText}</p><p><a href="https://github.com/iuliandita/garret">{t.appSource}</a> / <a href="https://github.com/iuliandita/garret-web">{t.siteSource}</a></p></section>
+      <section id="credits"><h2>{t.credits}</h2><p><BrandText text={t.creditsText} /></p><p><BrandText text={t.illustrationCredits} /></p><p><a href="https://github.com/iuliandita/garret/tree/develop/docs/screenshots">{t.gallery}</a></p><p>{t.icons} <a href="/licenses/tabler.txt">{t.iconLicense}</a></p></section>
+    </div>
     </div>
   </div>
 </SiteLayout>

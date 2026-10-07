@@ -1,18 +1,32 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import { copy, type Locale } from '../content';
 interface Props {
   src: string; darkSrc?: string; alt: string; darkAlt?: string;
-  width?: number; height?: number; caption: string; locale: Locale; eager?: boolean;
+  width?: number; height?: number; caption: string; locale: Locale; eager?: boolean; sizes?: string;
 }
-const { src, darkSrc, alt, darkAlt = alt, width = 1440, height = 960, caption, locale, eager = false } = Astro.props;
+const { src, darkSrc, alt, darkAlt = alt, width = 1440, height = 960, caption, locale, eager = false,
+  sizes = '(max-width: 750px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 80px) / 2), 660px' } = Astro.props;
+const images = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../public/images/*.png', { eager: true });
+const image = images['../../public' + src].default;
+const widths = [360, 720, image.width];
+const darkImage = darkSrc ? images['../../public' + darkSrc].default : undefined;
+const darkVariants = darkImage ? await Promise.all(widths.map(async width => {
+  const variant = await getImage({ src: darkImage, width, format: 'webp', quality: 90 });
+  return `${variant.src} ${width}w`;
+})) : [];
 const t = copy[locale];
 ---
 <figure class="capture">
-  <a class:list={['image-link', { 'light-capture': darkSrc }]} href={src} data-screenshot aria-label={t.enlarge + ': ' + alt}>
-    <img src={src} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} />
-  </a>
-  {darkSrc && <a class="image-link dark-capture" href={darkSrc} data-screenshot aria-label={t.enlarge + ': ' + darkAlt}>
-    <img src={darkSrc} alt={darkAlt} width={width} height={height} loading="lazy" />
-  </a>}
+  {[{ src, alt, className: darkSrc ? 'light-capture' : undefined }, ...(darkSrc ? [{ src: darkSrc, alt: darkAlt, className: 'dark-capture' }] : [])].map(variant =>
+    <a class:list={['image-link', variant.className]} href={variant.src} data-screenshot aria-label={t.enlarge + ': ' + variant.alt}>
+      <picture>
+        {darkImage && <source data-theme-source media="(prefers-color-scheme: dark)" srcset={darkVariants.join(', ')} sizes={sizes} />}
+        <Image src={image} alt={variant.alt} width={width} height={height} widths={widths} sizes={sizes} format="webp" quality={90}
+          loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} />
+      </picture>
+      <span class="image-cue" aria-hidden="true">{t.enlarge}</span>
+    </a>
+  )}
   <figcaption>{caption}</figcaption>
 </figure>

@@ -15,7 +15,14 @@ export function initThemeControls(): void {
   const system = matchMedia('(prefers-color-scheme: dark)');
   const isDark = (): boolean => preference === 'dark' || (preference === 'auto' && system.matches);
   const render = (): void => {
-    const target = isDark() ? 'light' : 'dark';
+    const dark = isDark();
+    const target = dark ? 'light' : 'dark';
+    document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach(meta => {
+      meta.content = dark ? '#211f1c' : '#f8f5ef';
+    });
+    document.querySelectorAll<HTMLSourceElement>('[data-theme-source]').forEach(source => {
+      source.media = dark ? 'all' : 'not all';
+    });
     const label = target === 'light' ? button.dataset.lightLabel : button.dataset.darkLabel;
     button.setAttribute('aria-label', label ?? target);
     button.title = label ?? target;

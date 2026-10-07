@@ -1,12 +1,12 @@
 # garret website specification
 
-Status: Manuscript direction approved and implemented. Production launch and the existing-site transition await review. The visual guide preserves the design reference; the working site is built from `src/`. The implementation plan is in `implementation-plan.md`.
+Status: Manuscript direction approved and implemented. The site is published at usegarret.com. The visual guide preserves the design reference; the working site is built from `src/`. The implementation plan is in `implementation-plan.md`.
 
 ## Purpose
 
 Help novelists understand garret, see the application working, select a suitable build, and start writing. Establish usegarret.com as the official product site. Make verified product facts easy for people, search engines, and browsing agents to find.
 
-The application is free, open source, offline, and account-free. The website must explain those promises plainly, without implying encrypted working manuscripts, automatic cloud sync, or desktop feature parity on Android. No backend, account system, subscription, analytics, or email collection is needed for the initial site.
+The application is free, open source, offline, and account-free. The website must explain those promises plainly, without implying encrypted working manuscripts, automatic cloud sync, or desktop feature parity on Android. There is no backend, account system, subscription or email collection. The website uses disclosed Cloudflare Web Analytics through hosting injection; the offline application remains separate.
 
 ## References and independent identity
 
@@ -47,7 +47,7 @@ The visual guide opens on the selected Manuscript direction and lets the reviewe
 
 Navigation: The studio, Downloads, Guide, Source. Language and theme controls remain compact and accessible.
 
-Opening: the established promise, "A writing studio for the whole book." Supporting copy: "Manuscript, characters, research, and revisions together. Works offline. No account. Every feature is free." One primary download action and one link to explore the studio. Use a real editor screenshot, with descriptive alternative text and a larger-image view.
+Opening: the established promise, "A writing studio for the whole book." Supporting copy: "Manuscript, characters, research, and revisions for your novel. Works offline. No account. Every feature is free." One primary download action and one link to explore the studio. Use a real editor screenshot, with descriptive alternative text and a larger-image view.
 
 Lead with three core benefits: focused writing, connected story planning, and preparing a finished book. Move detailed features into a manual, swipeable chapter browser with category links, previous/next controls, keyboard navigation, and no automatic rotation. Keep every feature in static HTML and allow native scrolling without JavaScript. The chapters cover:
 
@@ -70,7 +70,7 @@ Start with installing, creating/opening a book, writing the first scene, and kee
 
 ### Privacy and about
 
-Keep concise pages or guide sections explaining local operation, site privacy, licensing, credits, and the project's purpose. Avoid a separate privacy policy full of promises that deployment has not verified. Initial site: no tracking scripts, third-party embeds, forms, or remote fonts.
+Keep concise pages or guide sections explaining local operation, site privacy, licensing, credits, and the project's purpose. Avoid a separate privacy policy full of promises that deployment has not verified. Cloudflare Web Analytics measures website visits without analytics cookies. Google Search Console adds no site script. Keep this disclosure separate from application privacy. No third-party embeds, forms or remote fonts.
 
 ## Languages and accessibility
 

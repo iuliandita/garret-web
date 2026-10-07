@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import inkMark from '../../public/brand/garret-wordmark-ink.png';
+import paperMark from '../../public/brand/garret-wordmark-paper.png';
 import { copy, pageUrl, type Locale } from '../content';
 import sun from '@tabler/icons/outline/sun.svg?raw';
 import moon from '@tabler/icons/outline/moon.svg?raw';
@@ -9,17 +12,17 @@ const other = locale === 'en' ? 'de' : 'en';
 ---
 <header class="site-header wrap">
   <a class="brand" href={pageUrl(locale)} aria-label={t.home}>
-    <img class="ink-mark" src="/brand/garret-wordmark-ink.png" alt="garret" width="1024" height="473" />
-    <img class="paper-mark" src="/brand/garret-wordmark-paper.png" alt="garret" width="1024" height="473" />
+    <Image class="ink-mark" src={inkMark} alt="garret" width={135} densities={[1, 2]} format="webp" quality={95} />
+    <Image class="paper-mark" src={paperMark} alt="garret" width={135} densities={[1, 2]} format="webp" quality={95} />
   </a>
-  <nav aria-label={locale === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
+  <nav aria-label={t.mainNavigation}>
     <a href={pageUrl(locale) + '#studio'}>{t.nav.studio}</a>
     <a href={pageUrl(locale, 'downloads')} aria-current={path === 'downloads' ? 'page' : undefined}>{t.nav.downloads}</a>
     <a href={pageUrl(locale, 'guide')} aria-current={path === 'guide' ? 'page' : undefined}>{t.nav.guide}</a>
     <a href="https://github.com/iuliandita/garret">{t.nav.source}</a>
   </nav>
   <div class="preferences">
-    <a href={pageUrl(other, path)} lang={other} hreflang={other} aria-label={other === 'de' ? 'Auf Deutsch lesen' : 'Read in English'}>{other === 'de' ? 'DE' : 'EN'}</a>
+    <a data-language-link href={pageUrl(other, path)} lang={other} hreflang={other} aria-label={copy[other].languageLabel}>{other === 'de' ? 'DE' : 'EN'}</a>
     <button class="theme-toggle" type="button" id="theme-toggle" hidden data-light-label={t.themeToggle.light} data-dark-label={t.themeToggle.dark} aria-label={t.themeToggle.dark}>
       <span data-theme-icon="light" aria-hidden="true" set:html={sun} />
       <span data-theme-icon="dark" aria-hidden="true" set:html={moon} />

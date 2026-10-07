@@ -9,10 +9,12 @@ Screenshots use classic excerpts from Pride and Prejudice, Alice's Adventures in
 
 The application and this website are licensed under GPL-3.0-or-later. Preserve these credits when reusing the media.
 
-Production copies live under `public/brand/` and `public/images/`. Additional real captures are `review.png`, `epub.png`, and the Android light/dark editors from the same gallery. `public/brand/icon.png` is the original ink application icon. All are copied without modification.
+Production copies live under `public/brand/` and `public/images/`. Additional real captures are `review.png`, `epub.png`, and the Android light/dark editors from the same gallery. `public/brand/icon.png` is the original ink application icon. The originals are copied without modification. The browser fallback `favicon.ico` is derived from the same application icon. Inline screenshots and wordmarks use responsive WebP derivatives; image links open the original PNGs.
 
-The expanded desktop feature sections also use `cards.png`, `appearances.png`, and `history.png` from the same gallery.
+Desktop feature captures show the application in light mode in both website themes. The hero and Android editor use matching light and dark captures.
+
+The expanded desktop feature sections use `formatting.png`, `cards.png`, and `history.png`; `appearances.png` remains available as a gallery reference from the same gallery.
 
 OS symbols come from Tabler Icons under the MIT license; its notice is included in `public/licenses/tabler.txt`.
 
-`src/assets/notebook.png` and `src/assets/ownership.png` are original editorial illustrations made for this website. They are decorative and do not depict the application interface. The notebook includes faint manuscript notes and a story timeline; an attic window with greenery accompanies the ownership section. Astro creates optimized WebP images for the site.
+`src/assets/notebook.png` and `src/assets/ownership.png` are AI-generated editorial illustrations made for this website and included under its GPL-3.0-or-later license. They are decorative and do not depict the application interface. The notebook includes faint manuscript notes and a story timeline; an attic window with greenery accompanies the ownership section. Astro creates optimized WebP images for the site.

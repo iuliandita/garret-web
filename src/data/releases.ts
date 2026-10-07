@@ -9,6 +9,7 @@ const base = 'https://github.com/iuliandita/garret/releases/download/v0.0.1/';
 export const release = {
   tag: 'v0.0.1',
   channel: 'alpha',
+  androidInstructionsUrl: base + 'garret-0.0.1-android-info.zip',
   releaseUrl: 'https://github.com/iuliandita/garret/releases/tag/v0.0.1',
   listingUrl: 'https://github.com/iuliandita/garret/releases',
   platforms: {
