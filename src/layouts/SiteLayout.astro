@@ -73,7 +73,7 @@ const application = {
       </div>
       <p id="image-status" data-image-status class="sr-only" role="status" aria-atomic="true" data-loading={t.imageLoading} data-error={t.imageError}></p>
       <p id="image-pan-hint" class="viewer-hint" hidden data-zoom-hint={t.zoomHint} data-pan-hint={t.panHint}>{t.zoomHint}</p>
-      <div class="viewer-image" tabindex="-1" role="region" aria-label={t.imageRegion} aria-describedby="image-pan-hint"><img alt="" hidden /></div>
+      <div class="viewer-image" tabindex="-1" role="region" aria-label={t.imageRegion}><img alt="" hidden /></div>
     </dialog>
     <script>
       import { initThemeControls } from '../scripts/theme';

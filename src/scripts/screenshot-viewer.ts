@@ -19,11 +19,14 @@ export function initScreenshotViewer(): void {
     viewport.tabIndex = 0;
     zoom.disabled = image.naturalWidth <= image.getBoundingClientRect().width * 1.05;
     hint.hidden = zoom.disabled;
+    if (zoom.disabled) viewport.removeAttribute('aria-describedby');
+    else viewport.setAttribute('aria-describedby', 'image-pan-hint');
   });
   image.addEventListener('error', () => {
     if (!dialog.open) return;
     image.hidden = true;
     hint.hidden = true;
+    viewport.removeAttribute('aria-describedby');
     status.textContent = status.dataset.error ?? '';
     status.classList.remove('sr-only');
     viewport.tabIndex = -1;
@@ -39,6 +42,7 @@ export function initScreenshotViewer(): void {
       image.height = Number(thumbnail?.getAttribute('height')) || 960;
       image.hidden = true;
       hint.hidden = true;
+      viewport.removeAttribute('aria-describedby');
       status.textContent = status.dataset.loading ?? '';
       status.classList.remove('sr-only');
       viewport.tabIndex = -1;
@@ -82,6 +86,7 @@ export function initScreenshotViewer(): void {
     viewport.tabIndex = -1;
     image.hidden = true;
     hint.hidden = true;
+    viewport.removeAttribute('aria-describedby');
     image.alt = '';
     caption.textContent = '';
     dialog.setAttribute('aria-label', label);

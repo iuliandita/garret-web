@@ -75,6 +75,10 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .feature-nav { margin: 28px 0; gap: 8px 24px; }
 .feature-nav a { border-bottom: 2px solid transparent; }
 .feature-nav a[aria-current] { border-color: var(--accent); text-decoration: none; }
+@media (forced-colors: active) {
+  .feature-nav a { border-bottom-color: Canvas; }
+  .feature-nav a[aria-current] { border-bottom-color: LinkText; text-decoration: underline; text-underline-offset: .2em; }
+}
 .feature-track { display: flex; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 8px; scrollbar-width: none; gap: 32px; padding: 8px; margin: -8px; position: relative; }
 .feature-track:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 .feature-track::-webkit-scrollbar { display: none; }
