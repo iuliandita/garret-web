@@ -60,6 +60,7 @@ export const en = {
   },
   testimonial: {
     label: 'A writer\'s first impression',
+    attribution: 'George Patterson',
   },
   browse: {
     title: 'More tools, when you need them.',

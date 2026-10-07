@@ -11,16 +11,22 @@ export function initScreenshotViewer(): void {
   if (!dialog || !image || !close || !original || !zoom || !viewport || !status || !hint || !caption || typeof dialog.showModal !== 'function') return;
   const label = dialog.getAttribute('aria-label') ?? '';
   let trigger: HTMLAnchorElement | null = null;
+  const updateFit = (): void => {
+    if (!dialog.open || image.hidden || dialog.classList.contains('image-expanded')) return;
+    zoom.disabled = image.naturalWidth <= image.getBoundingClientRect().width * 1.05;
+    hint.hidden = zoom.disabled;
+    if (zoom.disabled) viewport.removeAttribute('aria-describedby');
+    else viewport.setAttribute('aria-describedby', 'image-pan-hint');
+  };
+  const imageSize = new ResizeObserver(updateFit);
+  imageSize.observe(image);
   image.addEventListener('load', () => {
     image.hidden = false;
     hint.hidden = false;
     status.textContent = '';
     status.classList.add('sr-only');
     viewport.tabIndex = 0;
-    zoom.disabled = image.naturalWidth <= image.getBoundingClientRect().width * 1.05;
-    hint.hidden = zoom.disabled;
-    if (zoom.disabled) viewport.removeAttribute('aria-describedby');
-    else viewport.setAttribute('aria-describedby', 'image-pan-hint');
+    updateFit();
   });
   image.addEventListener('error', () => {
     if (!dialog.open) return;
@@ -70,6 +76,7 @@ export function initScreenshotViewer(): void {
       image.style.width = `${width}px`;
     } else image.style.removeProperty('width');
     viewport.scrollTo(0, 0);
+    updateFit();
   });
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => {

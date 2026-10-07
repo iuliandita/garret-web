@@ -30,7 +30,7 @@ export const de = {
     title: 'Ein Schreibstudio für das ganze Buch.',
     description: 'Manuskript, Figuren, Recherche und Überarbeitung für deinen Roman. Funktioniert offline. Ohne Konto. Alle Funktionen sind kostenlos.',
     download: 'garret herunterladen', explore: 'Das Studio entdecken',
-    caption: 'Der Desktop-Editor. Dein Manuskript und der Rest deines Buches in Reichweite.',
+    caption: 'Der Desktop-Editor mit englischer Oberfläche. Dein Manuskript und der Rest deines Buches in Reichweite.',
     alt: 'garret-Manuskripteditor mit Kapitelnavigation und Schreibwerkzeugen',
     darkAlt: 'garret-Editor im dunklen Modus mit einem Dracula-Manuskript und Kapitelnavigation',
   },
@@ -62,10 +62,11 @@ export const de = {
   },
   testimonial: {
     label: 'Der erste Eindruck eines Autors',
+    attribution: 'George Patterson (englisches Original)',
   },
   browse: {
     title: 'Weitere Werkzeuge, wenn du sie brauchst.',
-    description: 'Entdecke das Desktop-Studio in deinem eigenen Tempo.',
+    description: 'Entdecke das Desktop-Studio in deinem eigenen Tempo. Die Screenshots zeigen die englische Oberfläche.',
     previous: 'Vorherige Funktionsgruppe', next: 'Nächste Funktionsgruppe',
     fallbackHint: 'Wähle ein Kapitel oder wische.',
     position: 'Funktionsgruppe', of: 'von', hint: 'Wähle ein Kapitel, nutze die Pfeile oder wische.',
