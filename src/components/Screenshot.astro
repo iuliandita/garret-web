@@ -11,7 +11,8 @@ const images = import.meta.glob<{ default: import('astro').ImageMetadata }>('../
 const image = images['../../public' + src].default;
 const widths = [360, 720, image.width];
 const darkImage = darkSrc ? images['../../public' + darkSrc].default : undefined;
-const darkVariants = darkImage ? await Promise.all(widths.map(async width => {
+const darkWidths = darkImage ? [...new Set([360, 720, darkImage.width])].filter(width => width <= darkImage.width) : [];
+const darkVariants = darkImage ? await Promise.all(darkWidths.map(async width => {
   const variant = await getImage({ src: darkImage, width, format: 'webp', quality: 90 });
   return `${variant.src} ${width}w`;
 })) : [];

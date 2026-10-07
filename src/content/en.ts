@@ -35,7 +35,7 @@ export const en = {
   studio: {
     write: { title: 'Make room for the words.', description: 'Write in scenes and chapters. Find a passage across the book, leave a comment, or return to an earlier scene version. Focus mode makes space for the manuscript.' },
     organize: { title: 'Keep the story straight.', description: 'Build your cast and story bible. Keep synopses and research close. Lay out events on a timeline, then follow them back to the scene.', alt: 'Dracula events arranged across character and story tracks in the garret timeline', caption: 'A timeline that stays connected to the manuscript.' },
-    revise: { title: 'Bring the next draft into focus.', description: 'Exchange DOCX review documents with your editor. See who proposed a change, accept or reject it, and keep comments, revision passes, and tasks with the book.', alt: 'Attributed editorial proposals beside the manuscript in garret', caption: 'Editorial changes, with their author and context.' },
+    revise: { title: 'Bring the next draft into focus.', description: 'Exchange DOCX review documents with your editor. See who proposed a change, accept or reject it, and keep comments, revision passes, and tasks with the book.', alt: 'Attributed editorial proposals beside the manuscript in garret', caption: 'Editorial feedback stays beside the manuscript.' },
     prepare: { title: 'From manuscript to book.', description: 'Export Markdown, DOCX, or EPUB. Set up covers, pen names, front and back matter, and book design. Linux also offers PDF proof copies.', alt: 'Book design and EPUB export controls in garret', caption: 'Prepare an EPUB without leaving your writing studio.' },
   },
   ownership: {
@@ -101,7 +101,9 @@ export const en = {
     formattingAlt: 'Formatting controls beside selected Alice manuscript text in garret',
     formattingCaption: 'Formatting stays beside your selected words.',
     cardsAlt: 'garret outline cards showing chapters, scenes, and summaries',
-    cardsCaption: 'Read the structure at a glance in outline cards.',
+    cardsCaption: 'Keep story structure and characters beside the manuscript.',
+    castAlt: 'garret in dark mode showing Alice character details beside the manuscript',
+    commentsAlt: 'garret in dark mode with an editorial comment beside selected Dracula text',
     historyAlt: 'garret scene history comparing an earlier manuscript version with the current text',
     historyCaption: 'Earlier words remain available in scene history.',
   },
