@@ -23,7 +23,7 @@ export const en = {
     support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
   },
   hero: {
-    androidNote: 'Android has a smaller library and scene editor. No export or encrypted archives yet; uninstalling or clearing app data deletes its books.',
+    androidNote: 'Android has a smaller library and scene editor. No import/export or encrypted archives yet; uninstalling or clearing app data deletes its books.',
     getFor: 'Get garret for {platform}', alpha: 'Early alpha.', alphaGuide: 'Read the guide before using it for important work.',
     title: 'A writing studio for the whole book.',
     description: 'Manuscript, characters, research, and revisions for your novel. Works offline. No account. Every feature is free.',
@@ -47,7 +47,7 @@ export const en = {
   android: {
     download: 'Get garret for Android',
     title: 'A smaller studio for your phone.',
-    description: 'Android has a library and scene editor for writing on the go, with fewer features and no automatic sync. There is no export or encrypted archive yet. Uninstalling or clearing app data deletes its books; keep an independent copy of important text.',
+    description: 'Android has a library and scene editor for writing on the go, with fewer features and no automatic sync. There is no import/export or encrypted archive yet. Uninstalling or clearing app data deletes its books; keep an independent copy of important text.',
     alt: 'Android garret scene editor showing manuscript text',
     darkAlt: 'Android garret scene editor in dark mode showing Dracula',
     caption: 'The Android scene editor.',

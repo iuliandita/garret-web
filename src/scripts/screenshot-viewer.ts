@@ -64,7 +64,7 @@ export function initScreenshotViewer(): void {
     dialog.classList.toggle('image-expanded', expanded);
     hint.textContent = (expanded ? hint.dataset.panHint : hint.dataset.zoomHint) ?? '';
     if (expanded) {
-      const width = matchMedia('(max-width: 750px)').matches
+      const width = matchMedia('(max-width: 750px), (max-height: 500px)').matches
         ? image.naturalWidth
         : Math.min(image.naturalWidth, fittedWidth * 2);
       image.style.width = `${width}px`;

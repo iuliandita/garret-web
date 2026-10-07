@@ -25,7 +25,7 @@ export const de = {
     support: 'garret unterstützen', license: 'Freie Software. GPL-3.0-or-later.',
   },
   hero: {
-    androidNote: 'Android bietet eine kleinere Bibliothek und einen Szeneneditor. Noch kein Export oder verschlüsseltes Archiv; Deinstallieren oder Löschen der App-Daten löscht die Bücher.',
+    androidNote: 'Android bietet eine kleinere Bibliothek und einen Szeneneditor. Noch kein Import/Export oder verschlüsseltes Archiv; Deinstallieren oder Löschen der App-Daten löscht die Bücher.',
     getFor: 'garret für {platform} laden', alpha: 'Frühe Alpha-Version.', alphaGuide: 'Lies die Anleitung, bevor du damit wichtige Texte schreibst.',
     title: 'Ein Schreibstudio für das ganze Buch.',
     description: 'Manuskript, Figuren, Recherche und Überarbeitung für deinen Roman. Funktioniert offline. Ohne Konto. Alle Funktionen sind kostenlos.',
@@ -49,7 +49,7 @@ export const de = {
   android: {
     download: 'garret für Android laden',
     title: 'Ein kleineres Studio für dein Smartphone.',
-    description: 'Android bietet eine Bibliothek und einen Szeneneditor für unterwegs, mit weniger Funktionen und ohne automatische Synchronisierung. Export und verschlüsselte Archive fehlen noch. Deinstallieren oder Löschen der App-Daten löscht die Bücher; bewahre eine unabhängige Kopie wichtiger Texte auf.',
+    description: 'Android bietet eine Bibliothek und einen Szeneneditor für unterwegs, mit weniger Funktionen und ohne automatische Synchronisierung. Import/Export und verschlüsselte Archive fehlen noch. Deinstallieren oder Löschen der App-Daten löscht die Bücher; bewahre eine unabhängige Kopie wichtiger Texte auf.',
     alt: 'Android-Szeneneditor von garret mit Manuskripttext',
     darkAlt: 'Android-Szeneneditor von garret im dunklen Modus mit Dracula',
     caption: 'Der Android-Szeneneditor.',
