@@ -7,6 +7,7 @@ import '../styles/site.css';
 interface Props { locale: Locale; title: string; description: string; path?: string; noindex?: boolean }
 const { locale, title, description, path = '', noindex = false } = Astro.props;
 const t = copy[locale];
+const documentTitle = title.replace(/\.$/, '') + ' | garret';
 const production = import.meta.env.SITE_ENV === 'production' && !noindex;
 const root = 'https://usegarret.com';
 const canonical = root + pageUrl(locale, path);
@@ -50,14 +51,14 @@ const application = {
     </>}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="garret" />
-    <meta property="og:title" content={title + ' | garret'} />
+    <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title + ' | garret'} />
+    <meta name="twitter:title" content={documentTitle} />
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title} | garret</title>
+    <title>{documentTitle}</title>
   </head>
   <body>
     <a class="skip" href="#main">{t.skip}</a>

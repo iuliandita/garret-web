@@ -45,9 +45,11 @@ The visual guide opens on the selected Manuscript direction and lets the reviewe
 
 ### Home
 
-Navigation: The studio, Downloads, Guide, Source. Language and theme controls remain compact and accessible.
+Navigation: The studio, Downloads, Guide, Source code. Language and theme controls remain compact and accessible.
 
-Opening: the established promise, "A writing studio for the whole book." Supporting copy: "Manuscript, characters, research, and revisions for your novel. Works offline. No account. Every feature is free." One primary download action and one link to explore the studio. Use a real editor screenshot, with descriptive alternative text and a larger-image view.
+Opening: "A writing studio for the whole novel." Supporting copy: "Your manuscript, characters, research, and revisions in one place. Write offline, without an account. Every feature is free." One primary download action and one link to explore the studio. Use a real editor screenshot, with descriptive alternative text and a larger-image view.
+
+Speak directly to the writer and their novel. Use warm, plain language for a personal writing tool, without personifying the application. Explain features through useful writing actions rather than technical labels. Keep precise setup requirements, exact menu commands, platform limits, and backup guidance where readers need them. The secondary heading is "Less between you and your novel."
 
 Lead with three core benefits: focused writing, connected story planning, and preparing a finished book. Move detailed features into a manual, swipeable chapter browser with category links, previous/next controls, keyboard navigation, and no automatic rotation. Keep every feature in static HTML and allow native scrolling without JavaScript. The chapters cover:
 
