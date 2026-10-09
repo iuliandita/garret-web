@@ -14,7 +14,7 @@ export const de = {
   imageLoading: 'Screenshot wird geladen...',
   imageError: 'Der Screenshot konnte nicht geladen werden. Versuche, das Originalbild zu öffnen.',
   imageRegion: 'Screenshot. Nach dem Vergrößern scrollbar.',
-  zoomHint: 'Wähle Vergrößern, um Details zu lesen. Drehe dein Handy bei Bedarf ins Querformat.',
+  zoomHint: 'Wähle Vergrößern, um Details zu lesen.',
   panHint: 'Scrolle im vergrößerten Bild. Um die Pfeiltasten zu nutzen, drücke Tab, bis du das Bild erreichst.',
   allDownloads: 'Alle Downloads ansehen',
   original: 'Originalbild öffnen',

@@ -12,7 +12,7 @@ export const en = {
   imageLoading: 'Loading screenshot...',
   imageError: 'The screenshot could not load. Try opening the original image.',
   imageRegion: 'Screenshot, scrollable when zoomed',
-  zoomHint: 'Choose Zoom to read the details. On a phone, try turning your screen sideways.',
+  zoomHint: 'Choose Zoom to read the details.',
   panHint: 'Scroll to explore the zoomed image. To use the arrow keys, press Tab until you reach the image.',
   allDownloads: 'See all downloads',
   original: 'Open original image',
