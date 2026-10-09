@@ -42,7 +42,7 @@ export const pages = {
         { action: 'Outline > Scene title > Add scene.', detail: 'Enter a scene title, add it, and start writing.' },
         { action: 'Saved on this device.', detail: 'Wait for this message before closing the app. Open the book again to continue.' },
       ],
-      androidLimits: 'This Android version has no import/export, encrypted archives, or automatic sync. Uninstalling the app or clearing its data deletes its local books; Android platform backup is disabled. Try it with practice text. For important work, select and copy your scene text into another app as a separate backup.',
+      androidLimits: 'This Android version has no import/export, encrypted archives, or automatic sync. Uninstalling the app or clearing its data deletes its local books; Android system backup is disabled. Try it with practice text. For important work, select and copy your scene text into another app as a separate backup.',
       androidInstructions: 'Download the Android instructions (ZIP)',
       book: 'Create or open a book',
       bookText: 'Open garret and use the library to create a new book or open an existing one. Choose a folder on your own disk, outside cloud-synced folders. New books default to Documents/Books until you choose another location. Check whether Documents is synced by OneDrive, iCloud, or another service; if it is, choose a different local folder.',
@@ -54,6 +54,7 @@ export const pages = {
       scene: 'Write the first scene',
       sceneText: 'Open your book and choose the plus beside its title to add a scene, chapter, or part. Start writing, and use the house icon to return to your library. Arrange scenes as the story grows. Use the story bible, cast, and research tools when you need them; you can begin with the manuscript alone.',
       backup: 'Keep a safe copy',
+      backupLanguage: '',
       backupCommand: 'File > Copies > Create recovery point',
       backupText: 'makes a local recovery copy. It cannot protect your work if you lose the device. Use an encrypted archive for a separate copy on a USB drive or in a synced backup folder.',
       steps: [
@@ -145,8 +146,9 @@ export const pages = {
       scene: 'Schreibe die erste Szene',
       sceneText: 'Öffne dein Buch und wähle das Plus neben dem Titel, um eine Szene, ein Kapitel oder einen Teil hinzuzufügen. Beginne zu schreiben; das Haus-Symbol führt zurück zur Bibliothek. Ordne die Szenen, während die Geschichte wächst. Nutze Story-Bibel, Figurenkartei und Recherche nach Bedarf; du kannst mit dem Manuskript allein beginnen.',
       backup: 'Lege eine Sicherungskopie an',
+      backupLanguage: 'Die folgenden Befehle verwenden die deutsche Oberfläche. Falls garret noch Englisch zeigt, wähle unter File > Preferences > Application > Language die Sprache Deutsch und öffne garret erneut.',
       backupCommand: 'Datei > Sicherungskopien > Wiederherstellungspunkt erstellen',
-      backupText: 'erstellt eine lokale Wiederherstellungskopie. Die folgenden Schritte verwenden die deutsche Oberfläche; stelle die Sprache vorher unter File > Preferences > Application > Language um und öffne garret erneut. Sie schützt deine Arbeit nicht, wenn du das Gerät verlierst. Nutze ein verschlüsseltes Archiv für eine getrennte Kopie auf einem USB-Laufwerk oder in einem synchronisierten Sicherungsordner.',
+      backupText: 'erstellt eine lokale Wiederherstellungskopie. Diese lokale Kopie schützt deine Arbeit nicht, wenn du das Gerät verlierst. Nutze ein verschlüsseltes Archiv für eine getrennte Kopie auf einem USB-Laufwerk oder in einem synchronisierten Sicherungsordner.',
       steps: [
         { action: 'Datei > Sicherungskopien > Verschlüsselte Sicherungen.', detail: 'Öffne diesen Bereich in der App.' },
         { action: 'Wiederherstellungsschlüssel erstellen.', detail: 'Bewahre den Schlüssel getrennt von deinen Sicherungen auf. Ohne ihn kannst du ein verschlüsseltes Archiv nicht wiederherstellen.' },

@@ -199,7 +199,7 @@ dialog button:disabled { opacity: .45; cursor: default; }
   .hero { grid-template-columns: 1fr 1fr; gap: 32px; }
   .reading-layout { grid-template-columns: 1fr; gap: 0; }
   .page-contents { grid-column: 1; grid-row: 1; position: static; flex-direction: row; flex-wrap: wrap; gap: 0 20px; margin: 0; padding-bottom: 16px; }
-  .page-contents details > ul { flex-direction: row; flex-wrap: wrap; gap: 0 20px; }
+  .page-contents details > ul { flex-direction: column; gap: 4px; }
   .reading-layout .prose { grid-row: 2; }
 }
 @media (max-width: 750px) {
