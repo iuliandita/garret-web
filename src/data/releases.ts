@@ -4,18 +4,18 @@ export interface PlatformRelease {
   assetUrl: string | null;
   intelUrl?: string;
 }
-const base = 'https://github.com/iuliandita/garret/releases/download/v0.0.1/';
+const base = 'https://github.com/iuliandita/garret/releases/download/v0.0.2/';
 
 export const release = {
-  tag: 'v0.0.1',
+  tag: 'v0.0.2',
   channel: 'alpha',
-  androidInstructionsUrl: base + 'garret-0.0.1-android-info.zip',
-  releaseUrl: 'https://github.com/iuliandita/garret/releases/tag/v0.0.1',
+  androidInstructionsUrl: base + 'garret-0.0.2-android-info.zip',
+  releaseUrl: 'https://github.com/iuliandita/garret/releases/tag/v0.0.2',
   listingUrl: 'https://github.com/iuliandita/garret/releases',
   platforms: {
-    linux: { label: 'Linux', assetUrl: base + 'garret-0.0.1-linux-x86_64.tar.gz' },
-    windows: { label: 'Windows', assetUrl: base + 'garret-0.0.1-windows-x86_64.zip' },
-    macos: { label: 'macOS', assetUrl: base + 'garret-0.0.1-macos-arm64.zip', intelUrl: base + 'garret-0.0.1-macos-x86_64.zip' },
-    android: { label: 'Android', assetUrl: base + 'garret-0.0.1-android.apk' },
+    linux: { label: 'Linux', assetUrl: base + 'garret-0.0.2-linux-x86_64.tar.gz' },
+    windows: { label: 'Windows', assetUrl: base + 'garret-0.0.2-windows-x86_64.zip' },
+    macos: { label: 'macOS', assetUrl: base + 'garret-0.0.2-macos-arm64.zip', intelUrl: base + 'garret-0.0.2-macos-x86_64.zip' },
+    android: { label: 'Android', assetUrl: base + 'garret-0.0.2-android.apk' },
   } satisfies Record<Platform, PlatformRelease>,
 } as const;

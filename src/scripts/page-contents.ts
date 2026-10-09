@@ -1,6 +1,6 @@
 export function initPageContents(): void {
   document.querySelectorAll<HTMLDetailsElement>('[data-page-contents]').forEach(contents => {
-    const narrow = matchMedia('(max-width: 750px)');
+    const narrow = matchMedia('(max-width: 1100px)');
     const resize = (): void => { contents.open = !narrow.matches; };
     resize();
     narrow.addEventListener('change', resize);

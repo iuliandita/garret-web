@@ -120,6 +120,7 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .page-heading p { color: var(--muted); margin-top: 24px; font-size: 18px; }
 .prose { max-width: 760px; padding-bottom: 72px; }
 .prose section { margin-top: 40px; }
+.prose .capture { margin-top: 24px; }
 .prose h2 { font-size: 30px; margin-bottom: 18px; }
 .prose h3 { font: 500 24px/1.3 var(--display); margin-bottom: 18px; letter-spacing: -.015em; }
 .reading-layout { display: grid; grid-template-columns: minmax(0, 65ch) 200px; gap: 80px; justify-content: start; align-items: start; }
@@ -144,16 +145,17 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .download-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .download-platform code { font: .9em ui-monospace, monospace; white-space: nowrap; }
 .download-platform .linux-install { margin-top: 0; }
-.download-platform .android-note { margin-top: 0; font-size: 15px; color: var(--ink); }
+.download-platform .android-note { margin-top: 0; color: var(--ink); }
 .download-platform p { margin: 16px 0 20px; color: var(--muted); }
 .download-platform .button { display: inline-flex; align-items: center; min-height: 48px; margin: 0 12px 12px 0; font-size: 15px; }
 .download-notes { padding-bottom: 60px; max-width: 760px; }
 .download-notes h2 { font-size: 30px; margin-bottom: 18px; }
+.download-notes p + h2 { margin-top: 36px; }
 .download-notes p { margin-bottom: 20px; }
 .os-icon { display: inline-flex; flex-shrink: 0; vertical-align: middle; }
 .os-icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
 .os-download-label { display: inline-flex; gap: 10px; align-items: center; }
-.page-heading .alpha-note { font-size: 15px; }
+.page-heading .alpha-note { font-size: 17px; color: var(--ink); }
 .suggestion { font: 600 14px/1.4 system-ui, sans-serif; color: var(--ink); letter-spacing: normal; }
 .download-platform[data-recommended] { border-color: var(--ink); box-shadow: inset 0 1px var(--ink); }
 
@@ -179,6 +181,8 @@ dialog img { max-height: calc(100dvh - 240px); width: auto; margin: auto; }
 .button:active, dialog button:not(:disabled):active { box-shadow: inset 0 0 0 2px var(--paper); }
 .browse-controls button:not([aria-disabled="true"]):active, .theme-toggle:active { background: var(--line); }
 dialog button { display: block; margin: 0; font: inherit; min-height: 44px; padding: 8px 16px; background: var(--ink); color: var(--paper); border: 0; border-radius: 3px; cursor: pointer; }
+dialog button[data-close] { background: var(--wash); color: var(--ink); }
+dialog button[data-close]:hover { background: var(--line); }
 dialog button:disabled { opacity: .45; cursor: default; }
 .chapter.ownership { border-top: 0; }
 @media (min-width: 1101px) {
@@ -195,7 +199,7 @@ dialog button:disabled { opacity: .45; cursor: default; }
   .hero { grid-template-columns: 1fr 1fr; gap: 32px; }
   .reading-layout { grid-template-columns: 1fr; gap: 0; }
   .page-contents { grid-column: 1; grid-row: 1; position: static; flex-direction: row; flex-wrap: wrap; gap: 0 20px; margin: 0; padding-bottom: 16px; }
-  .page-contents details > ul { flex-direction: row; flex-wrap: wrap; gap: 0 20px; }
+  .page-contents details > ul { flex-direction: column; gap: 4px; }
   .reading-layout .prose { grid-row: 2; }
 }
 @media (max-width: 750px) {
@@ -236,7 +240,7 @@ dialog button:disabled { opacity: .45; cursor: default; }
   dialog { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; border: 0; }
   dialog[open] { display: flex; flex-direction: column; }
   .image-expanded[open] { height: 100dvh; }
-  .viewer-image { flex: 1; min-height: 0; max-height: none; display: flex; align-items: flex-start; }
+  .viewer-image { flex: 1; min-height: 0; max-height: none; display: flex; align-items: center; }
   .viewer-image img { max-height: 100%; margin: 0 auto; }
   .image-expanded .viewer-image { display: block; }
   .image-expanded .viewer-image img { max-height: none; }
@@ -252,8 +256,10 @@ dialog button:disabled { opacity: .45; cursor: default; }
   .preferences { gap: 10px; }
   .site-header nav { gap: 16px; }
 }
-@media (max-width: 350px) {
+@media (max-width: 450px) {
   html[lang="de"] .site-header nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+}
+@media (max-width: 350px) {
   html[lang="de"] .hero h1 { font-size: 36px; }
   html[lang="de"] .feature-nav { grid-template-columns: 1fr; gap: 4px; }
 }
