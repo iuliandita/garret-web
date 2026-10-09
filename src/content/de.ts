@@ -52,7 +52,7 @@ export const de = {
     description: 'Android bietet eine Bibliothek und einen Szeneneditor für unterwegs, mit weniger Funktionen als auf dem Desktop. In dieser Version kannst du keine Bücher importieren oder exportieren, keine verschlüsselten Archive erstellen und keine Bücher automatisch synchronisieren. Deinstallieren oder Löschen der App-Daten löscht die Bücher; bewahre eine unabhängige Kopie wichtiger Texte auf.',
     alt: 'Android-Szeneneditor von garret mit Manuskripttext',
     darkAlt: 'Android-Szeneneditor von garret im dunklen Modus mit Dracula',
-    caption: 'Der Android-Szeneneditor.',
+    caption: 'Der Android-Szeneneditor mit englischer Oberfläche.',
   },
   highlights: {
     title: 'Mehr Platz für deinen Roman.',

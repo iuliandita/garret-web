@@ -35,6 +35,7 @@ export const pages = {
       install: 'Install garret',
       installText: 'Choose your device on the downloads page. Extract the whole desktop package, keep its files together, and follow the included README. On Android, install the APK and read the Android instructions in the release.',
       desktop: 'On desktop', android: 'On Android',
+      languageHelp: 'You can choose English or German in File > Preferences > Application > Language. Reopen garret for the change to take effect.',
       androidIntro: 'The Android app has its own library and scene editor. Use these steps instead of the desktop menus.',
       androidSteps: [
         { action: 'New book > Create book.', detail: 'Enter a book title in the library, then create the book.' },
@@ -125,6 +126,7 @@ export const pages = {
       install: 'Installiere garret',
       installText: 'Wähle dein Gerät auf der Downloadseite. Entpacke das gesamte Desktop-Paket, halte seine Dateien zusammen und folge der enthaltenen README. Installiere unter Android die APK und lies die Android-Anleitung der Version.',
       desktop: 'Auf dem Desktop', android: 'Auf Android',
+      languageHelp: 'Falls garret auf Englisch startet: Wähle unter File > Preferences > Application > Language die Sprache Deutsch. Öffne garret danach erneut.',
       androidIntro: 'Die Android-App hat eine eigene Bibliothek und einen Szeneneditor. Nutze diese Schritte statt der Desktop-Menüs.',
       androidSteps: [
         { action: 'Neues Buch > Buch erstellen.', detail: 'Gib in der Bibliothek einen Buchtitel ein und erstelle das Buch.' },
