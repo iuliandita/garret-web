@@ -8,11 +8,11 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = copy[locale];
 const groups = [
-  { id: 'writing', label: t.features.writing, title: t.studio.write.title, items: [t.features.focus, t.features.formatting, t.features.search, t.features.preferences, t.features.reports], src: '/images/formatting.png', darkSrc: '/images/formatting-dark.png', alt: t.features.formattingAlt, caption: t.features.formattingCaption },
-  { id: 'organizing', label: t.features.organizing, title: t.studio.organize.title, items: [t.features.cast, t.features.bible, t.features.synopses, t.features.research, t.features.outline, t.features.appearances, t.features.series], src: '/images/cards.png', darkSrc: '/images/cast-dark.png', alt: t.features.cardsAlt, darkAlt: t.features.castAlt, caption: t.features.cardsCaption },
-  { id: 'revision', label: t.features.revision, title: t.studio.revise.title, items: [t.features.review, t.features.comments, t.features.history, t.features.revisions], src: '/images/review.png', darkSrc: '/images/comments-dark.png', alt: t.studio.revise.alt, darkAlt: t.features.commentsAlt, caption: t.studio.revise.caption },
-  { id: 'publishing', label: t.features.publishing, title: t.studio.prepare.title, items: [t.features.export, t.features.design, t.features.authors, t.features.proof], src: '/images/epub.png', darkSrc: '/images/epub-dark.png', alt: t.studio.prepare.alt, caption: t.studio.prepare.caption },
-  { id: 'ownership', label: t.features.recovery, title: t.features.recoveryTitle, items: [t.features.archives, t.features.mirror, t.features.salvage, t.features.lock], src: '/images/history.png', darkSrc: '/images/history-dark.png', alt: t.features.historyAlt, caption: t.features.historyCaption },
+  { id: 'writing', label: t.features.writing, title: t.studio.write.title, items: [t.features.focus, t.features.formatting, t.features.search, t.features.preferences, t.features.reports], src: '/images/formatting.png', alt: t.features.formattingAlt, caption: t.features.formattingCaption },
+  { id: 'organizing', label: t.features.organizing, title: t.studio.organize.title, items: [t.features.cast, t.features.bible, t.features.synopses, t.features.research, t.features.outline, t.features.appearances, t.features.series], src: '/images/cards.png', darkSrc: '/images/cast.png', alt: t.features.cardsAlt, darkAlt: t.features.castAlt, caption: t.features.cardsCaption },
+  { id: 'revision', label: t.features.revision, title: t.studio.revise.title, items: [t.features.review, t.features.comments, t.features.history, t.features.revisions], src: '/images/review.png', darkSrc: '/images/comments.png', alt: t.studio.revise.alt, darkAlt: t.features.commentsAlt, caption: t.studio.revise.caption },
+  { id: 'publishing', label: t.features.publishing, title: t.studio.prepare.title, items: [t.features.export, t.features.design, t.features.authors, t.features.proof], src: '/images/epub.png', alt: t.studio.prepare.alt, caption: t.studio.prepare.caption },
+  { id: 'ownership', label: t.features.recovery, title: t.features.recoveryTitle, items: [t.features.archives, t.features.mirror, t.features.salvage, t.features.lock], src: '/images/history.png', alt: t.features.historyAlt, caption: t.features.historyCaption },
 ];
 ---
 <section class="feature-browser" data-feature-browser aria-labelledby="browse-title">
