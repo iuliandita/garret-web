@@ -18,6 +18,8 @@ const t = pages[locale].downloads;
     </div>
     <DownloadList locale={locale} />
     <section class="download-notes" aria-labelledby="installation-notes">
+      <h2>{t.changes}</h2>
+      <p>{t.changesText}</p>
       <h2 id="installation-notes">{t.notes}</h2>
       <p>{t.instructions}</p>
       <p><a href={release.releaseUrl}>{t.checksums}</a></p>

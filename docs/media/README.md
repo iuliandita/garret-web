@@ -3,9 +3,10 @@
 The wordmarks and application screenshots in this directory come from the [garret application repository](https://github.com/iuliandita/garret).
 
 - `garret-wordmark-ink.png` and `garret-wordmark-paper.png`: original garret identity artwork, copied without modification from `assets/brand/garret/`.
-- `editor-light.png`, `dark.png`, and `timeline.png`: actual Linux desktop application captures, copied without modification from `docs/screenshots/`.
+- Desktop PNGs under `public/images/`: original 1400 x 1000 Linux application captures of the 0.0.2 interface, copied without modification. `dark.png` is the dark editor. The guide also shows `library.png` and `preferences.png`.
+- `docs/media/` captures remain historical design-reference images, not the current release gallery.
 
-Screenshots use classic excerpts from Pride and Prejudice, Alice's Adventures in Wonderland, and Dracula, with sample editorial material. Sample character details, timelines, reviews, and tasks are illustrative additions, not claims about the original authors' working process. See the application's [gallery credits](https://github.com/iuliandita/garret/tree/develop/docs/screenshots) and [sample sources](https://github.com/iuliandita/garret/tree/develop/app/fixtures/classics).
+Screenshots use classic excerpts from Pride and Prejudice, Alice's Adventures in Wonderland, and Dracula, with sample editorial material. Sample Bible notes, character details, timelines, formatting, comments, snapshots, scene histories, reviews, and tasks are illustrative demonstrations, not the original authors' revisions or working records. See the application's [gallery credits](https://github.com/iuliandita/garret/tree/develop/docs/screenshots) and [sample sources](https://github.com/iuliandita/garret/tree/develop/app/fixtures/classics).
 
 The application and this website are licensed under GPL-3.0-or-later. Preserve these credits when reusing the media.
 

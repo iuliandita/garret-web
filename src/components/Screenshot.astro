@@ -5,7 +5,7 @@ interface Props {
   src: string; darkSrc?: string; alt: string; darkAlt?: string;
   width?: number; height?: number; caption: string; locale: Locale; eager?: boolean; sizes?: string;
 }
-const { src, darkSrc, alt, darkAlt = alt, width = 1440, height = 960, caption, locale, eager = false,
+const { src, darkSrc, alt, darkAlt = alt, width = 1400, height = 1000, caption, locale, eager = false,
   sizes = '(max-width: 750px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 80px) / 2), 660px' } = Astro.props;
 const images = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../public/images/*.png', { eager: true });
 const image = images['../../public' + src].default;
