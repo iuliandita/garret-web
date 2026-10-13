@@ -13,7 +13,7 @@ garret keeps your manuscript, characters, research, and revisions in one place, 
 
 ## Pages (Deutsch)
 
-- [Startseite](https://usegarret.com/de/): Ein Schreibstudio für den ganzen Roman. Offline und ohne Konto schreiben.
+- [Startseite](https://usegarret.com/de/): Ein Schreibstudio für den ganzen Roman. Schreibe offline und ohne Konto.
 - [Downloads](https://usegarret.com/de/downloads/): Hol dir garret für dein Gerät. Alle Funktionen sind kostenlos.
 - [Anleitung](https://usegarret.com/de/guide/): Installiere garret, öffne ein Buch und sichere deine Arbeit beim Schreiben.
 - [Über garret](https://usegarret.com/de/about/): Warum es garret gibt, und Datenschutz in der App und auf dieser Website.

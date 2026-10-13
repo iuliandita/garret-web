@@ -20,13 +20,13 @@ const application = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Linux, Windows, macOS, Android',
   softwareVersion: release.tag.slice(1),
-  description,
-  url: canonical,
+  description: t.hero.description,
+  url: root + pageUrl(locale),
   inLanguage: locale,
   downloadUrl: root + pageUrl(locale, 'downloads'),
   license: 'https://www.gnu.org/licenses/gpl-3.0.html',
   isAccessibleForFree: true,
-  codeRepository: 'https://github.com/iuliandita/garret',
+  sameAs: ['https://github.com/iuliandita/garret'],
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 };
 ---
