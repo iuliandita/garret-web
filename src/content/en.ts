@@ -18,7 +18,7 @@ export const en = {
   original: 'Open original image',
   newTab: 'opens in a new tab',
   footer: {
-    creator: 'By Iulian Dita',
+    creator: 'Made by Iulian Dita', otherProjects: 'Other projects',
     about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem', contact: 'Email',
     support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
   },
