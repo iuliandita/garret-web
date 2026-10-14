@@ -11,7 +11,7 @@ const documentTitle = title.replace(/\.$/, '') + ' | garret';
 const production = import.meta.env.SITE_ENV === 'production' && !noindex;
 const root = 'https://usegarret.com';
 const card = root + '/og/garret-og.png';
-const cardAlt = `garret. ${t.hero.title}`;
+const cardAlt = `garret. ${copy.en.hero.title}`;
 const canonical = root + pageUrl(locale, path);
 const application = {
   '@context': 'https://schema.org',
