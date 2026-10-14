@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Application bugs and help
+    url: https://github.com/iuliandita/garret/issues
+    about: Application behavior and installation belong in the app repository.
+  - name: Website security vulnerability
+    url: https://github.com/iuliandita/garret-web/security/advisories/new
+    about: Report website vulnerabilities privately.
