@@ -1,0 +1,24 @@
+# garret
+
+> garret is a free writing studio for novelists that works offline, without an account.
+
+garret keeps your manuscript, characters, research, and revisions in one place, and your books stay on your own device. Free software, GPL-3.0-or-later. Early alpha for Linux, Windows, macOS, and Android.
+
+## Pages
+
+- [Home](https://usegarret.com/): A writing studio for the whole novel. Write offline, without an account.
+- [Downloads](https://usegarret.com/downloads/): Get garret for Linux, Windows, macOS, or Android. Every feature is free.
+- [Guide](https://usegarret.com/guide/): Install garret, open a book, and keep a safe copy as you write.
+- [About](https://usegarret.com/about/): Why garret exists, and privacy in the app and on this website.
+
+## Pages (Deutsch)
+
+- [Startseite](https://usegarret.com/de/): Ein Schreibstudio für den ganzen Roman. Schreibe offline und ohne Konto.
+- [Downloads](https://usegarret.com/de/downloads/): Hol dir garret für dein Gerät. Alle Funktionen sind kostenlos.
+- [Anleitung](https://usegarret.com/de/guide/): Installiere garret, öffne ein Buch und sichere deine Arbeit beim Schreiben.
+- [Über garret](https://usegarret.com/de/about/): Warum es garret gibt, und Datenschutz in der App und auf dieser Website.
+
+## Optional
+
+- [garret on GitHub](https://github.com/iuliandita/garret): The application repository.
+- [Releases](https://github.com/iuliandita/garret/releases): Release notes, checksums, and downloads.

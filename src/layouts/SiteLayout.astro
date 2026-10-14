@@ -10,6 +10,8 @@ const t = copy[locale];
 const documentTitle = title.replace(/\.$/, '') + ' | garret';
 const production = import.meta.env.SITE_ENV === 'production' && !noindex;
 const root = 'https://usegarret.com';
+const card = root + '/og/garret-og.png';
+const cardAlt = `garret. ${t.hero.title}`;
 const canonical = root + pageUrl(locale, path);
 const application = {
   '@context': 'https://schema.org',
@@ -18,10 +20,13 @@ const application = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Linux, Windows, macOS, Android',
   softwareVersion: release.tag.slice(1),
-  description: copy[locale].hero.description,
-  url: root,
+  description: t.hero.description,
+  url: root + pageUrl(locale),
+  inLanguage: locale,
   downloadUrl: root + pageUrl(locale, 'downloads'),
   license: 'https://www.gnu.org/licenses/gpl-3.0.html',
+  isAccessibleForFree: true,
+  sameAs: ['https://github.com/iuliandita/garret'],
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 };
 ---
@@ -42,11 +47,13 @@ const application = {
       <link rel="alternate" hreflang="de" href={root + pageUrl('de', path)} />
       <link rel="alternate" hreflang="x-default" href={root + pageUrl('en', path)} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={root + '/images/editor-light.png'} />
-      <meta property="og:image:alt" content={t.hero.alt} />
-      <meta property="og:image:width" content="1400" />
-      <meta property="og:image:height" content="1000" />
-      <meta name="twitter:image" content={root + '/images/editor-light.png'} />
+      <meta property="og:image" content={card} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:alt" content={cardAlt} />
+      <meta name="twitter:image" content={card} />
+      <meta name="twitter:image:alt" content={cardAlt} />
       <script type="application/ld+json" set:html={JSON.stringify(application).replace(/</g, '\\u003c')} />
     </>}
     <meta property="og:type" content="website" />
@@ -54,6 +61,7 @@ const application = {
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'de' ? 'en_US' : 'de_DE'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={documentTitle} />
     <meta name="twitter:description" content={description} />
