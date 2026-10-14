@@ -1,0 +1,31 @@
+name: Website bug
+description: Report a reproducible website problem
+labels: [bug]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Locale, theme, browser and operating system
+      placeholder: German, dark, Firefox on Linux
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected behavior
+      description: Include minimal steps, actual behavior and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Redacted console output or screenshots
+      description: Remove credentials, tokens, personal data and private addresses. Report security vulnerabilities through the private contact link.
+    validations:
+      required: false
