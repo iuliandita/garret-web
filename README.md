@@ -23,7 +23,9 @@ Use Bun 1.4.2 and Node.js 22.12+ (Node 24 in CI).
 bun install --frozen-lockfile
 bun run dev
 bun run check
+bun test scripts/check-output.test.mjs
 bun run build
+bun run check:output
 bun run preview
 ```
 
@@ -39,6 +41,7 @@ Build and deploy the reviewed release from `main`:
 
 ```sh
 SITE_ENV=production bun run build
+SITE_ENV=production bun run check:output
 bunx wrangler deploy --strict
 ```
 
@@ -51,3 +54,13 @@ Cloudflare Web Analytics is configured at the edge for the production hostname. 
 `develop` is the integration branch; `main` is the release branch. Changes land through pull requests. Feature branches are squashed into `develop`; release promotions use merge commits.
 
 Licensed under GPL-3.0-or-later. Download artifacts remain in the application repository's GitHub releases.
+
+## Contributing and reporting
+
+See [contributor checks](CONTRIBUTING.md), the [documentation map](docs/README.md),
+and [private security reporting](SECURITY.md). Website bugs belong in this
+repository; application bugs and platform qualification belong in the
+[application repository](https://github.com/iuliandita/garret).
+Build checks verify emitted website output, not native application behavior or live deployment.
+
+Made by [Iulian Dita](https://iuliandita.com). [Other projects](https://iuliandita.com/projects/).
