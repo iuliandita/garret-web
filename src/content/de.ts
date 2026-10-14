@@ -21,7 +21,7 @@ export const de = {
   newTab: 'öffnet einen neuen Tab',
   footer: {
     creator: 'Von Iulian Dita',
-    about: 'Über garret & Datenschutz', credits: 'Bildnachweise', issues: 'Problem melden',
+    about: 'Über garret & Datenschutz', credits: 'Bildnachweise', issues: 'Problem melden', contact: 'E-Mail',
     support: 'garret unterstützen', license: 'Freie Software. GPL-3.0-or-later.',
   },
   hero: {
