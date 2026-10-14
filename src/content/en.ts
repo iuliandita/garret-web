@@ -19,7 +19,7 @@ export const en = {
   newTab: 'opens in a new tab',
   footer: {
     creator: 'By Iulian Dita',
-    about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem',
+    about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem', contact: 'Email',
     support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
   },
   hero: {
