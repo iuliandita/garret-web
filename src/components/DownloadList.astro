@@ -14,19 +14,18 @@ const t = pages[locale].downloads;
     return <section class="download-platform" id={platform} data-platform={platform}>
       <div class="download-heading"><h2><OsIcon platform={platform} />{data.label}</h2><span class="suggestion" data-suggestion hidden>{t.suggested}</span></div>
       <p>{t.requirements[platform]}</p>
-      {platform === 'linux' && <p class="linux-install">{t.linuxInstall} <code>libwebkit2gtk-4.1-0</code>{t.linuxOptional}</p>}
+      {platform === 'linux' && <p class="linux-install">{t.linuxInstall}</p>}
       {platform === 'android' && <p class="android-note">{t.androidLimits} <a href={pageUrl(locale, 'guide') + '#android'}>{t.androidGuide}</a></p>}
-      {platform === 'macos'
-        ? <div class="download-actions">
-            {[{ label: 'Apple Silicon', url: data.assetUrl }, { label: 'Intel', url: data.intelUrl }].map(architecture =>
-              architecture.url
-                ? <a class="button" href={architecture.url} aria-label={`${t.downloadArchitecture.replace('{architecture}', architecture.label)}, macOS`}><BrandText text={t.downloadArchitecture.replace('{architecture}', architecture.label)} /></a>
-                : <div><p>{architecture.label}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
-            )}
-          </div>
-        : data.assetUrl
-          ? <a class="button" href={data.assetUrl}><BrandText text={t.download.replace('{platform}', data.label)} /></a>
-          : <><p>{t.missing}</p><a href={release.listingUrl}>{t.listing}</a></>}
+      <div class="download-actions">
+        {data.options.filter(option => !option.secondary).map(option =>
+          option.url
+            ? <a class="button" href={option.url}><BrandText text={t.downloadOption.replace('{option}', t.options[option.id])} /></a>
+            : <div><p>{t.options[option.id]}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
+        )}
+      </div>
+      {data.options.some(option => option.secondary) && <p class="portable-links">{t.portable} {data.options.filter(option => option.secondary).map((option, index) =>
+        <>{index > 0 && ' · '}{option.url ? <a href={option.url}>{t.options[option.id]}</a> : <a href={release.listingUrl}>{t.options[option.id]}: {t.missing}</a>}</>
+      )}</p>}
     </section>;
   })}
 </div>
