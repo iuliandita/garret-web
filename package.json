@@ -12,10 +12,10 @@
     "check:output": "bun scripts/check-output.mjs"
   },
   "dependencies": {
-    "astro": "7.3.5"
+    "astro": "7.4.4"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
+    "@astrojs/check": "0.9.12",
     "@tabler/icons": "3.48.0",
     "typescript": "6.0.3",
     "wrangler": "4.145.0"
