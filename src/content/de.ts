@@ -38,7 +38,7 @@ export const de = {
     write: { title: 'Platz für deine Worte.', description: 'Schreibe in Szenen und Kapiteln. Suche im ganzen Buch, hinterlasse Kommentare oder kehre zu einer früheren Szenenfassung zurück. Im Fokusmodus gehört der Platz dem Manuskript.' },
     organize: { title: 'Behalte deine Geschichte im Blick.', description: 'Baue deine Figurenkartei und Story-Bibel auf. Halte Zusammenfassungen und Recherche griffbereit. Ordne Ereignisse auf der Zeitleiste und springe von dort zurück zur Szene.', alt: 'Beispielhafte Dracula-Ereignisse auf der garret-Zeitleiste', caption: 'Eine Zeitleiste, die mit dem Manuskript verbunden bleibt.' },
     revise: { title: 'Arbeite an der nächsten Fassung.', description: 'Tausche DOCX-Dokumente mit deinem Lektorat aus. Sieh, von wem ein Änderungsvorschlag stammt, und nimm ihn an oder lehne ihn ab. Kommentare, Überarbeitungsrunden und Aufgaben bleiben beim Buch.', alt: 'Änderungsvorschläge mit Angabe, von wem sie stammen, neben dem Manuskript in garret', caption: 'Rückmeldungen aus dem Lektorat bleiben beim Manuskript.' },
-    prepare: { title: 'Vom Manuskript zum Buch.', description: 'Exportiere Markdown, DOCX oder EPUB. Lege Cover, Pseudonyme, Vor- und Nachspann sowie das Buchdesign fest. Unter Linux und Windows kannst du auch PDF-Korrekturabzüge erstellen.', alt: 'Buchdesign und EPUB-Export in garret', caption: 'Bereite ein EPUB direkt in deinem Schreibstudio vor.' },
+    prepare: { title: 'Vom Manuskript zum Buch.', description: 'Exportiere Markdown, DOCX oder EPUB. Lege Cover, Pseudonyme, Vor- und Nachspann sowie das Buchdesign fest. Unter Linux und Windows kannst du auch PDF-Korrekturabzüge erstellen.', alt: 'Buchdesign und EPUB-Export in garret', cropAlt: 'Die EPUB-Vorschau in garret mit der Titelseite von „Pride and Prejudice“, dem Inhaltsverzeichnis und dem Anfang von Kapitel 1, „A new neighbor“', caption: 'EPUB-Vorschau, aus deinem Buch im gespeicherten Stand erzeugt.' },
   },
   ownership: {
     title: 'Dein Buch bleibt bei dir.',
@@ -102,6 +102,7 @@ export const de = {
     lock: { title: 'Verbirg die App, wenn du weggehst', description: 'Unter Linux und Windows verbirgt eine optionale PIN-Sperre garret, wenn du weggehst. Deine Manuskriptdateien bleiben unverschlüsselt.' },
     formattingAlt: 'Formatierungswerkzeuge neben ausgewähltem Text aus Alice im Wunderland in garret',
     formattingCaption: 'Formatierungswerkzeuge bleiben bei deiner Textauswahl.',
+    formattingCropAlt: 'Die Formatierungsleiste über dem markierten Wort „Alice“ in den ersten Zeilen von Alice im Wunderland, mit Schaltflächen für Fett, Kursiv, Unterstrichen, Notiz anlegen, Im Manuskript suchen und Ins Wörterbuch aufnehmen',
     cardsAlt: 'garret-Gliederungskarten mit Kapiteln, Szenen und Zusammenfassungen',
     cardsCaption: 'Behalte Struktur und Figuren neben dem Manuskript im Blick.',
     castAlt: 'garret mit einem Dracula-Figurenprofil neben dem Manuskript',
