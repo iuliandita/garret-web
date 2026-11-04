@@ -16,11 +16,15 @@ const darkVariants = darkImage ? await Promise.all(darkWidths.map(async width =>
   const variant = await getImage({ src: darkImage, width, format: 'webp', quality: 90 });
   return `${variant.src} ${width}w`;
 })) : [];
+const viewerSources = {
+  light: (await getImage({ src: image, width: image.width, format: 'webp', quality: 90 })).src,
+  dark: darkImage ? (await getImage({ src: darkImage, width: darkImage.width, format: 'webp', quality: 90 })).src : undefined,
+};
 const t = copy[locale];
 ---
 <figure class="capture">
-  {[{ src, alt, className: darkSrc ? 'light-capture' : undefined }, ...(darkSrc ? [{ src: darkSrc, alt: darkAlt, className: 'dark-capture' }] : [])].map(variant =>
-    <a class:list={['image-link', variant.className]} href={variant.src} data-screenshot aria-label={t.enlarge + ': ' + variant.alt}>
+  {[{ src, alt, viewer: viewerSources.light, className: darkSrc ? 'light-capture' : undefined }, ...(darkSrc ? [{ src: darkSrc, alt: darkAlt, viewer: viewerSources.dark, className: 'dark-capture' }] : [])].map(variant =>
+    <a class:list={['image-link', variant.className]} href={variant.src} data-screenshot data-viewer-src={variant.viewer} aria-label={t.enlarge + ': ' + variant.alt}>
       <picture>
         {darkImage && <source data-theme-source media="(prefers-color-scheme: dark)" srcset={darkVariants.join(', ')} sizes={sizes} />}
         <Image src={image} alt={variant.alt} width={width ?? image.width} height={height ?? image.height} widths={widths} sizes={sizes} format="webp" quality={90}
