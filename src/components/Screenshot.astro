@@ -2,14 +2,15 @@
 import { Image, getImage } from 'astro:assets';
 import { copy, type Locale } from '../content';
 interface Props {
-  src: string; darkSrc?: string; alt: string; darkAlt?: string;
+  src: string; cropSrc?: string; fullAlt?: string; darkSrc?: string; alt: string; darkAlt?: string;
   width?: number; height?: number; caption: string; locale: Locale; eager?: boolean; sizes?: string;
 }
-const { src, darkSrc, alt, darkAlt = alt, width, height, caption, locale, eager = false,
+const { src, cropSrc, fullAlt, darkSrc, alt, darkAlt = alt, width, height, caption, locale, eager = false,
   sizes = '(max-width: 750px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 80px) / 2), 660px' } = Astro.props;
 const images = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../public/images/*.png', { eager: true });
-const image = images['../../public' + src].default;
-const widths = [360, 720, image.width];
+const original = images['../../public' + src].default;
+const image = cropSrc ? images['../../public' + cropSrc].default : original;
+const widths = [...new Set([360, 720, image.width])].filter(width => width <= image.width);
 const darkImage = darkSrc ? images['../../public' + darkSrc].default : undefined;
 const darkWidths = darkImage ? [...new Set([360, 720, darkImage.width])].filter(width => width <= darkImage.width) : [];
 const darkVariants = darkImage ? await Promise.all(darkWidths.map(async width => {
@@ -17,14 +18,14 @@ const darkVariants = darkImage ? await Promise.all(darkWidths.map(async width =>
   return `${variant.src} ${width}w`;
 })) : [];
 const viewerSources = {
-  light: (await getImage({ src: image, width: image.width, format: 'webp', quality: 90 })).src,
+  light: (await getImage({ src: original, width: original.width, format: 'webp', quality: 90 })).src,
   dark: darkImage ? (await getImage({ src: darkImage, width: darkImage.width, format: 'webp', quality: 90 })).src : undefined,
 };
 const t = copy[locale];
 ---
-<figure class="capture">
+<figure class:list={['capture', cropSrc && image.width <= 420 && 'capture-narrow']}>
   {[{ src, alt, viewer: viewerSources.light, className: darkSrc ? 'light-capture' : undefined }, ...(darkSrc ? [{ src: darkSrc, alt: darkAlt, viewer: viewerSources.dark, className: 'dark-capture' }] : [])].map(variant =>
-    <a class:list={['image-link', variant.className]} href={variant.src} data-screenshot data-viewer-src={variant.viewer} aria-label={t.enlarge + ': ' + variant.alt}>
+    <a class:list={['image-link', variant.className]} href={variant.src} data-screenshot data-viewer-src={variant.viewer} data-full-width={cropSrc ? original.width : undefined} data-full-height={cropSrc ? original.height : undefined} data-full-alt={cropSrc ? fullAlt : undefined} aria-label={t.enlarge + ': ' + variant.alt}>
       <picture>
         {darkImage && <source data-theme-source media="(prefers-color-scheme: dark)" srcset={darkVariants.join(', ')} sizes={sizes} />}
         <Image src={image} alt={variant.alt} width={width ?? image.width} height={height ?? image.height} widths={widths} sizes={sizes} format="webp" quality={90}
