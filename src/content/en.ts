@@ -54,7 +54,7 @@ export const en = {
   },
   highlights: {
     title: 'Less between you and your novel.',
-    write: { title: 'Room to write', description: 'A focused editor, scenes and chapters, and your words saved on your own disk.' },
+    write: { title: 'Room to write', description: 'A focused editor, scenes and chapters, and your words saved on your own disk.', link: 'Already have a draft? Bring it in.' },
     story: { title: 'The whole story, together', description: 'Characters, research, and plans stay close to the manuscript, without a pile of separate files.' },
     finish: { title: 'A path to the finished book', description: 'Revise with your editor, shape the book, and export it when you are ready.' },
   },

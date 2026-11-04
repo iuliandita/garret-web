@@ -56,7 +56,7 @@ export const de = {
   },
   highlights: {
     title: 'Mehr Platz für deinen Roman.',
-    write: { title: 'Raum zum Schreiben', description: 'Ein konzentrierter Editor, Szenen und Kapitel. Deine Worte bleiben auf deinem eigenen Datenträger.' },
+    write: { title: 'Raum zum Schreiben', description: 'Ein konzentrierter Editor, Szenen und Kapitel. Deine Worte bleiben auf deinem eigenen Datenträger.', link: 'Schon einen Entwurf? So übernimmst du ihn.' },
     story: { title: 'Die ganze Geschichte an einem Ort', description: 'Figuren, Recherche und Planung bleiben beim Manuskript, ohne einen Stapel getrennter Dateien.' },
     finish: { title: 'Ein Weg zum fertigen Buch', description: 'Überarbeite mit deinem Lektorat, gestalte das Buch und exportiere es, wenn du bereit bist.' },
   },

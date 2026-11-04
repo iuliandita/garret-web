@@ -39,7 +39,7 @@ const t = copy[locale];
       <h2>{t.highlights.title}</h2>
       <div class="highlight-list">
         {[t.highlights.write, t.highlights.story, t.highlights.finish].map(item =>
-          <article><h3>{item.title}</h3><p>{item.description}</p></article>
+          <article><h3>{item.title}</h3><p>{item.description}{'link' in item && <> <a href={pageUrl(locale, 'guide') + '#import'}>{item.link}</a></>}</p></article>
         )}
       </div>
     </div>
