@@ -139,6 +139,7 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .page-contents li ul { padding-left: 16px; }
 .guide-platform { border-top: 1px solid var(--line); padding-top: 32px; }
 .guide-platform > section { margin-top: 32px; }
+.panel-capture { max-width: 520px; margin-bottom: 24px; }
 .prose li { margin-bottom: 12px; }
 .prose ol,.prose ul { padding-left: 24px; max-width: 65ch; }
 .prose a { overflow-wrap: anywhere; }
