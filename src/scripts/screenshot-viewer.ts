@@ -53,7 +53,7 @@ export function initScreenshotViewer(): void {
       status.classList.remove('sr-only');
       viewport.tabIndex = -1;
       zoom.disabled = true;
-      image.src = link.href;
+      image.src = link.dataset.viewerSrc ?? link.href;
       original.href = link.href;
       image.alt = link.querySelector('img')?.alt ?? '';
       dialog.setAttribute('aria-label', `${label}: ${image.alt}`);
