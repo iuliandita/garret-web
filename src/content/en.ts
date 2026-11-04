@@ -95,7 +95,7 @@ export const en = {
     archives: { title: 'Save an encrypted backup', description: 'Make an encrypted archive manually, check it with your recovery key, and restore it as a separate book when you need it.' },
     mirror: { title: 'Keep a readable copy', description: 'Keep your text in a readable folder alongside your book. This copy is unencrypted and is not a complete backup.' },
     salvage: { title: 'Recover what you can', description: 'Local recovery copies, scene history, and salvage tools provide different ways back to your work.' },
-    series: { title: 'Work across a series', description: 'Organize books into a series while keeping each manuscript on your own disk.' },
+    series: { title: 'Work across a series', description: 'Group books into a series and filter your library by it. Each book keeps its own cast and bible.' },
     reports: { title: 'Keep track of your writing', description: 'See statistics for your book and reports on writing and consistency. Session statistics are optional. All of these stay on your device.' },
     lock: { title: 'Hide the app when you step away', description: 'On Linux and Windows, an optional PIN lock hides garret when you step away. Your manuscript files remain unencrypted.' },
     formattingAlt: 'Formatting controls beside selected text from Alice’s Adventures in Wonderland in garret',

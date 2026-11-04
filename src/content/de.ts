@@ -97,7 +97,7 @@ export const de = {
     archives: { title: 'Speichere eine verschlüsselte Sicherung', description: 'Erstelle ein verschlüsseltes Archiv manuell, prüfe es mit deinem Wiederherstellungsschlüssel und stelle es bei Bedarf als separates Buch wieder her.' },
     mirror: { title: 'Behalte eine lesbare Kopie', description: 'Halte deinen Text in einem lesbaren Ordner neben deinem Buch bereit. Diese Kopie ist unverschlüsselt und keine vollständige Sicherung.' },
     salvage: { title: 'Rette, was sich retten lässt', description: 'Lokale Wiederherstellungskopien, frühere Szenenfassungen und Rettungswerkzeuge helfen dir, deine Arbeit wiederzufinden.' },
-    series: { title: 'Arbeite an einer Reihe', description: 'Ordne Bücher zu einer Reihe, während jedes Manuskript auf deinem eigenen Datenträger bleibt.' },
+    series: { title: 'Arbeite an einer Reihe', description: 'Fasse Bücher zu einer Reihe zusammen und filtere deine Bibliothek danach. Jedes Buch behält seine eigenen Figuren und seine eigene Story-Bibel.' },
     reports: { title: 'Behalte deine Schreibarbeit im Blick', description: 'Sieh Statistiken zu deinem Buch und Berichte zu Schreibstil und Konsistenz. Sitzungsstatistiken sind optional. All das bleibt auf deinem Gerät.' },
     lock: { title: 'Verbirg die App, wenn du weggehst', description: 'Unter Linux und Windows verbirgt eine optionale PIN-Sperre garret, wenn du weggehst. Deine Manuskriptdateien bleiben unverschlüsselt.' },
     formattingAlt: 'Formatierungswerkzeuge neben ausgewähltem Text aus Alice im Wunderland in garret',
