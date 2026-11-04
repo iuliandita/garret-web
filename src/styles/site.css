@@ -7,7 +7,7 @@
 [id] { scroll-margin-top: 24px; }
 ::selection { background: var(--ink); color: var(--paper); }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 system-ui, sans-serif; }
-.product-name { font-weight: 700; font-style: italic; }
+.product-name { hyphens: none; }
 a { color: inherit; text-underline-offset: .22em; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
