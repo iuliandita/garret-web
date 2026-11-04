@@ -22,7 +22,7 @@ export const de = {
   footer: {
     creator: 'Von Iulian Dita', otherProjects: 'Weitere Projekte',
     about: 'Über garret & Datenschutz', credits: 'Bildnachweise', issues: 'Problem melden', contact: 'E-Mail',
-    support: 'garret unterstützen', license: 'Freie Software. GPL-3.0-or-later.',
+    support: 'garret unterstützen', license: 'Freie Software.', licenseName: 'GPL-3.0-or-later',
   },
   hero: {
     androidNote: 'Die Android-App bietet eine Bibliothek und einen Szeneneditor mit weniger Funktionen als auf dem Desktop. Bücher ziehen mit verschlüsselten Archiven um; eine automatische Synchronisierung gibt es nicht. Deinstallieren oder Löschen der App-Daten löscht die Bücher.',

@@ -20,7 +20,7 @@ export const en = {
   footer: {
     creator: 'Made by Iulian Dita', otherProjects: 'Other projects',
     about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem', contact: 'Email',
-    support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
+    support: 'Support garret', license: 'Free software.', licenseName: 'GPL-3.0-or-later',
   },
   hero: {
     androidNote: 'The Android app has a library and scene editor, with fewer features than desktop. Move books with encrypted archives; there is no automatic sync. Uninstalling or clearing app data deletes its books.',

@@ -7,7 +7,7 @@ const { locale } = Astro.props;
 const t = copy[locale];
 ---
 <footer class="site-footer wrap">
-  <p>{t.footer.license}</p>
+  <p>{t.footer.license} <a href="https://github.com/iuliandita/garret/blob/develop/COPYING">{t.footer.licenseName}</a>.</p>
   <nav aria-label={t.footerNavigation}>
     <a href={pageUrl(locale, 'about')}><BrandText text={t.footer.about} /></a>
     <a href={pageUrl(locale, 'about') + '#credits'}>{t.footer.credits}</a>
