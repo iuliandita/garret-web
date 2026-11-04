@@ -102,7 +102,6 @@ export const en = {
     formattingCaption: 'Formatting stays beside your selected words.',
     formattingCropAlt: 'The formatting bar above the selected word “Alice” in the opening lines of Alice’s Adventures in Wonderland, with bold, italic, underline, add comment, find in manuscript and add to dictionary buttons',
     cardsAlt: 'garret outline cards showing chapters, scenes, and summaries',
-    cardsCaption: 'Keep story structure and characters beside the manuscript.',
     appearancesAlt: 'garret’s Who appears where panel listing the characters, places, and other tagged items in each scene of Dracula, beside the manuscript and story bible',
     appearancesCaption: 'Who appears where: see which characters and places you tagged in each scene.',
     commentsAlt: 'garret with a sample editorial comment beside selected Pride and Prejudice text',

@@ -104,7 +104,6 @@ export const de = {
     formattingCaption: 'Formatierungswerkzeuge bleiben bei deiner Textauswahl.',
     formattingCropAlt: 'Die Formatierungsleiste über dem markierten Wort „Alice“ in den ersten Zeilen von Alice im Wunderland, mit Schaltflächen für Fett, Kursiv, Unterstrichen, Notiz anlegen, Im Manuskript suchen und Ins Wörterbuch aufnehmen',
     cardsAlt: 'garret-Gliederungskarten mit Kapiteln, Szenen und Zusammenfassungen',
-    cardsCaption: 'Behalte Struktur und Figuren neben dem Manuskript im Blick.',
     appearancesAlt: 'Die garret-Ansicht „Wer wo auftritt“ mit den Figuren, Orten und weiteren markierten Einträgen jeder Dracula-Szene, neben Manuskript und Story-Bibel',
     appearancesCaption: 'Wer wo auftritt: Sieh, welche Figuren und Orte du in jeder Szene markiert hast.',
     commentsAlt: 'garret mit einem beispielhaften Lektoratskommentar neben ausgewähltem Text aus Stolz und Vorurteil',
