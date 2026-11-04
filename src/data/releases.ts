@@ -16,7 +16,11 @@ const base = 'https://github.com/iuliandita/garret/releases/download/v0.0.10/';
 
 export const release = {
   tag: 'v0.0.10',
+  published: '2026-10-19',
   channel: 'alpha',
+  signingFingerprint: '8270 74C7 C4A2 9486 FB48  BC00 8B54 EB1A DBE5 8725',
+  verifyUrl: 'https://github.com/iuliandita/garret#verify-a-download',
+  checksumsUrl: base + 'SHA256SUMS',
   androidInstructionsUrl: base + 'garret-0.0.10-android-info.zip',
   releaseUrl: 'https://github.com/iuliandita/garret/releases/tag/v0.0.10',
   listingUrl: 'https://github.com/iuliandita/garret/releases',
