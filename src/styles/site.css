@@ -111,6 +111,7 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .browse-controls svg { width: 22px; height: 22px; vertical-align: middle; }
 .ownership { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
 .ownership-art { width: min(340px, 100%); margin-inline: auto; }
+.chapter .promise { color: var(--ink); font-size: 19px; font-weight: 500; }
 .ownership > div > a,.phone > div > a { display: inline-block; margin-top: 20px; min-height: 44px; }
 .phone .capture { width: 240px; justify-self: center; }
 .phone { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
