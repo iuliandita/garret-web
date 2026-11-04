@@ -145,20 +145,31 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
 .prose a { overflow-wrap: anywhere; }
 .prose .source-links span { display: block; }
 .prose .source-links span + span { margin-top: 8px; }
+.page-heading .release-line { margin-top: 8px; font-size: 15px; }
 .page-heading .platform-availability { margin-top: 18px; font-size: 15px; }
+.page-heading .platform-jump { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 8px; }
+.platform-jump a { font-size: 15px; text-decoration: underline; }
 .downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; padding-bottom: 44px; }
 .download-platform { display: flex; flex-direction: column; align-items: flex-start; border-top: 1px solid var(--line); padding: 28px 0 36px; }
 .download-platform h2 { font-size: 30px; display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
 .download-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .download-platform code { font: .9em ui-monospace, monospace; white-space: nowrap; }
 .download-platform .linux-install { margin-top: 0; }
-.download-platform .android-note { margin-top: 0; color: var(--ink); }
+.download-platform .windows-note, .download-platform .android-note { margin-top: 0; color: var(--ink); }
+.download-platform .linux-appimage { margin-top: 4px; }
 .download-platform p { margin: 16px 0 20px; color: var(--muted); }
 .download-platform .button { display: inline-flex; align-items: center; min-height: 48px; margin: 0 12px 12px 0; font-size: 15px; }
+.download-platform details { width: 100%; }
+.download-platform summary { padding: 10px 0; min-height: 44px; font-size: 15px; color: var(--muted); cursor: pointer; }
+.download-platform pre { margin: 12px 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 3px; font: .9em ui-monospace, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.download-platform pre code { white-space: inherit; }
 .download-notes { padding-bottom: 60px; max-width: 760px; }
 .download-notes h2 { font-size: 30px; margin-bottom: 18px; }
 .download-notes p + h2 { margin-top: 36px; }
 .download-notes p { margin-bottom: 20px; }
+.download-notes ul { padding-left: 24px; margin-bottom: 20px; }
+.download-notes li { margin-bottom: 8px; }
+.download-notes code { font: .9em ui-monospace, monospace; }
 .os-icon { display: inline-flex; flex-shrink: 0; vertical-align: middle; }
 .os-icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
 .os-download-label { display: inline-flex; gap: 10px; align-items: center; }
@@ -232,6 +243,8 @@ dialog button:disabled { opacity: .45; cursor: default; }
   .phone .capture { width: min(280px, 100%); margin-inline: auto; }
   .actions { gap: 8px 18px; margin-top: 24px; }
   .page-heading { padding: 28px 0 36px; }
+  .download-platform .download-actions { width: 100%; }
+  .download-platform .button { width: 100%; justify-content: center; margin-right: 0; }
   .page-contents details > ul { flex-direction: column; gap: 4px; }
   .browse-controls-bottom { display: flex; margin: 24px 0 0; }
   .viewer-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
