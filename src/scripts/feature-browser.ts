@@ -77,8 +77,12 @@ export function initFeatureBrowser(): void {
     if (index !== -1 && index !== current) go(index);
   });
   const bottom = (button: HTMLElement): boolean => button.closest('.browse-controls-bottom') !== null;
-  previous.forEach(button => button.addEventListener('click', () => go(current - 1, bottom(button))));
-  next.forEach(button => button.addEventListener('click', () => go(current + 1, bottom(button))));
+  const step = (button: HTMLElement, delta: number): void => {
+    if (button.getAttribute('aria-disabled') === 'true') return;
+    go(current + delta, bottom(button));
+  };
+  previous.forEach(button => button.addEventListener('click', () => step(button, -1)));
+  next.forEach(button => button.addEventListener('click', () => step(button, 1)));
   links.forEach((link, index) => link.addEventListener('click', event => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
@@ -94,7 +98,7 @@ export function initFeatureBrowser(): void {
   let settle: ReturnType<typeof setTimeout>;
   track.addEventListener('scroll', () => {
     clearTimeout(settle);
-    settle = setTimeout(update, 120);
+    settle = setTimeout(() => { pending = null; update(); }, 120);
   });
   const resize = new ResizeObserver(update);
   resize.observe(track);
