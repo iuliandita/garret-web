@@ -4,6 +4,7 @@ The wordmarks and application screenshots in this directory come from the [garre
 
 - `garret-wordmark-ink.png` and `garret-wordmark-paper.png`: original garret identity artwork, copied without modification from `assets/brand/garret/`.
 - Desktop PNGs under `public/images/`: original Linux application captures of the 0.0.2 interface, copied without modification. `dark.png` is the dark editor. The guide also shows `library.png` and `preferences.png`.
+- Guide captures of the 0.0.10 interface: `library-de.png` and `preferences-de.png` (German interface, German guide only) and `backup-en.png` and `backup-de.png` (the Encrypted backups section, cropped from full window captures without other edits). They are native Linux window captures of the published, signature-verified 0.0.10 package on an isolated X11 display with temporary data, taken November 4, 2026. The sample book text stays English.
 - `docs/media/` captures remain historical design-reference images, not the current release gallery.
 
 Screenshots use classic excerpts from Pride and Prejudice, Alice's Adventures in Wonderland, and Dracula, with sample editorial material. Sample Bible notes, character details, timelines, formatting, comments, snapshots, scene histories, reviews, and tasks are illustrative demonstrations, not the original authors' revisions or working records. See the application's [gallery credits](https://github.com/iuliandita/garret/tree/develop/docs/screenshots) and [sample sources](https://github.com/iuliandita/garret/tree/develop/app/fixtures/classics).
@@ -14,7 +15,7 @@ Production copies live under `public/brand/` and `public/images/`. Additional re
 
 The hero and Android editor use original light/dark captures. The desktop feature slides use the same light-theme originals in both website themes. The originals retain their actual application theme; they are not recolored. Alternative text describes each displayed state.
 
-The expanded desktop feature sections use `formatting.png`, `cards.png`, and `history.png`; `appearances.png` remains available as a gallery reference from the same gallery.
+The desktop feature slides use `formatting.png`, `appearances.png`, `review.png`, `epub.png`, and `history.png`.
 
 OS symbols come from Tabler Icons under the MIT license; its notice is included in `public/licenses/tabler.txt`.
 
