@@ -104,7 +104,7 @@ export const en = {
     cardsAlt: 'garret outline cards showing chapters, scenes, and summaries',
     cardsCaption: 'Keep story structure and characters beside the manuscript.',
     appearancesAlt: 'garret’s Who appears where panel listing the characters, places, and other tagged items in each scene of Dracula, beside the manuscript and story bible',
-    appearancesCaption: 'Who appears where: each scene lists the characters and places it names.',
+    appearancesCaption: 'Who appears where: see which characters and places you tagged in each scene.',
     commentsAlt: 'garret with a sample editorial comment beside selected Pride and Prejudice text',
     historyAlt: 'garret scene history comparing an earlier manuscript version with the current text',
     historyCaption: 'Compare earlier words in scene history. Shown here with sample revisions.',

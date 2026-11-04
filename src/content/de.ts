@@ -106,7 +106,7 @@ export const de = {
     cardsAlt: 'garret-Gliederungskarten mit Kapiteln, Szenen und Zusammenfassungen',
     cardsCaption: 'Behalte Struktur und Figuren neben dem Manuskript im Blick.',
     appearancesAlt: 'Die garret-Ansicht „Wer wo auftritt“ mit den Figuren, Orten und weiteren markierten Einträgen jeder Dracula-Szene, neben Manuskript und Story-Bibel',
-    appearancesCaption: 'Wer wo auftritt: Jede Szene nennt die Figuren und Orte, die in ihr vorkommen.',
+    appearancesCaption: 'Wer wo auftritt: Sieh, welche Figuren und Orte du in jeder Szene markiert hast.',
     commentsAlt: 'garret mit einem beispielhaften Lektoratskommentar neben ausgewähltem Text aus Stolz und Vorurteil',
     historyAlt: 'garret-Szenenverlauf mit einem Vergleich zwischen einer früheren Fassung und dem aktuellen Text',
     historyCaption: 'Vergleiche frühere Formulierungen im Szenenverlauf. Hier mit beispielhaften Überarbeitungen.',
