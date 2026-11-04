@@ -36,7 +36,7 @@ export const en = {
     write: { title: 'Make room for the words.', description: 'Write in scenes and chapters. Find a passage across the book, leave a comment, or return to an earlier scene version. Focus mode makes space for the manuscript.' },
     organize: { title: 'Keep the story straight.', description: 'Build your cast and story bible. Keep synopses and research close. Lay out events on a timeline, then follow them back to the scene.', alt: 'Sample Dracula narrative events arranged on the garret timeline', caption: 'A timeline that stays connected to the manuscript.' },
     revise: { title: 'Bring the next draft into focus.', description: 'Exchange DOCX review documents with your editor. See who proposed a change, accept or reject it, and keep comments, revision passes, and tasks with the book.', alt: 'Proposed changes showing who suggested each one beside the manuscript in garret', caption: 'Editorial feedback stays beside the manuscript.' },
-    prepare: { title: 'From manuscript to book.', description: 'Export Markdown, DOCX, or EPUB. Set up covers, pen names, front and back matter, and book design. Linux and Windows also offer PDF proof copies.', alt: 'Book design and EPUB export controls in garret', caption: 'Prepare an EPUB without leaving your writing studio.' },
+    prepare: { title: 'From manuscript to book.', description: 'Export Markdown, DOCX, or EPUB. Set up covers, pen names, front and back matter, and book design. Linux and Windows also offer PDF proof copies.', alt: 'Book design and EPUB export controls in garret', cropAlt: 'The EPUB preview pane in garret, showing the title page of Pride and Prejudice, its contents, and the start of Chapter 1, “A new neighbor”', caption: 'EPUB preview, rendered from your book as saved.' },
   },
   ownership: {
     title: 'Your book stays yours.',
@@ -100,6 +100,7 @@ export const en = {
     lock: { title: 'Hide the app when you step away', description: 'On Linux and Windows, an optional PIN lock hides garret when you step away. Your manuscript files remain unencrypted.' },
     formattingAlt: 'Formatting controls beside selected text from Alice’s Adventures in Wonderland in garret',
     formattingCaption: 'Formatting stays beside your selected words.',
+    formattingCropAlt: 'The formatting bar above the selected word “Alice” in the opening lines of Alice’s Adventures in Wonderland, with bold, italic, underline, add comment, find in manuscript and add to dictionary buttons',
     cardsAlt: 'garret outline cards showing chapters, scenes, and summaries',
     cardsCaption: 'Keep story structure and characters beside the manuscript.',
     castAlt: 'garret showing a Dracula character profile beside the manuscript',

@@ -55,6 +55,7 @@ nav a:hover,nav a[aria-current="page"] { text-decoration: underline; }
 figure { margin: 0; min-width: 0; }
 body.viewer-open { overflow: hidden; padding-right: var(--viewer-scrollbar-width, 0px); }
 .capture img { width: 100%; border: 1px solid var(--line); }
+.capture-narrow { max-width: 420px; margin-inline: auto; }
 .image-link { display: block; cursor: zoom-in; text-decoration: none; }
 .image-cue { display: block; width: fit-content; margin-top: 8px; font-size: 14px; text-decoration: underline; }
 figcaption { color: var(--muted); font-size: 15px; margin-top: 12px; }
