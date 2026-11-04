@@ -44,8 +44,8 @@ export function initScreenshotViewer(): void {
       trigger = link;
       caption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent ?? '';
       const thumbnail = link.querySelector('img');
-      image.width = Number(thumbnail?.getAttribute('width')) || 1440;
-      image.height = Number(thumbnail?.getAttribute('height')) || 960;
+      image.width = Number(link.dataset.fullWidth ?? thumbnail?.getAttribute('width')) || 1440;
+      image.height = Number(link.dataset.fullHeight ?? thumbnail?.getAttribute('height')) || 960;
       image.hidden = true;
       hint.hidden = true;
       viewport.removeAttribute('aria-describedby');
@@ -53,9 +53,9 @@ export function initScreenshotViewer(): void {
       status.classList.remove('sr-only');
       viewport.tabIndex = -1;
       zoom.disabled = true;
-      image.src = link.href;
+      image.src = link.dataset.viewerSrc ?? link.href;
       original.href = link.href;
-      image.alt = link.querySelector('img')?.alt ?? '';
+      image.alt = link.dataset.fullAlt ?? link.querySelector('img')?.alt ?? '';
       dialog.setAttribute('aria-label', `${label}: ${image.alt}`);
       document.body.style.setProperty('--viewer-scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`);
       document.body.classList.add('viewer-open');
