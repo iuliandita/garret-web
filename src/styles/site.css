@@ -256,9 +256,6 @@ dialog button:disabled { opacity: .45; cursor: default; }
   .preferences { gap: 10px; }
   .site-header nav { gap: 16px; }
 }
-@media (max-width: 450px) {
-  html[lang="de"] .site-header nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
-}
 @media (max-width: 350px) {
   html[lang="de"] .hero h1 { font-size: 36px; }
   html[lang="de"] .feature-nav { grid-template-columns: 1fr; gap: 4px; }
