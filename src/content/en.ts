@@ -20,7 +20,7 @@ export const en = {
   footer: {
     creator: 'Made by Iulian Dita', otherProjects: 'Other projects',
     about: 'About & privacy', credits: 'Image credits', issues: 'Report a problem', contact: 'Email',
-    support: 'Support garret', license: 'Free software. GPL-3.0-or-later.',
+    support: 'Support garret', license: 'Free software.', licenseName: 'GPL-3.0-or-later',
   },
   hero: {
     androidNote: 'The Android app has a library and scene editor, with fewer features than desktop. Move books with encrypted archives; there is no automatic sync. Uninstalling or clearing app data deletes its books.',
@@ -95,7 +95,7 @@ export const en = {
     archives: { title: 'Save an encrypted backup', description: 'Make an encrypted archive manually, check it with your recovery key, and restore it as a separate book when you need it.' },
     mirror: { title: 'Keep a readable copy', description: 'Keep your text in a readable folder alongside your book. This copy is unencrypted and is not a complete backup.' },
     salvage: { title: 'Recover what you can', description: 'Local recovery copies, scene history, and salvage tools provide different ways back to your work.' },
-    series: { title: 'Work across a series', description: 'Organize books into a series while keeping each manuscript on your own disk.' },
+    series: { title: 'Work across a series', description: 'Group books into a series and filter your library by it. Each book keeps its own cast and bible.' },
     reports: { title: 'Keep track of your writing', description: 'See statistics for your book and reports on writing and consistency. Session statistics are optional. All of these stay on your device.' },
     lock: { title: 'Hide the app when you step away', description: 'On Linux and Windows, an optional PIN lock hides garret when you step away. Your manuscript files remain unencrypted.' },
     formattingAlt: 'Formatting controls beside selected text from Alice’s Adventures in Wonderland in garret',
@@ -103,7 +103,8 @@ export const en = {
     formattingCropAlt: 'The formatting bar above the selected word “Alice” in the opening lines of Alice’s Adventures in Wonderland, with bold, italic, underline, add comment, find in manuscript and add to dictionary buttons',
     cardsAlt: 'garret outline cards showing chapters, scenes, and summaries',
     cardsCaption: 'Keep story structure and characters beside the manuscript.',
-    castAlt: 'garret showing a Dracula character profile beside the manuscript',
+    appearancesAlt: 'garret’s Who appears where panel listing the characters, places, and other tagged items in each scene of Dracula, beside the manuscript and story bible',
+    appearancesCaption: 'Who appears where: see which characters and places you tagged in each scene.',
     commentsAlt: 'garret with a sample editorial comment beside selected Pride and Prejudice text',
     historyAlt: 'garret scene history comparing an earlier manuscript version with the current text',
     historyCaption: 'Compare earlier words in scene history. Shown here with sample revisions.',

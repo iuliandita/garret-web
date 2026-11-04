@@ -22,7 +22,7 @@ export const de = {
   footer: {
     creator: 'Von Iulian Dita', otherProjects: 'Weitere Projekte',
     about: 'Über garret & Datenschutz', credits: 'Bildnachweise', issues: 'Problem melden', contact: 'E-Mail',
-    support: 'garret unterstützen', license: 'Freie Software. GPL-3.0-or-later.',
+    support: 'garret unterstützen', license: 'Freie Software.', licenseName: 'GPL-3.0-or-later',
   },
   hero: {
     androidNote: 'Die Android-App bietet eine Bibliothek und einen Szeneneditor mit weniger Funktionen als auf dem Desktop. Bücher ziehen mit verschlüsselten Archiven um; eine automatische Synchronisierung gibt es nicht. Deinstallieren oder Löschen der App-Daten löscht die Bücher.',
@@ -97,7 +97,7 @@ export const de = {
     archives: { title: 'Speichere eine verschlüsselte Sicherung', description: 'Erstelle ein verschlüsseltes Archiv manuell, prüfe es mit deinem Wiederherstellungsschlüssel und stelle es bei Bedarf als separates Buch wieder her.' },
     mirror: { title: 'Behalte eine lesbare Kopie', description: 'Halte deinen Text in einem lesbaren Ordner neben deinem Buch bereit. Diese Kopie ist unverschlüsselt und keine vollständige Sicherung.' },
     salvage: { title: 'Rette, was sich retten lässt', description: 'Lokale Wiederherstellungskopien, frühere Szenenfassungen und Rettungswerkzeuge helfen dir, deine Arbeit wiederzufinden.' },
-    series: { title: 'Arbeite an einer Reihe', description: 'Ordne Bücher zu einer Reihe, während jedes Manuskript auf deinem eigenen Datenträger bleibt.' },
+    series: { title: 'Arbeite an einer Reihe', description: 'Fasse Bücher zu einer Reihe zusammen und filtere deine Bibliothek danach. Jedes Buch behält seine eigenen Figuren und seine eigene Story-Bibel.' },
     reports: { title: 'Behalte deine Schreibarbeit im Blick', description: 'Sieh Statistiken zu deinem Buch und Berichte zu Schreibstil und Konsistenz. Sitzungsstatistiken sind optional. All das bleibt auf deinem Gerät.' },
     lock: { title: 'Verbirg die App, wenn du weggehst', description: 'Unter Linux und Windows verbirgt eine optionale PIN-Sperre garret, wenn du weggehst. Deine Manuskriptdateien bleiben unverschlüsselt.' },
     formattingAlt: 'Formatierungswerkzeuge neben ausgewähltem Text aus Alice im Wunderland in garret',
@@ -105,7 +105,8 @@ export const de = {
     formattingCropAlt: 'Die Formatierungsleiste über dem markierten Wort „Alice“ in den ersten Zeilen von Alice im Wunderland, mit Schaltflächen für Fett, Kursiv, Unterstrichen, Notiz anlegen, Im Manuskript suchen und Ins Wörterbuch aufnehmen',
     cardsAlt: 'garret-Gliederungskarten mit Kapiteln, Szenen und Zusammenfassungen',
     cardsCaption: 'Behalte Struktur und Figuren neben dem Manuskript im Blick.',
-    castAlt: 'garret mit einem Dracula-Figurenprofil neben dem Manuskript',
+    appearancesAlt: 'Die garret-Ansicht „Wer wo auftritt“ mit den Figuren, Orten und weiteren markierten Einträgen jeder Dracula-Szene, neben Manuskript und Story-Bibel',
+    appearancesCaption: 'Wer wo auftritt: Sieh, welche Figuren und Orte du in jeder Szene markiert hast.',
     commentsAlt: 'garret mit einem beispielhaften Lektoratskommentar neben ausgewähltem Text aus Stolz und Vorurteil',
     historyAlt: 'garret-Szenenverlauf mit einem Vergleich zwischen einer früheren Fassung und dem aktuellen Text',
     historyCaption: 'Vergleiche frühere Formulierungen im Szenenverlauf. Hier mit beispielhaften Überarbeitungen.',
