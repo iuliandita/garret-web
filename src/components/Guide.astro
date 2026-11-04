@@ -11,7 +11,7 @@ const t = pages[locale].guide;
 ---
 <SiteLayout locale={locale} title={copy[locale].nav.guide} description={t.description} path="guide">
   <div class="wrap">
-    <div class="page-heading"><h1>{t.title}</h1><p><BrandText text={t.description} /></p></div>
+    <div class="page-heading"><h1>{t.title}</h1><p><BrandText text={t.description} /></p><p><a href="#android">{t.androidJump}</a></p></div>
     <div class="reading-layout">
       <nav class="page-contents" aria-label={t.contents}><details data-page-contents open><summary>{t.contents}</summary><ul><li><a href="#install"><BrandText text={t.install} /></a></li><li><a href="#desktop">{t.desktop}</a><ul><li><a href="#book">{t.book}</a></li><li><a href="#import">{t.import}</a></li><li><a href="#scene">{t.scene}</a></li><li><a href="#backup">{t.backup}</a></li><li><a href="#next">{t.next}</a></li></ul></li><li><a href="#android">{t.android}</a></li></ul></details></nav>
     <div class="prose">
@@ -21,7 +21,7 @@ const t = pages[locale].guide;
       <section id="import"><h3>{t.import}</h3><p>{t.importText}</p><p>{t.importStructure}</p><p>{t.importCheck}</p></section>
       <section id="scene"><h3>{t.scene}</h3><p>{t.sceneText}</p><p>{t.preferencesText}</p><Screenshot locale={locale} src="/images/preferences.png" alt={t.preferencesAlt} caption={t.preferencesCaption} sizes="(max-width: 750px) calc(100vw - 40px), 760px" /></section>
       <section id="backup"><h3>{t.backup}</h3>{t.backupLanguage && <p><BrandText text={t.backupLanguage} /></p>}<p><strong>{t.backupCommand}</strong> {t.backupText}</p><ol>{t.steps.map(step => <li><strong>{step.action}</strong> {step.detail}</li>)}</ol><p>{t.boundaries}</p><p><strong>{t.restoreCommand}</strong> {t.restore}</p><p>{t.files}</p></section>
-      <section id="next"><h3>{t.next}</h3><p>{t.nextText}</p></section>
+      <section id="next"><h3>{t.next}</h3><p>{t.nextText}</p><p>{t.nextFormats}</p></section>
       </section>
       <section id="android" class="guide-platform"><h2>{t.android}</h2><p>{t.androidIntro}</p><ol>{t.androidSteps.map(step => <li><strong>{step.action}</strong> {step.detail}</li>)}</ol><p>{t.androidLimits}</p><p><a href={pageUrl(locale, 'downloads') + '#android'}><BrandText text={copy[locale].android.download} /></a></p><p><a href={release.androidInstructionsUrl}>{t.androidInstructions}</a></p></section>
     </div>

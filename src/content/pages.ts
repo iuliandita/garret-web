@@ -48,6 +48,7 @@ export const pages = {
       install: 'Install garret',
       installText: 'Choose your device on the downloads page and install the package for your system. Portable archives remain available: extract the whole archive and keep its files together. To upgrade, close garret and install the newer package over the old one, after a backup. On Android, install the APK and read the Android instructions in the release.',
       desktop: 'On desktop', android: 'On Android',
+      androidJump: 'Writing on a phone? Go to the Android steps.',
       languageHelp: 'You can choose English or German in File > Preferences > Application > Language. Reopen garret for the change to take effect.',
       androidIntro: 'The Android app has its own library and scene editor, with fewer features than desktop. It shows endnotes, pictures, and scene breaks and lets you edit the text around them, but cannot add them. It follows your device language, with English and German available. Use these steps instead of the desktop menus.',
       androidSteps: [
@@ -69,7 +70,7 @@ export const pages = {
       preferencesAlt: 'garret Writing preferences with daily word goal presets and a custom goal field',
       preferencesCaption: 'Choose a daily word goal that suits you.',
       scene: 'Write the first scene',
-      sceneText: 'Open your book and choose the plus beside its title to add a scene, chapter, or part. Start writing, and use the house icon to return to your library. Arrange scenes as the story grows. Use the story bible, cast, and research tools when you need them; you can begin with the manuscript alone.',
+      sceneText: 'Open your book and choose the plus beside its title, labeled Add to book, then New scene. New chapter and New part are in the same list. Start writing, and use the house icon to return to your library. Arrange scenes as the story grows. Use the story bible, cast, and research tools when you need them; you can begin with the manuscript alone.',
       backup: 'Keep a safe copy',
       backupLanguage: '',
       backupCommand: 'File > Copies > Create recovery point',
@@ -85,7 +86,8 @@ export const pages = {
       restore: 'creates a separate book. Open the restored book from the library.',
       files: 'For a file-copy backup, close the app first. Copy the book database together with its adjacent pictures and research folders. A database-only copy is incomplete. This file-copy backup is not encrypted.',
       next: 'Revise and prepare',
-      nextText: 'On desktop, exchange DOCX review documents with an editor, see who suggested each change, and accept or reject their proposals. Export Markdown, DOCX, or EPUB; PDF proof copies are available on Linux and Windows. Keep a backup before importing changes or moving to a new alpha version.',
+      nextText: 'To work with an editor on desktop, open Outline > Review > Review proposals and choose the Review in Word tab. Choose Prepare review copy, then Save the Word file, to get a Word file for the open scene with Track Changes switched on. Your editor works in Word with Track Changes and comments. When the file comes back, choose Open the returned Word file, check the preview, and choose Apply reviewed decisions. Their tracked changes arrive as pending proposals and their comments as discussion, each showing who wrote it. Choose Accept selected or Reject selected for each proposal. The Word file never replaces your manuscript. Back up before importing changes.',
+      nextFormats: 'To export, open File > Publishing. Choose Export Markdown to or Export for an editor (Word), or open EPUB preview or PDF proof and use Save as. PDF proof copies are available on Linux and Windows. The PDF is a proof; retailer and print checks are separate. Keep a backup before moving to a new alpha version.',
     },
     about: {
       contents: 'On this page',
@@ -157,6 +159,7 @@ export const pages = {
       install: 'Installiere garret',
       installText: 'Wähle dein Gerät auf der Downloadseite und installiere das Paket für dein System. Portable Archive gibt es weiterhin: Entpacke das gesamte Archiv und halte seine Dateien zusammen. Zum Aktualisieren schließt du garret und installierst das neuere Paket nach einer Sicherung über das alte. Installiere unter Android die APK und lies die Android-Anleitung der Version.',
       desktop: 'Auf dem Desktop', android: 'Auf Android',
+      androidJump: 'Du schreibst auf dem Handy? Springe zu den Android-Schritten.',
       languageHelp: 'Falls garret auf Englisch startet: Wähle unter File > Preferences > Application > Language die Sprache Deutsch. Öffne garret danach erneut.',
       androidIntro: 'Die Android-App hat eine eigene Bibliothek und einen Szeneneditor mit weniger Funktionen als auf dem Desktop. Sie zeigt Endnoten, Bilder und Szenenwechsel und lässt dich den Text darum bearbeiten, kann sie aber nicht hinzufügen. Sie folgt der Gerätesprache und ist auf Deutsch und Englisch verfügbar. Nutze diese Schritte statt der Desktop-Menüs. Sie verwenden die deutschen Beschriftungen der App.',
       androidSteps: [
@@ -178,7 +181,7 @@ export const pages = {
       preferencesAlt: 'garret-Schreibeinstellungen mit täglichen Wortzielen und einem Feld für ein eigenes Ziel',
       preferencesCaption: 'Wähle ein tägliches Wortziel, das zu dir passt. Hier mit englischer Oberfläche.',
       scene: 'Schreibe die erste Szene',
-      sceneText: 'Öffne dein Buch und wähle das Plus neben dem Titel, um eine Szene, ein Kapitel oder einen Teil hinzuzufügen. Beginne zu schreiben; das Haus-Symbol führt zurück zur Bibliothek. Ordne die Szenen, während die Geschichte wächst. Nutze Story-Bibel, Figurenkartei und Recherche nach Bedarf; du kannst mit dem Manuskript allein beginnen.',
+      sceneText: 'Öffne dein Buch, wähle das Plus neben dem Titel (Zum Buch hinzufügen) und dann Neue Szene. Neues Kapitel und Neuer Teil stehen in derselben Liste. Beginne zu schreiben; das Haus-Symbol führt zurück zur Bibliothek. Ordne die Szenen, während die Geschichte wächst. Nutze Story-Bibel, Figurenkartei und Recherche nach Bedarf; du kannst mit dem Manuskript allein beginnen.',
       backup: 'Lege eine Sicherungskopie an',
       backupLanguage: 'Die folgenden Befehle verwenden die deutsche Oberfläche. Falls garret noch Englisch zeigt, wähle unter File > Preferences > Application > Language die Sprache Deutsch und öffne garret erneut.',
       backupCommand: 'Datei > Sicherungskopien > Wiederherstellungspunkt erstellen',
@@ -194,7 +197,8 @@ export const pages = {
       restore: 'erstellt ein separates Buch. Öffne das wiederhergestellte Buch aus der Bibliothek.',
       files: 'Schließe die App vor einer Dateikopie. Kopiere die Buchdatenbank zusammen mit den danebenliegenden Bilder- und Rechercheordnern. Eine Datenbank allein ist keine vollständige Sicherung. Diese Dateikopie ist nicht verschlüsselt.',
       next: 'Überarbeite und bereite das Buch vor',
-      nextText: 'Tausche auf dem Desktop DOCX-Dokumente mit einem Lektorat aus. Du siehst, von wem jeder Vorschlag stammt, und kannst ihn annehmen oder ablehnen. Exportiere Markdown, DOCX oder EPUB; PDF-Korrekturabzüge sind unter Linux und Windows verfügbar. Sichere dein Buch vor dem Import von Änderungen oder dem Wechsel auf eine neue Alpha-Version.',
+      nextText: 'Für die Arbeit mit einem Lektorat öffnest du auf dem Desktop Gliederung > Überprüfen > Vorschläge prüfen und wählst den Tab Prüfung in Word. Mit Prüfkopie vorbereiten und Word-Datei sichern erhältst du eine Word-Datei für die geöffnete Szene, in der Änderungen nachverfolgen schon eingeschaltet ist. Dein Lektorat arbeitet in Word mit nachverfolgten Änderungen und Kommentaren. Kommt die Datei zurück, wähle Zurückgegebene Word-Datei öffnen, prüfe die Vorschau und wähle Geprüfte Entscheidungen übernehmen. Die nachverfolgten Änderungen erscheinen als offene Vorschläge und die Kommentare als Diskussion; du siehst jeweils, von wem sie stammen. Wähle für jeden Vorschlag Auswahl annehmen oder Auswahl ablehnen. Die Word-Datei ersetzt nie dein Manuskript. Sichere dein Buch vor dem Import von Änderungen.',
+      nextFormats: 'Zum Exportieren öffnest du Datei > Veröffentlichen. Wähle Markdown exportieren nach oder Für das Lektorat exportieren (Word), oder öffne EPUB-Vorschau oder PDF-Andruck und nutze Sichern unter. PDF-Korrekturabzüge sind unter Linux und Windows verfügbar. Das PDF ist ein Korrekturabzug; Prüfungen durch Händler und Druckerei sind davon getrennt. Sichere dein Buch vor dem Wechsel auf eine neue Alpha-Version.',
     },
     about: {
       contents: 'Auf dieser Seite',
