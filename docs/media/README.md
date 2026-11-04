@@ -14,7 +14,7 @@ Production copies live under `public/brand/` and `public/images/`. Additional re
 
 The hero and Android editor use original light/dark captures. The desktop feature slides use the same light-theme originals in both website themes. The originals retain their actual application theme; they are not recolored. Alternative text describes each displayed state.
 
-The expanded desktop feature sections use `formatting.png`, `cards.png`, and `history.png`; `appearances.png` remains available as a gallery reference from the same gallery.
+The desktop feature slides use `formatting.png`, `appearances.png`, `review.png`, `epub.png`, and `history.png`.
 
 OS symbols come from Tabler Icons under the MIT license; its notice is included in `public/licenses/tabler.txt`.
 
