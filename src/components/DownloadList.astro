@@ -1,31 +1,53 @@
 ---
-import BrandText from './BrandText.astro';
-import { release, type Platform, type PlatformRelease } from '../data/releases';
+import CodeText from './CodeText.astro';
+import { release, type Platform, type PlatformRelease, type ReleaseOption } from '../data/releases';
 import { pages } from '../content/pages';
 import { pageUrl, type Locale } from '../content';
 import OsIcon from './OsIcon.astro';
 interface Props { locale: Locale; platforms?: Record<Platform, PlatformRelease> }
 const { locale, platforms = release.platforms } = Astro.props;
 const t = pages[locale].downloads;
+const withSums = (text: string) => text.split('{sums}');
+const fileName = (option?: ReleaseOption) => option?.url?.split('/').pop() ?? '';
 ---
 <div class="downloads">
   {(Object.keys(platforms) as Platform[]).map(platform => {
     const data: PlatformRelease = platforms[platform];
+    const primary = data.options.filter(option => !option.secondary);
+    const groups = platform === 'linux'
+      ? [primary.filter(option => option.id !== 'linuxAppImage'), primary.filter(option => option.id === 'linuxAppImage')]
+      : [primary];
+    const verify = platform === 'linux' ? {
+      run: withSums(t.verify.linuxRun), command: 'sha256sum -c --ignore-missing SHA256SUMS', result: withSums(t.verify.linuxResult),
+    } : platform === 'windows' ? {
+      run: withSums(t.verify.windowsRun), command: 'Get-FileHash .\\' + fileName(primary[0]), result: withSums(t.verify.windowsResult),
+    } : null;
     return <section class="download-platform" id={platform} data-platform={platform}>
       <div class="download-heading"><h2><OsIcon platform={platform} />{data.label}</h2><span class="suggestion" data-suggestion hidden>{t.suggested}</span></div>
       <p>{t.requirements[platform]}</p>
-      {platform === 'linux' && <p class="linux-install">{t.linuxInstall}</p>}
+      {platform === 'linux' && <p class="linux-install">{t.linuxPackages}</p>}
+      {platform === 'windows' && <p class="windows-note">{t.smartScreen}</p>}
       {platform === 'android' && <p class="android-note">{t.androidLimits} <a href={pageUrl(locale, 'guide') + '#android'}>{t.androidGuide}</a></p>}
-      <div class="download-actions">
-        {data.options.filter(option => !option.secondary).map(option =>
-          option.url
-            ? <a class="button" href={option.url}><BrandText text={t.downloadOption.replace('{option}', t.options[option.id])} /></a>
-            : <div><p>{t.options[option.id]}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
-        )}
-      </div>
+      {groups.map((group, index) => <>
+        <div class="download-actions">
+          {group.map(option =>
+            option.url
+              ? <a class="button" href={option.url}>{t.downloadOption.replace('{option}', t.options[option.id])}</a>
+              : <div><p>{t.options[option.id]}: {t.missing}</p><a href={release.listingUrl}>{t.listing}</a></div>
+          )}
+        </div>
+        {platform === 'linux' && index === 1 && <p class="linux-appimage"><CodeText text={t.linuxAppImage} /></p>}
+      </>)}
+      {platform === 'linux' && <p class="linux-spelling">{t.linuxInstall}</p>}
       {data.options.some(option => option.secondary) && <p class="portable-links">{t.portable} {data.options.filter(option => option.secondary).map((option, index) =>
         <>{index > 0 && ' · '}{option.url ? <a href={option.url}>{t.options[option.id]}</a> : <a href={release.listingUrl}>{t.options[option.id]}: {t.missing}</a>}</>
-      )}</p>}
+      )} · <a href={release.checksumsUrl}>{t.checksumsLink}</a></p>}
+      {verify && <details>
+        <summary>{t.verify.summary}</summary>
+        <p>{verify.run.map((part, index) => <>{index > 0 && <a href={release.checksumsUrl}>SHA256SUMS</a>}{part}</>)}</p>
+        <pre><code>{verify.command}</code></pre>
+        <p>{verify.result.map((part, index) => <>{index > 0 && <a href={release.checksumsUrl}>SHA256SUMS</a>}{part}</>)}</p>
+      </details>}
     </section>;
   })}
 </div>
