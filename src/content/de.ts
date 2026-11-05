@@ -108,6 +108,6 @@ export const de = {
     appearancesCaption: 'Wer wo auftritt: Sieh, welche Figuren und Orte du in jeder Szene markiert hast.',
     commentsAlt: 'garret mit einem beispielhaften Lektoratskommentar neben ausgewähltem Text aus Stolz und Vorurteil',
     historyAlt: 'garret-Szenenverlauf mit einem Vergleich zwischen einer früheren Fassung und dem aktuellen Text',
-    historyCaption: 'Vergleiche frühere Formulierungen im Szenenverlauf. Hier mit beispielhaften Überarbeitungen.',
+    historyCaption: 'Vergleiche frühere Formulierungen im Szenenverlauf. Hier mit Carrolls Manuskript von 1864 zum selben Anfang.',
   },
 } satisfies Copy;
