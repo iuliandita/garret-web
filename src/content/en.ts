@@ -106,7 +106,7 @@ export const en = {
     appearancesCaption: 'Who appears where: see which characters and places you tagged in each scene.',
     commentsAlt: 'garret with a sample editorial comment beside selected Pride and Prejudice text',
     historyAlt: 'garret scene history comparing an earlier manuscript version with the current text',
-    historyCaption: 'Compare earlier words in scene history. Shown here with sample revisions.',
+    historyCaption: 'Compare earlier words in scene history. Shown here against Carroll’s 1864 manuscript of the same opening.',
   },
 } as const;
 
