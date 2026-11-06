@@ -5,6 +5,37 @@ import { copy, pageUrl } from '../src/content/index.ts';
 import { release } from '../src/data/releases.ts';
 
 export const contract = { locales: Object.keys(copy), pageUrl, paths: ['', 'downloads', 'guide', 'about'], origin: 'https://usegarret.com', repository: 'https://github.com/iuliandita/garret', releaseUrl: release.releaseUrl, softwareVersion: release.tag.slice(1), downloads: true };
+const releaseBase = `${contract.repository}/releases/download/${release.tag}/`;
+const releaseAssets = [release.checksumsUrl, release.signatureUrl, release.androidInstructionsUrl, ...Object.values(release.platforms).flatMap(platform => platform.options.map(option => option.url))].filter(url => url !== null);
+const publicHeaders = readFileSync(new URL('../public/_headers', import.meta.url), 'utf8');
+
+function underReleaseBase(value) {
+  try {
+    const filename = value.slice(releaseBase.length);
+    return value.startsWith(releaseBase) && new URL(value).href === value && filename !== '' && !/[/\\%?#]/.test(filename);
+  } catch { return false; }
+}
+
+function validCsp(head, production) {
+  const policies = tags(head, 'meta').filter(tag => tag['http-equiv']?.toLowerCase() === 'content-security-policy');
+  if (policies.length !== 1) return false;
+  const entries = (policies[0].content ?? '').split(';').map(part => part.trim().split(/\s+/)).filter(([name]) => name);
+  const directives = new Map(entries.map(([name, ...values]) => [name, values]));
+  const scripts = directives.get('script-src') ?? [];
+  const hash = value => /^'sha(?:256-[A-Za-z0-9+/]{43}=|384-[A-Za-z0-9+/]{64}|512-[A-Za-z0-9+/]{86}==)'$/.test(value);
+  return directives.size === entries.length && !entries.flat().includes("'unsafe-inline'") &&
+    scripts.includes("'self'") && scripts.some(hash) && scripts.every(value => hash(value) || value === "'self'" || (production && value === 'https://static.cloudflareinsights.com/beacon.min.js')) &&
+    ['base-uri', 'form-action', 'object-src'].every(name => same(directives.get(name) ?? [], ["'none'"]));
+}
+
+function validInlineSvg(html) {
+  const svgs = [...html.matchAll(/<svg\b[^>]*>[\s\S]*?<\/svg\s*>/gi)];
+  const icons = [...html.matchAll(/<span\b[^>]*\baria-hidden=["']?true["']?[^>]*>([\s\S]*?)<\/span\s*>/gi)].map(([, content]) => content).filter(content => /<svg\b/i.test(content));
+  return svgs.length === [...html.matchAll(/<svg\b/gi)].length && [...svgs.map(([svg]) => svg), ...icons].every(svg =>
+    [...svg.matchAll(/<\/?([^\s/>]+)[^>]*>/g)].every(([, name]) => /^(svg|path)$/i.test(name)) &&
+    tags(svg, '(?:svg|path)').every(attributes => Object.keys(attributes).every(name => !/^on/i.test(name)))
+  );
+}
 
 // Generated HTML uses quoted or unquoted attributes; script bodies are not tags.
 function tags(html, name) {
@@ -26,10 +57,20 @@ export function checkOutput(root, production) {
     try { return readFileSync(resolve(root, path), 'utf8'); }
     catch { errors.push(`Missing output: ${path}`); return ''; }
   };
+  fail('release assets: base', releaseAssets.every(underReleaseBase));
+  const checkSecurity = (html, route) => {
+    const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
+    fail(`${route}: CSP`, validCsp(head, production));
+    fail(`${route}: inline SVG`, validInlineSvg(html));
+    const urls = tags(html, '[a-z][a-z0-9:-]*').flatMap(tag => [tag.href, tag.src].filter(Boolean));
+    const downloads = urls.filter(url => /\/releases\/download\//i.test(url) || /^(?:https?:)?\/\/.*\/(?:SHA256SUMS(?:\.asc)?|[^/?#]+\.(?:exe|msi|zip|dmg|apk|deb|rpm|AppImage|tar\.gz))(?:[?#]|$)/i.test(url));
+    fail(`${route}: release asset URLs`, downloads.every(underReleaseBase));
+  };
   for (const locale of contract.locales) {
     for (const path of contract.paths) {
       const route = contract.pageUrl(locale, path);
       const html = read(`${route.slice(1)}index.html`);
+      checkSecurity(html, route);
       const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
       const links = tags(head, 'link');
       const canonical = links.filter(tag => tag.rel === 'canonical').map(tag => tag.href);
@@ -43,6 +84,7 @@ export function checkOutput(root, production) {
       const expected = [...contract.locales, 'x-default'].map(lang => `${lang}:${contract.origin}${contract.pageUrl(lang === 'x-default' ? 'en' : lang, path)}`);
       fail(`${route}: alternates`, same(alternates.map(tag => `${tag.hreflang}:${tag.href}`), production ? expected : []));
       const hrefs = tags(html, 'a').map(tag => tag.href);
+      if (path === 'downloads') fail(`${route}: release assets`, releaseAssets.filter(url => url !== release.androidInstructionsUrl).every(url => hrefs.includes(url)));
       fail(`${route}: application source`, hrefs.includes(contract.repository));
       if (path === '' && contract.downloads) fail(`${route}: downloads`, hrefs.includes(contract.pageUrl(locale, 'downloads')));
       if ((path === '' && !contract.downloads) || path === 'downloads') fail(`${route}: release`, hrefs.includes(contract.releaseUrl));
@@ -56,6 +98,7 @@ export function checkOutput(root, production) {
     }
   }
   const notFound = read('404.html');
+  checkSecurity(notFound, '404');
   const notFoundHead = notFound.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
   fail('404: noindex', tags(notFoundHead, 'meta').some(tag => tag.name === 'robots' && tag.content === 'noindex, follow'));
   fail('404: no canonical', !tags(notFoundHead, 'link').some(tag => tag.rel === 'canonical'));
@@ -67,6 +110,13 @@ export function checkOutput(root, production) {
   const wildcard = robots.split(/\n\s*\n/)[0];
   fail('robots: wildcard policy', /^User-agent: \*$/m.test(wildcard) && (production ? /^Allow: \/$/m.test(wildcard) && !/^Disallow:/m.test(wildcard) : /^Disallow: \/$/m.test(wildcard) && !/^Allow:/m.test(wildcard)));
   fail('robots: sitemap', production ? robots.includes(`Sitemap: ${contract.origin}/sitemap.xml\n`) : !/^Sitemap:/m.test(robots));
+  const headers = read('_headers');
+  fail('headers: copied from public', headers === publicHeaders);
+  const globalHeaders = headers.match(/^\/\*\r?\n((?:[ \t]+[^\n]*\r?\n?)*)/m)?.[1] ?? '';
+  for (const [name, value] of Object.entries({ 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': "frame-ancestors 'none'" })) {
+    const values = [...globalHeaders.matchAll(new RegExp(`^[ \\t]+${name}:\\s*([^\\r\\n]+)`, 'gmi'))].map(match => match[1].trim());
+    fail(`headers: ${name}`, same(values, [value]));
+  }
   return errors;
 }
 

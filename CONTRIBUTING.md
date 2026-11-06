@@ -6,14 +6,14 @@ Install with `bun install --frozen-lockfile` using the Bun and Node versions in 
 
 ```sh
 bun run check
-bun test scripts/check-output.test.mjs
+bun test scripts/*.test.mjs
 bun run build
 bun run check:output
 SITE_ENV=production bun run build
 SITE_ENV=production bun run check:output
 ```
 
-The output gate checks expected routes, language and RTL metadata, preview indexing restrictions, production canonical URLs, language alternates, sitemap and robots policies, source/release destinations, and absence of source-injected analytics. Existing typed catalogs enforce their shape; update every current locale when changing labels. These gates do not qualify native apps, download installation, live redirects, edge analytics or deployment.
+The output gate checks expected routes, language and RTL metadata, preview indexing restrictions, production canonical URLs, language alternates, sitemap and robots policies, source/release destinations, CSP, copied security headers, release asset boundaries, path-only inline SVG icons, and absence of source-injected analytics. Existing typed catalogs enforce their shape; update every current locale when changing labels. Failure fixtures exercise the security checks and release guards without invoking the deploy script. These gates do not qualify native apps, download installation, live redirects, edge analytics or deployment.
 
 For interface changes, exercise both themes, every affected locale (including RTL where supported), mobile and desktop widths, keyboard navigation, visible focus, reduced motion and no-JavaScript reading/download paths. State what you tested and what remains unverified.
 
