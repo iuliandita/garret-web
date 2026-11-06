@@ -1,6 +1,6 @@
 ---
 import CodeText from './CodeText.astro';
-import { release, type Platform, type PlatformRelease, type ReleaseOption } from '../data/releases';
+import { release, type Platform, type PlatformRelease } from '../data/releases';
 import { pages } from '../content/pages';
 import { pageUrl, type Locale } from '../content';
 import OsIcon from './OsIcon.astro';
@@ -8,7 +8,6 @@ interface Props { locale: Locale; platforms?: Record<Platform, PlatformRelease> 
 const { locale, platforms = release.platforms } = Astro.props;
 const t = pages[locale].downloads;
 const withSums = (text: string) => text.split('{sums}');
-const fileName = (option?: ReleaseOption) => option?.url?.split('/').pop() ?? '';
 ---
 <div class="downloads">
   {(Object.keys(platforms) as Platform[]).map(platform => {
@@ -20,8 +19,12 @@ const fileName = (option?: ReleaseOption) => option?.url?.split('/').pop() ?? ''
     const verify = platform === 'linux' ? {
       run: withSums(t.verify.linuxRun), command: 'sha256sum -c --ignore-missing SHA256SUMS', result: withSums(t.verify.linuxResult),
     } : platform === 'windows' ? {
-      run: withSums(t.verify.windowsRun), command: 'Get-FileHash .\\' + fileName(primary[0]), result: withSums(t.verify.windowsResult),
-    } : null;
+      run: withSums(t.verify.windowsRun), command: `$file = Read-Host "${t.verify.fileName}"\nGet-FileHash -Algorithm SHA256 -LiteralPath $file`, result: withSums(t.verify.windowsResult),
+    } : platform === 'macos' ? {
+      run: withSums(t.verify.macosRun), command: 'shasum -a 256 --check --ignore-missing SHA256SUMS', result: withSums(t.verify.linuxResult),
+    } : {
+      run: withSums(t.verify.androidRun), command: 'sha256sum -c --ignore-missing SHA256SUMS', result: withSums(t.verify.linuxResult),
+    };
     return <section class="download-platform" id={platform} data-platform={platform}>
       <div class="download-heading"><h2><OsIcon platform={platform} />{data.label}</h2><span class="suggestion" data-suggestion hidden>{t.suggested}</span></div>
       <p>{t.requirements[platform]}</p>
@@ -42,12 +45,16 @@ const fileName = (option?: ReleaseOption) => option?.url?.split('/').pop() ?? ''
       {data.options.some(option => option.secondary) && <p class="portable-links">{t.portable} {data.options.filter(option => option.secondary).map((option, index) =>
         <>{index > 0 && ' · '}{option.url ? <a href={option.url}>{t.options[option.id]}</a> : <a href={release.listingUrl}>{t.options[option.id]}: {t.missing}</a>}</>
       )} · <a href={release.checksumsUrl}>{t.checksumsLink}</a></p>}
-      {verify && <details>
+      <details>
         <summary>{t.verify.summary}</summary>
+        <p>{t.verify.signature} <a href={release.verifyUrl}>{t.signatureSteps}</a></p>
+        <p><a href={release.checksumsUrl}>SHA256SUMS</a> · <a href={release.signatureUrl}>SHA256SUMS.asc</a></p>
+        <pre><code>gpg --verify SHA256SUMS.asc SHA256SUMS</code></pre>
+        <p>{t.verify.signatureResult}</p>
         <p>{verify.run.map((part, index) => <>{index > 0 && <a href={release.checksumsUrl}>SHA256SUMS</a>}{part}</>)}</p>
         <pre><code>{verify.command}</code></pre>
         <p>{verify.result.map((part, index) => <>{index > 0 && <a href={release.checksumsUrl}>SHA256SUMS</a>}{part}</>)}</p>
-      </details>}
+      </details>
     </section>;
   })}
 </div>

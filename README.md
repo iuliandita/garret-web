@@ -23,7 +23,7 @@ Use Bun 1.4.2 and Node.js 22.12+ (Node 24 in CI).
 bun install --frozen-lockfile
 bun run dev
 bun run check
-bun test scripts/check-output.test.mjs
+bun test scripts/*.test.mjs
 bun run build
 bun run check:output
 bun run preview
@@ -40,10 +40,12 @@ Release links are curated in `src/data/releases.ts`. Check the actual release as
 Build and deploy the reviewed release from `main`:
 
 ```sh
-SITE_ENV=production bun run build
-SITE_ENV=production bun run check:output
-bunx wrangler deploy --strict
+git switch main
+git pull --ff-only origin main
+SITE_ENV=production bun run deploy
 ```
+
+The deploy script refuses an unset or nonproduction `SITE_ENV`, tracked or untracked changes, any branch other than `main`, and a HEAD that differs from the current remote `origin/main` tip. It builds and checks production output, rechecks the clean tree and release tip, then runs the pinned Wrangler with `deploy --strict`. It requires network access to read the remote branch; authentication stays in the environment. A failed build or output check stops deployment. Running this command is a separate, explicitly authorized release action.
 
 The root custom domain is configured in `wrangler.jsonc`. A Cloudflare redirect sends www to the root, preserving path and query. Keep workers.dev and version preview URLs disabled for production. Build remote previews separately with the default noindex output, and verify crawler headers before publication.
 
