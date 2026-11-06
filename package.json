@@ -9,7 +9,8 @@
     "check": "astro check",
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "check:output": "bun scripts/check-output.mjs"
+    "check:output": "bun scripts/check-output.mjs",
+    "deploy": "bun scripts/deploy.mjs"
   },
   "dependencies": {
     "astro": "7.3.5"
