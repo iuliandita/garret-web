@@ -19,6 +19,6 @@
     "@astrojs/check": "0.9.10",
     "@tabler/icons": "3.48.0",
     "typescript": "6.0.3",
-    "wrangler": "4.145.0"
+    "wrangler": "4.158.0"
   }
 }
